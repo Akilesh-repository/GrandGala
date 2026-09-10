@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - GrandGala Party Hall & Banquet Venue</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontWeight: {
+                        semibold: '500',
+                        bold: '600',
+                        extrabold: '800',
+                        black: '900'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* === RESET & CORE === */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            transition: background-color 0.3s, color 0.3s;
+            overflow-x: hidden;
+        }
+
+        /* === THEME VARIABLES (Banquet - Elegant Gold) === */
+        :root {
+            --bg-color: #FAFAFA;
+            --bg-secondary: #FFFBEB; /* Amber-50 */
+            --bg-card: #FFFFFF;
+            --text-main: #1C1917;
+            --text-muted: #78716C;
+            --accent-color: #D97706; /* Amber-600 */
+            --accent-dark: #B45309; /* Amber-700 */
+            --border-color: #FEF3C7;
+            --nav-bg: rgba(255, 255, 255, 0.85);
+            --drawer-bg: rgba(255, 255, 255, 0.98);
+            --menu-hover-bg: rgba(217, 119, 6, 0.08);
+        }
+
+        /* DARK MODE */
+        body.dark-mode {
+            --bg-color: #1C1917;
+            --bg-secondary: #292524;
+            --bg-card: #292524;
+            --text-main: #FAFAF9;
+            --text-muted: #A8A29E;
+            --accent-color: #F59E0B;
+            --accent-dark: #D97706;
+            --border-color: #44403C;
+            --nav-bg: rgba(28, 25, 23, 0.75);
+            --drawer-bg: rgba(28, 25, 23, 0.98);
+            --menu-hover-bg: rgba(245, 158, 11, 0.15);
+        }
+
+        /* RTL SUPPORT */
+        [dir="rtl"] { text-align: right; }
+        [dir="rtl"] .ml-auto { margin-right: auto; margin-left: 0; }
+        [dir="rtl"] .mr-auto { margin-left: auto; margin-right: 0; }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float { animation: float 5s ease-in-out infinite; }
+
+        /* === ULTRA-MODERN FLOATING PILL NAVBAR === */
+        .navbar {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            width: calc(100% - 40px); max-width: 1380px; z-index: 1000;
+            background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 100px;
+            padding: 0 24px; height: 76px; display: flex; align-items: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+        }
+        body.dark-mode .navbar {
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
+        }
+        .navbar.scrolled {
+            top: 12px; height: 64px; background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.1);
+        }
+        body.dark-mode .navbar.scrolled { background: rgba(28, 25, 23, 0.95); }
+
+        .nav-link {
+            position: relative; padding: 8px 18px; margin: 0 4px;
+            color: var(--text-main); text-decoration: none; font-size: 13px; font-weight: 600;
+            text-transform: capitalize; letter-spacing: 0.3px; transition: all 0.3s ease;
+            display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+            cursor: pointer; border-radius: 50px; z-index: 1;
+        }
+        .nav-link::before {
+            content: ''; position: absolute; inset: 0; background: var(--accent-color);
+            border-radius: 50px; opacity: 0; transform: scale(0.85);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: -1;
+        }
+        .nav-link:hover::before, .nav-link.active::before { opacity: 0.15; transform: scale(1); }
+        body.dark-mode .nav-link:hover::before, body.dark-mode .nav-link.active::before { opacity: 0.25; }
+        .nav-link:hover, .nav-link.active { color: var(--accent-dark); }
+        body.dark-mode .nav-link:hover, body.dark-mode .nav-link.active { color: #FDE68A; }
+
+        .dropdown { position: relative; display: flex; align-items: center; height: 100%; }
+        .dropdown-menu {
+            position: absolute; top: calc(100% + 15px); left: 0;
+            transform: translateY(15px) scale(0.95); opacity: 0; visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 100; transform-origin: top left;
+        }
+        .dropdown-inner {
+            background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 24px;
+            min-width: 220px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); padding: 12px;
+            display: flex; flex-direction: column; gap: 4px;
+        }
+        body.dark-mode .dropdown-inner { box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6); }
+        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+        .dropdown-item {
+            display: block; padding: 10px 16px; border-radius: 12px; color: var(--text-main);
+            text-decoration: none; font-size: 13px; font-weight: 500; text-transform: capitalize;
+            transition: all 0.2s; text-align: left; white-space: nowrap;
+        }
+        .dropdown-item:hover { background: var(--menu-hover-bg); color: var(--accent-color); padding-left: 20px; }
+        [dir="rtl"] .dropdown-item:hover { padding-left: 16px; padding-right: 20px; }
+
+        .theme-toggle-pill {
+            width: 80px; height: 32px; background: var(--bg-secondary); border-radius: 30px;
+            position: relative; cursor: pointer; display: flex; align-items: center; justify-content: space-between;
+            padding: 0 10px; border: 1px solid var(--border-color);
+        }
+        .theme-toggle-pill i { font-size: 12px; z-index: 1; }
+        .theme-toggle-pill .fa-sun { color: #f59e0b; }
+        .theme-toggle-pill .fa-moon { color: #999; }
+        .theme-toggle-pill .thumb {
+            position: absolute; top: 2px; left: 2px; width: 26px; height: 26px;
+            background: white; border-radius: 50%; transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); z-index: 2; border: 1px solid var(--border-color);
+        }
+        body.dark-mode .theme-toggle-pill .thumb { transform: translateX(48px); background: #333; border-color: var(--border-color); }
+
+        .rtl-btn-style {
+            width: 80px; height: 32px; background: var(--bg-secondary); border-radius: 30px;
+            border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center;
+            font-size: 10px; font-weight: 600; cursor: pointer; color: var(--text-main); transition: all 0.3s ease;
+        }
+        .rtl-btn-style:hover { background: var(--accent-color); color: #fff; border-color: var(--accent-color); }
+
+        .btn {
+            padding: 12px 28px; font-weight: 600; font-size: 13px; text-transform: capitalize;
+            letter-spacing: 0.5px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex; align-items: center; justify-content: center; cursor: pointer;
+            position: relative; border: 1px solid transparent; border-radius: 50px; text-decoration: none;
+        }
+        .btn-solid { background: var(--accent-color); color: #FFFFFF !important; }
+        .btn-solid:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 20px -3px rgba(217, 119, 6, 0.4); }
+        .btn-outline { background: transparent; border: 1px solid var(--border-color); color: var(--text-main); }
+        .btn-outline:hover { border-color: var(--accent-color); color: var(--accent-color) !important; background: var(--menu-hover-bg); transform: translateY(-2px); }
+
+        .drawer-overlay {
+            position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6); z-index: 999;
+            opacity: 0; visibility: hidden; transition: all 0.3s ease; backdrop-filter: blur(4px);
+        }
+        .drawer-overlay.active { opacity: 1; visibility: visible; }
+
+        .fullscreen-menu {
+            position: fixed; top: 0; right: 0; width: 100%; max-width: 400px; height: 100dvh;
+            background: var(--drawer-bg); z-index: 1001; display: flex; flex-direction: column;
+            opacity: 0; visibility: hidden; transform: translateX(100%);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); border-left: 1px solid var(--border-color);
+        }
+        [dir="rtl"] .fullscreen-menu { right: auto; left: 0; transform: translateX(-100%); border-left: none; border-right: 1px solid var(--border-color); }
+        .fullscreen-menu.active { opacity: 1; visibility: visible; transform: translateX(0); }
+
+        .mobile-link {
+            display: block; width: 100%; padding: 16px 32px; font-size: 1.1rem; font-weight: 600;
+            text-transform: capitalize; letter-spacing: 0.5px; color: var(--text-main);
+            text-decoration: none; transition: all 0.3s; border-bottom: 1px solid var(--border-color);
+        }
+        .mobile-link:hover { color: var(--accent-color); padding-left: 40px; background: var(--menu-hover-bg); }
+        [dir="rtl"] .mobile-link:hover { padding-left: 32px; padding-right: 40px; }
+
+        footer { background: var(--bg-secondary); border-top: 1px solid var(--border-color); padding-top: 80px; }
+        footer h4 { color: var(--text-main); font-weight: 600; font-size: 1.1rem; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
+        footer a, footer li, footer span { color: var(--text-muted); text-decoration: none; transition: all 0.3s; font-size: 0.95rem; font-weight: 400; }
+        footer a:hover { color: var(--accent-color); }
+        .social-link-circle {
+            width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border-color);
+            display: flex; align-items: center; justify-content: center; transition: all 0.3s;
+            color: var(--text-main); background: transparent;
+        }
+        .social-link-circle:hover { background: var(--accent-color); border-color: var(--accent-color); color: #FFFFFF; transform: translateY(-3px); }
+        .footer-bottom { border-top: 1px solid var(--border-color); padding: 32px 0; margin-top: 60px; }
+    </style>
+</head>
+<body>
+
+    <!-- === NAVBAR === -->
+    <nav class="navbar" id="main-nav">
+        <div class="w-full flex items-center justify-between max-w-[1440px] mx-auto">
+            <div class="flex items-center flex-shrink-0">
+                <a href="index.html" class="inline-flex items-center gap-2 text-2xl font-semibold tracking-wider" style="color: var(--text-main) !important; text-decoration: none;">
+                    <i class="fas fa-glass-cheers" style="color: var(--accent-color); font-size: 1.4rem;"></i>
+                    GrandGala
+                </a>
+            </div>
+
+            <div class="hidden xl:flex justify-center items-center flex-1">
+                <div class="dropdown">
+                    <div class="nav-link">Home <i class="fas fa-chevron-down text-[9px] ml-1 opacity-50"></i></div>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-inner">
+                            <a href="index.html" class="dropdown-item">Home Page 1</a>
+                            <a href="home-2.html" class="dropdown-item">Home Page 2</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link active">Services</a>
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <div class="dropdown">
+                    <div class="nav-link">Dashboard <i class="fas fa-chevron-down text-[9px] ml-1 opacity-50"></i></div>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-inner">
+                            <a href="user.html" class="dropdown-item">User Dashboard</a>
+                            <a href="admin.html" class="dropdown-item">Admin Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hidden xl:flex items-center gap-3">
+                <div id="theme-toggle-desktop" class="theme-toggle-pill" title="Toggle Dark Mode">
+                    <i class="fas fa-sun"></i><i class="fas fa-moon"></i>
+                    <div class="thumb"></div>
+                </div>
+                <button id="rtl-btn" class="rtl-btn-style" title="Toggle LTR/RTL">LTR</button>
+                <div class="w-px h-6 bg-[var(--border-color)] mx-2"></div>
+                <a href="login.html" class="btn btn-outline !border-[var(--accent-color)] !text-[var(--accent-color)] hover:!bg-[var(--accent-color)] hover:!text-white !w-[80px] !h-[32px] flex items-center justify-center !p-0 !text-[12px] !rounded-[30px]">Login</a>
+                <a href="register.html" class="btn btn-solid !w-[80px] !h-[32px] flex items-center justify-center !p-0 !text-[12px] !rounded-[30px]">Register</a>
+            </div>
+
+            <div class="xl:hidden flex items-center justify-end gap-4">
+                <button id="mobile-btn" class="text-2xl text-[var(--text-main)] transition-colors hover:text-[var(--accent-color)]">
+                    <i class="fas fa-bars-staggered"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- === HAMBURGER MENU DRAWER === -->
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+    <div class="fullscreen-menu" id="fullscreen-menu">
+        <div class="w-full px-8 py-6 flex justify-between items-center shrink-0 border-b border-[var(--border-color)]">
+            <a href="index.html" class="inline-flex items-center gap-2 text-2xl font-semibold tracking-wider" style="color: var(--text-main) !important; text-decoration: none;">
+                <i class="fas fa-glass-cheers" style="color: var(--accent-color); font-size: 1.4rem;"></i>
+                GrandGala
+            </a>
+            <button id="close-menu" class="w-10 h-10 rounded-full flex items-center justify-center transition-all text-xl text-[var(--text-main)] hover:bg-[var(--bg-secondary)] hover:text-[var(--accent-color)]">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="flex flex-col w-full overflow-y-auto flex-1 py-4">
+            <a href="index.html" class="mobile-link">Home Page 1</a>
+            <a href="home-2.html" class="mobile-link">Home Page 2</a>
+            <a href="about.html" class="mobile-link">About</a>
+            <a href="services.html" class="mobile-link" style="color: var(--accent-color);">Services</a>
+            <a href="pricing.html" class="mobile-link">Pricing</a>
+            <a href="blog.html" class="mobile-link">Blog</a>
+            <a href="faq.html" class="mobile-link">FAQ</a>
+            <a href="contact.html" class="mobile-link">Contact</a>
+            <div class="px-8 mt-6 mb-2">
+                <span class="text-[10px] font-semibold text-[var(--text-muted)] uppercase tracking-widest">Portals</span>
+            </div>
+            <a href="user.html" class="mobile-link !text-sm text-[var(--text-muted)]">User Dashboard</a>
+            <a href="admin.html" class="mobile-link !text-sm text-[var(--text-muted)]">Admin Dashboard</a>
+        </div>
+
+        <div class="w-full px-8 py-8 border-t border-[var(--border-color)] flex flex-col gap-6 shrink-0 bg-[var(--bg-secondary)]">
+            <div class="flex justify-between items-center w-full">
+                <div class="flex items-center gap-3">
+                    <span class="text-[var(--text-muted)] font-medium text-[10px] uppercase tracking-widest">Theme</span>
+                    <div id="theme-toggle-mobile" class="theme-toggle-pill"><i class="fas fa-sun"></i><i class="fas fa-moon"></i>
+                        <div class="thumb"></div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-[var(--text-muted)] font-medium text-[10px] uppercase tracking-widest">Dir</span>
+                    <button id="rtl-toggle-mobile" class="rtl-btn-style">LTR</button>
+                </div>
+            </div>
+            <div class="flex gap-4 w-full">
+                <a href="login.html" class="btn btn-outline flex-1 !py-3">Login</a>
+                <a href="register.html" class="btn btn-solid flex-1 !py-3">Register</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- === HERO BANNER === -->
+    <section class="relative w-full min-h-[100dvh] pb-12 lg:pb-0 pt-[100px] lg:pt-[120px] flex items-center overflow-hidden bg-gradient-to-b from-[var(--bg-secondary)] to-[var(--bg-color)]">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+            <div class="absolute -top-[10%] -right-[5%] w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] rounded-full bg-[var(--accent-color)] opacity-5 blur-[100px]"></div>
+            <div class="absolute top-[40%] -left-[10%] w-[30vw] h-[30vw] max-w-[500px] max-h-[500px] rounded-full bg-[#FBBF24] opacity-5 blur-[120px]"></div>
+        </div>
+        <div class="max-w-[1440px] mx-auto px-6 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-10 h-auto lg:h-full lg:max-h-[800px]">
+            <div class="flex flex-col items-center lg:items-start justify-center text-center lg:text-left h-full">
+                <span class="text-[var(--accent-dark)] bg-[var(--menu-hover-bg)] text-xs md:text-sm font-semibold uppercase tracking-[0.15em] mb-4 md:mb-6 px-4 py-2 rounded-full border border-[var(--border-color)] inline-flex items-center backdrop-blur-sm transition-colors duration-300">
+                    <i class="fas fa-concierge-bell mr-2"></i> Our Services
+                </span>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.1] mb-4 md:mb-6 text-[var(--text-main)] tracking-tight capitalize transition-colors duration-300">
+                    Bespoke Solutions,<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-color)] to-[var(--accent-dark)]">Flawless Execution.</span>
+                </h1>
+                <p class="text-[var(--text-muted)] text-base md:text-lg leading-relaxed font-medium mb-6 md:mb-10 max-w-lg transition-colors duration-300">
+                    From gourmet catering and custom decor to state-of-the-art audiovisual setups, we provide everything you need to bring your vision to life.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 w-full sm:w-auto">
+                    <a href="#services-grid" class="btn btn-solid !py-3 md:!py-4 !px-8 md:!px-10 text-sm">View Packages</a>
+                    <a href="contact.html" class="btn btn-outline !py-3 md:!py-4 !px-8 md:!px-10 text-sm">Contact Us</a>
+                </div>
+            </div>
+            <div class="relative w-full h-full flex justify-center items-center pb-8 lg:pb-0">
+                <div class="absolute top-[10%] right-[10%] w-[75%] h-[80%] rounded-t-full rounded-b-[40px] bg-gradient-to-tr from-[var(--accent-color)] to-[#FDE68A] opacity-20 transform rotate-3 z-0 transition-transform duration-700 hover:rotate-6"></div>
+                <div class="relative w-full max-w-[260px] sm:max-w-[320px] md:max-w-[380px] lg:max-w-[420px] aspect-[4/5] rounded-t-full rounded-b-[40px] overflow-hidden shadow-2xl border-8 border-[var(--bg-card)] z-10 transition-colors duration-300">
+                    <!-- Updated image placeholder link for hero -->
+                    <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80" alt="Premium Event Services" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="absolute bottom-[5%] lg:bottom-[15%] left-[5%] lg:-left-[5%] bg-[var(--bg-card)] p-3 md:p-4 pr-5 md:pr-6 rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-[var(--border-color)] flex items-center gap-3 z-20 animate-float transition-colors duration-300">
+                    <div class="w-10 md:w-12 h-10 md:h-12 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center text-[var(--accent-color)] text-lg md:text-xl border border-[var(--border-color)] transition-colors duration-300">
+                        <i class="fas fa-hand-sparkles"></i>
+                    </div>
+                    <div>
+                        <p class="text-[var(--text-main)] font-semibold text-xs md:text-sm uppercase tracking-wide transition-colors duration-300">Premium Care</p>
+                        <p class="text-[var(--text-muted)] text-[10px] md:text-xs font-medium transition-colors duration-300">Tailored To You</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === MAIN CONTENT CONTAINER === -->
+    <main class="w-full flex flex-col min-h-[40vh]">
+
+        <!-- === SECTION 1: 6 UNIQUE SERVICE CARDS === -->
+        <section id="services-grid" class="w-full py-24 bg-[var(--bg-color)] border-b border-[var(--border-color)]">
+            <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+                <div class="text-center mb-20 max-w-3xl mx-auto">
+                    <span class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest mb-3 block">End-to-End Solutions</span>
+                    <h2 class="text-3xl md:text-5xl font-semibold capitalize tracking-tight text-[var(--text-main)] mb-6">Our Premium Offerings</h2>
+                    <div class="w-16 h-1 bg-[var(--accent-color)] mx-auto mb-6 rounded-full"></div>
+                    <p class="text-[var(--text-muted)] text-lg">We pride ourselves on offering a comprehensive suite of services designed to elevate your event from ordinary to extraordinary, with impeccable attention to detail.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+                    <!-- Service Card 1 -->
+                    <div class="flex flex-col bg-[var(--bg-card)] rounded-[2rem] rounded-br-[5rem] overflow-hidden border border-[var(--border-color)] shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group h-full">
+                        <div class="h-60 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80" alt="Wedding Planning" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] to-transparent opacity-90"></div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow relative z-10 -mt-16">
+                            <div class="w-16 h-16 bg-[var(--accent-color)] text-white rounded-full flex items-center justify-center text-2xl mb-5 shadow-lg border-4 border-[var(--bg-card)]">
+                                <i class="fas fa-ring"></i>
+                            </div>
+                            <h3 class="text-[var(--text-main)] text-xl font-bold mb-3">Platinum Weddings</h3>
+                            <p class="text-[var(--text-muted)] text-sm leading-relaxed mb-8 flex-grow">Full-service wedding planning, including timeline creation, vendor management, and day-of coordination to ensure your special day is utterly perfect.</p>
+                            <a href="services-details.html" class="btn btn-outline w-full !rounded-2xl mt-auto group-hover:bg-[var(--accent-color)] group-hover:text-white group-hover:border-[var(--accent-color)] border-2">Enquire Now</a>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 2 -->
+                    <div class="flex flex-col bg-[var(--bg-card)] rounded-[2rem] rounded-br-[5rem] overflow-hidden border border-[var(--border-color)] shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group h-full">
+                        <div class="h-60 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&q=80" alt="Corporate Galas" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] to-transparent opacity-90"></div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow relative z-10 -mt-16">
+                            <div class="w-16 h-16 bg-[var(--accent-color)] text-white rounded-full flex items-center justify-center text-2xl mb-5 shadow-lg border-4 border-[var(--bg-card)]">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h3 class="text-[var(--text-main)] text-xl font-bold mb-3">Corporate Galas</h3>
+                            <p class="text-[var(--text-muted)] text-sm leading-relaxed mb-8 flex-grow">Professional hosting for conferences, product launches, and award ceremonies. Impress your stakeholders with our state-of-the-art facilities.</p>
+                            <a href="services-details.html" class="btn btn-outline w-full !rounded-2xl mt-auto group-hover:bg-[var(--accent-color)] group-hover:text-white group-hover:border-[var(--accent-color)] border-2">Enquire Now</a>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 3 -->
+                    <div class="flex flex-col bg-[var(--bg-card)] rounded-[2rem] rounded-br-[5rem] overflow-hidden border border-[var(--border-color)] shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group h-full">
+                        <div class="h-60 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&q=80" alt="Elite Catering" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] to-transparent opacity-90"></div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow relative z-10 -mt-16">
+                            <div class="w-16 h-16 bg-[var(--accent-color)] text-white rounded-full flex items-center justify-center text-2xl mb-5 shadow-lg border-4 border-[var(--bg-card)]">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h3 class="text-[var(--text-main)] text-xl font-bold mb-3">Elite Catering</h3>
+                            <p class="text-[var(--text-muted)] text-sm leading-relaxed mb-8 flex-grow">Our globally-trained executive chefs craft custom multi-course menus, decadent buffets, and artistic hors d'oeuvres tailored to your palette.</p>
+                            <a href="services-details.html" class="btn btn-outline w-full !rounded-2xl mt-auto group-hover:bg-[var(--accent-color)] group-hover:text-white group-hover:border-[var(--accent-color)] border-2">Enquire Now</a>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 4 -->
+                    <div class="flex flex-col bg-[var(--bg-card)] rounded-[2rem] rounded-br-[5rem] overflow-hidden border border-[var(--border-color)] shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group h-full">
+                        <div class="h-60 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80" alt="AV & Lighting" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] to-transparent opacity-90"></div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow relative z-10 -mt-16">
+                            <div class="w-16 h-16 bg-[var(--accent-color)] text-white rounded-full flex items-center justify-center text-2xl mb-5 shadow-lg border-4 border-[var(--bg-card)]">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h3 class="text-[var(--text-main)] text-xl font-bold mb-3">AV & Lighting Design</h3>
+                            <p class="text-[var(--text-muted)] text-sm leading-relaxed mb-8 flex-grow">Immersive lighting installations, high-fidelity acoustics, and crystal-clear LED displays managed by our in-house technical directors.</p>
+                            <a href="services-details.html" class="btn btn-outline w-full !rounded-2xl mt-auto group-hover:bg-[var(--accent-color)] group-hover:text-white group-hover:border-[var(--accent-color)] border-2">Enquire Now</a>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 5 -->
+                    <div class="flex flex-col bg-[var(--bg-card)] rounded-[2rem] rounded-br-[5rem] overflow-hidden border border-[var(--border-color)] shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group h-full">
+                        <div class="h-60 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1530103862676-de8892b12a15?auto=format&fit=crop&q=80" alt="Floral & Decor" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] to-transparent opacity-90"></div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow relative z-10 -mt-16">
+                            <div class="w-16 h-16 bg-[var(--accent-color)] text-white rounded-full flex items-center justify-center text-2xl mb-5 shadow-lg border-4 border-[var(--bg-card)]">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <h3 class="text-[var(--text-main)] text-xl font-bold mb-3">Bespoke Decor</h3>
+                            <p class="text-[var(--text-muted)] text-sm leading-relaxed mb-8 flex-grow">Transform our spaces with premium linens, imported floral arrangements, custom drapery, and thematic centerpieces to match your aesthetic.</p>
+                            <a href="services-details.html" class="btn btn-outline w-full !rounded-2xl mt-auto group-hover:bg-[var(--accent-color)] group-hover:text-white group-hover:border-[var(--accent-color)] border-2">Enquire Now</a>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 6 -->
+                    <div class="flex flex-col bg-[var(--bg-card)] rounded-[2rem] rounded-br-[5rem] overflow-hidden border border-[var(--border-color)] shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group h-full">
+                        <div class="h-60 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&q=80" alt="VIP Guest Services" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] to-transparent opacity-90"></div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow relative z-10 -mt-16">
+                            <div class="w-16 h-16 bg-[var(--accent-color)] text-white rounded-full flex items-center justify-center text-2xl mb-5 shadow-lg border-4 border-[var(--bg-card)]">
+                                <i class="fas fa-car-side"></i>
+                            </div>
+                            <h3 class="text-[var(--text-main)] text-xl font-bold mb-3">VIP Valet & Services</h3>
+                            <p class="text-[var(--text-muted)] text-sm leading-relaxed mb-8 flex-grow">Offer your attendees a seamless experience with dedicated coat checks, secured valet parking, and private green rooms for VIPs.</p>
+                            <a href="services-details.html" class="btn btn-outline w-full !rounded-2xl mt-auto group-hover:bg-[var(--accent-color)] group-hover:text-white group-hover:border-[var(--accent-color)] border-2">Enquire Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === SECTION 2 (RANDOM): THE GRANDGALA PROCESS === -->
+        <section class="w-full py-24 bg-[var(--bg-secondary)] border-b border-[var(--border-color)]">
+            <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                    <div class="max-w-xl">
+                        <span class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest mb-3 block">How It Works</span>
+                        <h2 class="text-3xl md:text-5xl font-semibold capitalize tracking-tight text-[var(--text-main)]">A Seamless Journey</h2>
+                        <p class="text-[var(--text-muted)] text-lg mt-4">We've simplified the event planning process into three transparent, stress-free stages.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 relative">
+                    <!-- Connecting Line for Desktop -->
+                    <div class="hidden md:block absolute top-[40px] left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-[var(--bg-secondary)] via-[var(--accent-color)] to-[var(--bg-secondary)] opacity-50 z-0"></div>
+                    
+                    <!-- Step 1 -->
+                    <div class="relative z-10 flex flex-col items-center text-center group">
+                        <div class="w-20 h-20 rounded-full bg-[var(--bg-card)] border-4 border-[var(--border-color)] flex items-center justify-center text-2xl text-[var(--accent-color)] font-bold shadow-lg mb-6 group-hover:border-[var(--accent-color)] group-hover:bg-[var(--accent-color)] group-hover:text-white transition-all duration-300">
+                            1
+                        </div>
+                        <h4 class="text-xl font-bold text-[var(--text-main)] mb-3">Consultation & Vision</h4>
+                        <p class="text-[var(--text-muted)] text-sm leading-relaxed max-w-xs">Meet with our expert event directors to tour the facilities, discuss your budget, and map out the conceptual vision for your special day.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative z-10 flex flex-col items-center text-center group">
+                        <div class="w-20 h-20 rounded-full bg-[var(--bg-card)] border-4 border-[var(--border-color)] flex items-center justify-center text-2xl text-[var(--accent-color)] font-bold shadow-lg mb-6 group-hover:border-[var(--accent-color)] group-hover:bg-[var(--accent-color)] group-hover:text-white transition-all duration-300">
+                            2
+                        </div>
+                        <h4 class="text-xl font-bold text-[var(--text-main)] mb-3">Design & Tasting</h4>
+                        <p class="text-[var(--text-muted)] text-sm leading-relaxed max-w-xs">Finalize floor plans, select your custom decor, and enjoy a private menu tasting session with our executive culinary team.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative z-10 flex flex-col items-center text-center group">
+                        <div class="w-20 h-20 rounded-full bg-[var(--bg-card)] border-4 border-[var(--border-color)] flex items-center justify-center text-2xl text-[var(--accent-color)] font-bold shadow-lg mb-6 group-hover:border-[var(--accent-color)] group-hover:bg-[var(--accent-color)] group-hover:text-white transition-all duration-300">
+                            3
+                        </div>
+                        <h4 class="text-xl font-bold text-[var(--text-main)] mb-3">Flawless Execution</h4>
+                        <p class="text-[var(--text-muted)] text-sm leading-relaxed max-w-xs">Relax and enjoy your event as our dedicated day-of coordinators manage vendors, timelines, and guests with precision.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === SECTION 3 (RANDOM): CALL TO ACTION BANNER === -->
+        <section class="w-full py-20 bg-[var(--bg-color)] border-b border-[var(--border-color)] relative overflow-hidden">
+            <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+                <div class="relative rounded-[3rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row items-center">
+                    <!-- Background Image for CTA -->
+                    <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80" alt="CTA Background" class="absolute inset-0 w-full h-full object-cover z-0">
+                    <div class="absolute inset-0 bg-[var(--bg-card)] opacity-95 z-0"></div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-[var(--accent-dark)] to-transparent opacity-10 z-0"></div>
+                    
+                    <div class="relative z-10 w-full lg:w-1/2 p-10 md:p-16">
+                        <span class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest mb-3 block"><i class="fas fa-calendar-check mr-2"></i> limited availability</span>
+                        <h2 class="text-3xl md:text-5xl font-semibold capitalize tracking-tight text-[var(--text-main)] mb-6">Let's Create Something Extraordinary</h2>
+                        <p class="text-[var(--text-muted)] text-lg leading-relaxed mb-10">
+                            Our prime dates book up to 18 months in advance. Contact our hospitality team today to check availability, request a custom brochure, and schedule your private tour.
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="contact.html" class="btn btn-solid !py-4 !px-8 shadow-lg shadow-[var(--accent-color)]/30"><i class="fas fa-paper-plane mr-2"></i> Book A Tour</a>
+                            <a href="faq.html" class="btn btn-outline !py-4 !px-8 bg-[var(--bg-card)]">Read FAQs</a>
+                        </div>
+                    </div>
+
+                    <div class="relative z-10 w-full lg:w-1/2 flex justify-center p-10 lg:p-0">
+                        <div class="w-full max-w-sm bg-[var(--bg-card)] border border-[var(--border-color)] rounded-3xl p-8 shadow-xl text-center transform lg:translate-x-12">
+                            <div class="w-16 h-16 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center text-3xl text-[var(--accent-color)] mx-auto mb-6">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-[var(--text-main)] mb-2">Need Immediate Assistance?</h3>
+                            <p class="text-[var(--text-muted)] text-sm mb-6">Our concierge is available 24/7 to answer your pressing questions.</p>
+                            <a href="tel:1555800GALA" class="text-[var(--accent-color)] font-bold text-2xl hover:text-[var(--accent-dark)] transition-colors">+1 (555) 800-GALA</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- === FOOTER === -->
+    <footer>
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-10 pt-4">
+                <div class="lg:col-span-4">
+                    <div class="mb-6">
+                        <a href="index.html" class="inline-flex items-center gap-2 text-2xl font-semibold tracking-wider" style="color: var(--text-main) !important; text-decoration: none;">
+                            <i class="fas fa-glass-cheers" style="color: var(--accent-color); font-size: 1.4rem;"></i>
+                            GrandGala
+                        </a>
+                    </div>
+                    <p class="opacity-80 leading-relaxed text-sm font-medium mb-8 max-w-sm" style="color: var(--text-muted);">
+                        Dedicated to providing luxurious, spacious, and highly customizable venue spaces. We ensure your special day is hosted flawlessly with elite catering and event management.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="social-link-circle"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link-circle"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link-circle"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link-circle"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+                        <div>
+                            <h4>Client Portal</h4>
+                            <ul class="space-y-4">
+                                <li><a href="login.html">Client Login</a></li>
+                                <li><a href="user.html">Booking Dashboard</a></li>
+                                <li><a href="pricing.html">Hall Packages</a></li>
+                                <li><a href="blog.html">Event Inspiration</a></li>
+                                <li><a href="faq.html">Venue FAQ</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Our Spaces</h4>
+                            <ul class="space-y-4">
+                                <li><a href="services.html">Wedding Halls</a></li>
+                                <li><a href="services.html">Corporate Centers</a></li>
+                                <li><a href="services.html">Outdoor Gardens</a></li>
+                                <li><a href="services.html">VIP Dining Rooms</a></li>
+                                <li><a href="services.html">Catering Services</a></li>
+                            </ul>
+                        </div>
+                        <div class="sm:col-span-2 md:col-span-1">
+                            <h4>Headquarters</h4>
+                            <ul class="space-y-4 text-[var(--text-muted)] text-sm font-medium">
+                                <li class="flex items-start gap-4">
+                                    <i class="fas fa-map-marker-alt mt-1 shrink-0" style="color: var(--accent-color);"></i>
+                                    <span>123 Celebration Blvd<br>Gala City, TX 75001</span>
+                                </li>
+                                <li class="flex items-center gap-4">
+                                    <i class="fas fa-phone shrink-0" style="color: var(--accent-color);"></i>
+                                    <a href="tel:+15550198" class="break-all hover:text-[var(--accent-color)]">+1 (555) 800-GALA</a>
+                                </li>
+                                <li class="flex items-center gap-4">
+                                    <i class="fas fa-envelope shrink-0" style="color: var(--accent-color);"></i>
+                                    <a href="contact.html" class="break-all hover:text-[var(--accent-color)]">events@grandgala.com</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom flex flex-col md:flex-row justify-between items-center text-xs gap-6 font-semibold uppercase tracking-widest">
+                <p style="color: var(--text-muted);">&copy; 2026 GrandGala Party Hall & Banquet Venue. All rights reserved.</p>
+                <div class="flex flex-wrap justify-center gap-6 sm:gap-8">
+                    <a href="#">Booking Terms</a>
+                    <a href="#">Cancellation Policy</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- === JAVASCRIPT CORE === -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        const mobileBtn = document.getElementById('mobile-btn');
+        const fullscreenMenu = document.getElementById('fullscreen-menu');
+        const closeMenu = document.getElementById('close-menu');
+        const drawerOverlay = document.getElementById('drawer-overlay');
+
+        function toggleMenu() {
+            fullscreenMenu.classList.toggle('active');
+            drawerOverlay.classList.toggle('active');
+            document.body.style.overflow = fullscreenMenu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+        mobileBtn.onclick = toggleMenu;
+        closeMenu.onclick = toggleMenu;
+        drawerOverlay.onclick = toggleMenu;
+
+        const themeDesktop = document.getElementById('theme-toggle-desktop');
+        const themeMobile = document.getElementById('theme-toggle-mobile');
+        const theme = localStorage.getItem('theme') || 'light';
+
+        function updateThemeUI(isDark) {
+            if (isDark) {
+                document.body.classList.add('dark-mode');
+                if (themeMobile) themeMobile.classList.add('active');
+            } else {
+                document.body.classList.remove('dark-mode');
+                if (themeMobile) themeMobile.classList.remove('active');
+            }
+        }
+        updateThemeUI(theme === 'dark');
+
+        function toggleTheme() {
+            const isDark = !document.body.classList.contains('dark-mode');
+            updateThemeUI(isDark);
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+        themeDesktop.onclick = toggleTheme;
+        if (themeMobile) themeMobile.onclick = toggleTheme;
+
+        const rtlBtn = document.getElementById('rtl-btn');
+        const rtlMobile = document.getElementById('rtl-toggle-mobile');
+        const dir = localStorage.getItem('dir') || 'ltr';
+
+        function updateRTLUI(currentDir) {
+            const isRTL = currentDir === 'rtl';
+            if (rtlBtn) rtlBtn.innerText = isRTL ? 'RTL' : 'LTR';
+            if (rtlMobile) rtlMobile.innerText = isRTL ? 'RTL' : 'LTR';
+        }
+        if (dir === 'rtl') {
+            document.documentElement.dir = 'rtl';
+        }
+        updateRTLUI(dir);
+
+        function toggleRTL() {
+            const isRTL = document.documentElement.dir === 'rtl';
+            const newDir = isRTL ? 'ltr' : 'rtl';
+            document.documentElement.dir = newDir;
+            localStorage.setItem('dir', newDir);
+            updateRTLUI(newDir);
+        }
+        if (rtlBtn) rtlBtn.onclick = toggleRTL;
+        if (rtlMobile) rtlMobile.onclick = toggleRTL;
+    </script>
+</body>
+</html>
