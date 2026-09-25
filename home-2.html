@@ -655,9 +655,13 @@
         <div class="hero-overlay-2"></div>
 
         <div
-            class="max-w-[1440px] mx-auto px-6 lg:px-12 w-full flex flex-col items-center justify-center text-center relative z-10 pt-[80px]">
+            class="max-w-[1440px] mx-auto px-6 w-full flex flex-col items-center justify-center text-center relative z-10 pt-[80px]">
 
-            <div class="animate-float">
+            <div class="bg-white/85 backdrop-blur-2xl border border-white/60 shadow-2xl rounded-3xl p-6 md:p-8 lg:p-10 max-w-4xl mx-auto w-full flex flex-col items-center relative overflow-hidden">
+                <!-- Inner soft gradient glow -->
+                <div class="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent pointer-events-none"></div>
+                
+                <div class="animate-float relative z-10">
                 <span
                     class="text-[var(--accent-color)] bg-white/60 backdrop-blur-md text-xs md:text-sm font-semibold uppercase tracking-[0.2em] mb-4 md:mb-6 px-5 py-2.5 rounded-full border border-[var(--accent-color)] inline-flex items-center">
                     <i class="fas fa-crown mr-2"></i> Luxury Banquet & Events
@@ -665,12 +669,12 @@
             </div>
 
             <h1
-                class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 text-gray-900 tracking-tight capitalize max-w-4xl mx-auto">
+                class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] mb-4 text-gray-900 tracking-tight capitalize max-w-3xl mx-auto">
                 Where Your <br class="hidden md:block">
                 <span class="text-[var(--accent-color)]">Grandest Visions</span> Come To Life.
             </h1>
 
-            <p class="text-gray-700 text-base md:text-lg leading-relaxed font-medium mb-10 max-w-2xl mx-auto">
+            <p class="text-gray-700 text-sm md:text-base leading-relaxed font-medium mb-6 max-w-2xl mx-auto">
                 Experience unparalleled elegance and world-class service. From intimate weddings to lavish corporate
                 galas, our versatile spaces provide the perfect backdrop for your most cherished moments.
             </p>
@@ -688,7 +692,7 @@
 
             <!-- Stats/Features row attached to bottom of hero content -->
             <div
-                class="hidden lg:flex justify-center items-center gap-10 mt-16 border-t border-gray-300 pt-8 w-full max-w-3xl mx-auto">
+                class="hidden lg:flex justify-center items-center gap-6 mt-8 border-t border-gray-300 pt-6 w-full max-w-2xl mx-auto">
                 <div>
                     <h4 class="text-3xl font-bold text-gray-900 mb-1">500+</h4>
                     <p class="text-xs text-gray-600 uppercase tracking-widest font-semibold">Events Hosted</p>
@@ -705,7 +709,7 @@
                     <p class="text-xs text-gray-600 uppercase tracking-widest font-semibold">Client Rating</p>
                 </div>
             </div>
-
+            </div>
         </div>
     </section>
 
