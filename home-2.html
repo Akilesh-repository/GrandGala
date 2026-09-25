@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <!--[cite: 10] -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GrandGala - Party Hall & Banquet Venue | Home 2</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/jpeg" href="images\images (6).png">
+    <link rel="icon" type="image/png" href="images\images (6).png">
     <script>
         tailwind.config = {
             theme: {
@@ -21,12 +24,22 @@
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
     <style>
         /* === RESET & CORE[cite: 10] === */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; overflow-x: hidden; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
@@ -38,12 +51,15 @@
         /* === THEME VARIABLES (Banquet - Elegant Gold)[cite: 10] === */
         :root {
             --bg-color: #FAFAFA;
-            --bg-secondary: #FFFBEB; /* Amber-50 */
+            --bg-secondary: #FFFBEB;
+            /* Amber-50 */
             --bg-card: #FFFFFF;
             --text-main: #1C1917;
             --text-muted: #78716C;
-            --accent-color: #D97706; /* Amber-600 */
-            --accent-dark: #B45309; /* Amber-700 */
+            --accent-color: #D97706;
+            /* Amber-600 */
+            --accent-dark: #B45309;
+            /* Amber-700 */
             --border-color: #FEF3C7;
             --nav-bg: rgba(255, 255, 255, 0.85);
             --drawer-bg: rgba(255, 255, 255, 0.98);
@@ -66,168 +82,461 @@
         }
 
         /* RTL SUPPORT[cite: 10] */
-        [dir="rtl"] { text-align: right; }
-        [dir="rtl"] .ml-auto { margin-right: auto; margin-left: 0; }
-        [dir="rtl"] .mr-auto { margin-left: auto; margin-right: 0; }
+        [dir="rtl"] {
+            text-align: right;
+        }
+
+        [dir="rtl"] .ml-auto {
+            margin-right: auto;
+            margin-left: 0;
+        }
+
+        [dir="rtl"] .mr-auto {
+            margin-left: auto;
+            margin-right: 0;
+        }
 
         @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
         }
-        .animate-float { animation: float 5s ease-in-out infinite; }
+
+        .animate-float {
+            animation: float 5s ease-in-out infinite;
+        }
 
         /* === ULTRA-MODERN FLOATING PILL NAVBAR[cite: 10] === */
         .navbar {
-            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-            width: calc(100% - 40px); max-width: 1380px; z-index: 1000;
-            background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 100px;
-            padding: 0 24px; height: 76px; display: flex; align-items: center;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 40px);
+            max-width: 1380px;
+            z-index: 1000;
+            background: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 100px;
+            padding: 0 24px;
+            height: 76px;
+            display: flex;
+            align-items: center;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
         }
+
         body.dark-mode .navbar {
             border: 1px solid rgba(255, 255, 255, 0.08);
             box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
         }
+
         .navbar.scrolled {
-            top: 12px; height: 64px; background: rgba(255, 255, 255, 0.95);
+            top: 12px;
+            height: 64px;
+            background: rgba(255, 255, 255, 0.95);
             box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.1);
         }
-        body.dark-mode .navbar.scrolled { background: rgba(28, 25, 23, 0.95); }
+
+        body.dark-mode .navbar.scrolled {
+            background: rgba(28, 25, 23, 0.95);
+        }
 
         .nav-link {
-            position: relative; padding: 8px 18px; margin: 0 4px;
-            color: var(--text-main); text-decoration: none; font-size: 13px; font-weight: 600;
-            text-transform: capitalize; letter-spacing: 0.3px; transition: all 0.3s ease;
-            display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-            cursor: pointer; border-radius: 50px; z-index: 1;
+            position: relative;
+            padding: 8px 18px;
+            margin: 0 4px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: capitalize;
+            letter-spacing: 0.3px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            border-radius: 50px;
+            z-index: 1;
         }
-        .nav-link::before {
-            content: ''; position: absolute; inset: 0; background: var(--accent-color);
-            border-radius: 50px; opacity: 0; transform: scale(0.85);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: -1;
-        }
-        .nav-link:hover::before, .nav-link.active::before { opacity: 0.15; transform: scale(1); }
-        body.dark-mode .nav-link:hover::before, body.dark-mode .nav-link.active::before { opacity: 0.25; }
-        .nav-link:hover, .nav-link.active { color: var(--accent-dark); }
-        body.dark-mode .nav-link:hover, body.dark-mode .nav-link.active { color: #FDE68A; }
 
-        .dropdown { position: relative; display: flex; align-items: center; height: 100%; }
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--accent-color);
+            border-radius: 50px;
+            opacity: 0;
+            transform: scale(0.85);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            opacity: 0.15;
+            transform: scale(1);
+        }
+
+        body.dark-mode .nav-link:hover::before,
+        body.dark-mode .nav-link.active::before {
+            opacity: 0.25;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent-dark);
+        }
+
+        body.dark-mode .nav-link:hover,
+        body.dark-mode .nav-link.active {
+            color: #FDE68A;
+        }
+
+        .dropdown {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
         .dropdown-menu {
-            position: absolute; top: calc(100% + 15px); left: 0;
-            transform: translateY(15px) scale(0.95); opacity: 0; visibility: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 100; transform-origin: top left;
+            position: absolute;
+            top: calc(100% + 15px);
+            left: 0;
+            transform: translateY(15px) scale(0.95);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 100;
+            transform-origin: top left;
         }
+
         .dropdown-inner {
-            background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 24px;
-            min-width: 220px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); padding: 12px;
-            display: flex; flex-direction: column; gap: 4px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            min-width: 220px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
         }
-        body.dark-mode .dropdown-inner { box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6); }
-        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+
+        body.dark-mode .dropdown-inner {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
         .dropdown-item {
-            display: block; padding: 10px 16px; border-radius: 12px; color: var(--text-main);
-            text-decoration: none; font-size: 13px; font-weight: 500; text-transform: capitalize;
-            transition: all 0.2s; text-align: left; white-space: nowrap;
+            display: block;
+            padding: 10px 16px;
+            border-radius: 12px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: capitalize;
+            transition: all 0.2s;
+            text-align: left;
+            white-space: nowrap;
         }
-        .dropdown-item:hover { background: var(--menu-hover-bg); color: var(--accent-color); padding-left: 20px; }
-        [dir="rtl"] .dropdown-item:hover { padding-left: 16px; padding-right: 20px; }
+
+        .dropdown-item:hover {
+            background: var(--menu-hover-bg);
+            color: var(--accent-color);
+            padding-left: 20px;
+        }
+
+        [dir="rtl"] .dropdown-item:hover {
+            padding-left: 16px;
+            padding-right: 20px;
+        }
 
         .theme-toggle-pill {
-            width: 80px; height: 32px; background: var(--bg-secondary); border-radius: 30px;
-            position: relative; cursor: pointer; display: flex; align-items: center; justify-content: space-between;
-            padding: 0 10px; border: 1px solid var(--border-color);
+            width: 80px;
+            height: 32px;
+            background: var(--bg-secondary);
+            border-radius: 30px;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            border: 1px solid var(--border-color);
         }
-        .theme-toggle-pill i { font-size: 12px; z-index: 1; }
-        .theme-toggle-pill .fa-sun { color: #f59e0b; }
-        .theme-toggle-pill .fa-moon { color: #999; }
+
+        .theme-toggle-pill i {
+            font-size: 12px;
+            z-index: 1;
+        }
+
+        .theme-toggle-pill .fa-sun {
+            color: #f59e0b;
+        }
+
+        .theme-toggle-pill .fa-moon {
+            color: #999;
+        }
+
         .theme-toggle-pill .thumb {
-            position: absolute; top: 2px; left: 2px; width: 26px; height: 26px;
-            background: white; border-radius: 50%; transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); z-index: 2; border: 1px solid var(--border-color);
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 26px;
+            height: 26px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+            border: 1px solid var(--border-color);
         }
-        body.dark-mode .theme-toggle-pill .thumb { transform: translateX(48px); background: #333; border-color: var(--border-color); }
+
+        body.dark-mode .theme-toggle-pill .thumb {
+            transform: translateX(48px);
+            background: #333;
+            border-color: var(--border-color);
+        }
 
         .rtl-btn-style {
-            width: 80px; height: 32px; background: var(--bg-secondary); border-radius: 30px;
-            border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center;
-            font-size: 10px; font-weight: 600; cursor: pointer; color: var(--text-main); transition: all 0.3s ease;
+            width: 80px;
+            height: 32px;
+            background: var(--bg-secondary);
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text-main);
+            transition: all 0.3s ease;
         }
-        .rtl-btn-style:hover { background: var(--accent-color); color: #fff; border-color: var(--accent-color); }
+
+        .rtl-btn-style:hover {
+            background: var(--accent-color);
+            color: #fff;
+            border-color: var(--accent-color);
+        }
 
         .btn {
-            padding: 12px 28px; font-weight: 600; font-size: 13px; text-transform: capitalize;
-            letter-spacing: 0.5px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: inline-flex; align-items: center; justify-content: center; cursor: pointer;
-            position: relative; border: 1px solid transparent; border-radius: 50px; text-decoration: none;
+            padding: 12px 28px;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: capitalize;
+            letter-spacing: 0.5px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            border: 1px solid transparent;
+            border-radius: 50px;
+            text-decoration: none;
         }
-        .btn-solid { background: var(--accent-color); color: #FFFFFF !important; }
-        .btn-solid:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 20px -3px rgba(217, 119, 6, 0.4); }
-        .btn-outline { background: transparent; border: 1px solid var(--border-color); color: var(--text-main); }
-        .btn-outline:hover { border-color: var(--accent-color); color: var(--accent-color) !important; background: var(--menu-hover-bg); transform: translateY(-2px); }
+
+        .btn-solid {
+            background: var(--accent-color);
+            color: #FFFFFF !important;
+        }
+
+        .btn-solid:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px -3px rgba(217, 119, 6, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color) !important;
+            background: var(--menu-hover-bg);
+            transform: translateY(-2px);
+        }
 
         .drawer-overlay {
-            position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6); z-index: 999;
-            opacity: 0; visibility: hidden; transition: all 0.3s ease; backdrop-filter: blur(4px);
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
         }
-        .drawer-overlay.active { opacity: 1; visibility: visible; }
-        
-        .fullscreen-menu {
-            position: fixed; top: 0; right: 0; width: 100%; max-width: 400px; height: 100dvh;
-            background: var(--drawer-bg); z-index: 1001; display: flex; flex-direction: column;
-            opacity: 0; visibility: hidden; transform: translateX(100%);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); border-left: 1px solid var(--border-color);
-        }
-        [dir="rtl"] .fullscreen-menu { right: auto; left: 0; transform: translateX(-100%); border-left: none; border-right: 1px solid var(--border-color); }
-        .fullscreen-menu.active { opacity: 1; visibility: visible; transform: translateX(0); }
-        
-        .mobile-link {
-            display: block; width: 100%; padding: 16px 32px; font-size: 1.1rem; font-weight: 600;
-            text-transform: capitalize; letter-spacing: 0.5px; color: var(--text-main);
-            text-decoration: none; transition: all 0.3s; border-bottom: 1px solid var(--border-color);
-        }
-        .mobile-link:hover { color: var(--accent-color); padding-left: 40px; background: var(--menu-hover-bg); }
-        [dir="rtl"] .mobile-link:hover { padding-left: 32px; padding-right: 40px; }
 
-        footer { background: var(--bg-secondary); border-top: 1px solid var(--border-color); padding-top: 80px; }
-        footer h4 { color: var(--text-main); font-weight: 600; font-size: 1.1rem; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
-        footer a, footer li, footer span { color: var(--text-muted); text-decoration: none; transition: all 0.3s; font-size: 0.95rem; font-weight: 400; }
-        footer a:hover { color: var(--accent-color); }
-        .social-link-circle {
-            width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border-color);
-            display: flex; align-items: center; justify-content: center; transition: all 0.3s;
-            color: var(--text-main); background: transparent;
+        .drawer-overlay.active {
+            opacity: 1;
+            visibility: visible;
         }
-        .social-link-circle:hover { background: var(--accent-color); border-color: var(--accent-color); color: #FFFFFF; transform: translateY(-3px); }
-        .footer-bottom { border-top: 1px solid var(--border-color); padding: 32px 0; margin-top: 60px; }
+
+        .fullscreen-menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            max-width: 400px;
+            height: 100dvh;
+            background: var(--drawer-bg);
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(100%);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border-left: 1px solid var(--border-color);
+        }
+
+        [dir="rtl"] .fullscreen-menu {
+            right: auto;
+            left: 0;
+            transform: translateX(-100%);
+            border-left: none;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .fullscreen-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        .mobile-link {
+            display: block;
+            width: 100%;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: capitalize;
+            letter-spacing: 0.5px;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: all 0.3s;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .mobile-link:hover {
+            color: var(--accent-color);
+            padding-left: 40px;
+            background: var(--menu-hover-bg);
+        }
+
+        [dir="rtl"] .mobile-link:hover {
+            padding-left: 32px;
+            padding-right: 40px;
+        }
+
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding-top: 80px;
+        }
+
+        footer h4 {
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        footer a,
+        footer li,
+        footer span {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+
+        footer a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-link-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            color: var(--text-main);
+            background: transparent;
+        }
+
+        .social-link-circle:hover {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            color: #FFFFFF;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding: 32px 0;
+            margin-top: 60px;
+        }
 
         /* Custom Full-Width Hero Background for Home 2 */
         .hero-bg-2 {
             position: absolute;
             inset: 0;
-            background-image: url('images/pexels-vidalbalielojrfotografia-3376765.jpg');
+            background-image: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=2000&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             z-index: 0;
         }
+
         .hero-overlay-2 {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%);
+            background: rgba(255, 255, 255, 0.75);
             z-index: 1;
         }
     </style>
 </head>
+
 <body>
 
     <!-- === NAVBAR[cite: 10] === -->
     <nav class="navbar" id="main-nav">
         <div class="w-full flex items-center justify-between max-w-[1440px] mx-auto">
             <div class="flex items-center flex-shrink-0">
-                <a href="index.html" class="inline-flex items-center gap-2 text-2xl font-semibold tracking-wider" style="color: var(--text-main) !important; text-decoration: none;">
+                <a href="index.html" class="inline-flex items-center gap-2 text-2xl font-semibold tracking-wider"
+                    style="color: var(--text-main) !important; text-decoration: none;">
                     <i class="fas fa-glass-cheers" style="color: var(--accent-color); font-size: 1.4rem;"></i>
                     GrandGala
                 </a>
@@ -235,7 +544,8 @@
 
             <div class="hidden xl:flex justify-center items-center flex-1">
                 <div class="dropdown">
-                    <div class="nav-link active">Home <i class="fas fa-chevron-down text-[9px] ml-1 opacity-50"></i></div>
+                    <div class="nav-link active">Home <i class="fas fa-chevron-down text-[9px] ml-1 opacity-50"></i>
+                    </div>
                     <div class="dropdown-menu">
                         <div class="dropdown-inner">
                             <a href="index.html" class="dropdown-item">Home Page 1</a>
@@ -267,12 +577,15 @@
                 </div>
                 <button id="rtl-btn" class="rtl-btn-style" title="Toggle LTR/RTL">LTR</button>
                 <div class="w-px h-6 bg-[var(--border-color)] mx-2"></div>
-                <a href="login.html" class="btn btn-outline !border-[var(--accent-color)] !text-[var(--accent-color)] hover:!bg-[var(--accent-color)] hover:!text-white !w-[80px] !h-[32px] flex items-center justify-center !p-0 !text-[12px] !rounded-[30px]">Login</a>
-                <a href="register.html" class="btn btn-solid !w-[100px] !h-[32px] flex items-center justify-center !p-0 !text-[12px] !rounded-[30px]">Register</a>
+                <a href="login.html"
+                    class="btn btn-outline !border-[var(--accent-color)] !text-[var(--accent-color)] hover:!bg-[var(--accent-color)] hover:!text-white !w-[80px] !h-[32px] flex items-center justify-center !p-0 !text-[12px] !rounded-[30px]">Login</a>
+                <a href="register.html"
+                    class="btn btn-solid !w-[100px] !h-[32px] flex items-center justify-center !p-0 !text-[12px] !rounded-[30px]">Register</a>
             </div>
 
             <div class="xl:hidden flex items-center justify-end gap-4">
-                <button id="mobile-btn" class="text-2xl text-[var(--text-main)] transition-colors hover:text-[var(--accent-color)]">
+                <button id="mobile-btn"
+                    class="text-2xl text-[var(--text-main)] transition-colors hover:text-[var(--accent-color)]">
                     <i class="fas fa-bars-staggered"></i>
                 </button>
             </div>
@@ -283,11 +596,13 @@
     <div class="drawer-overlay" id="drawer-overlay"></div>
     <div class="fullscreen-menu" id="fullscreen-menu">
         <div class="w-full px-8 py-6 flex justify-between items-center shrink-0 border-b border-[var(--border-color)]">
-            <a href="index.html" class="inline-flex items-center gap-2 text-2xl font-semibold tracking-wider" style="color: var(--text-main) !important; text-decoration: none;">
+            <a href="index.html" class="inline-flex items-center gap-2 text-2xl font-semibold tracking-wider"
+                style="color: var(--text-main) !important; text-decoration: none;">
                 <i class="fas fa-glass-cheers" style="color: var(--accent-color); font-size: 1.4rem;"></i>
                 GrandGala
             </a>
-            <button id="close-menu" class="w-10 h-10 rounded-full flex items-center justify-center transition-all text-xl text-[var(--text-main)] hover:bg-[var(--bg-secondary)] hover:text-[var(--accent-color)]">
+            <button id="close-menu"
+                class="w-10 h-10 rounded-full flex items-center justify-center transition-all text-xl text-[var(--text-main)] hover:bg-[var(--bg-secondary)] hover:text-[var(--accent-color)]">
                 <i class="fas fa-times"></i>
             </button>
         </div>
@@ -302,17 +617,21 @@
             <a href="faq.html" class="mobile-link">FAQ</a>
             <a href="contact.html" class="mobile-link">Contact</a>
             <div class="px-8 mt-6 mb-2">
-                <span class="text-[10px] font-semibold text-[var(--text-muted)] uppercase tracking-widest">Portals</span>
+                <span
+                    class="text-[10px] font-semibold text-[var(--text-muted)] uppercase tracking-widest">Portals</span>
             </div>
             <a href="user.html" class="mobile-link !text-sm text-[var(--text-muted)]">User Dashboard</a>
             <a href="admin.html" class="mobile-link !text-sm text-[var(--text-muted)]">Admin Dashboard</a>
         </div>
 
-        <div class="w-full px-8 py-8 border-t border-[var(--border-color)] flex flex-col gap-6 shrink-0 bg-[var(--bg-secondary)]">
+        <div
+            class="w-full px-8 py-8 border-t border-[var(--border-color)] flex flex-col gap-6 shrink-0 bg-[var(--bg-secondary)]">
             <div class="flex justify-between items-center w-full">
                 <div class="flex items-center gap-3">
-                    <span class="text-[var(--text-muted)] font-medium text-[10px] uppercase tracking-widest">Theme</span>
-                    <div id="theme-toggle-mobile" class="theme-toggle-pill"><i class="fas fa-sun"></i><i class="fas fa-moon"></i>
+                    <span
+                        class="text-[var(--text-muted)] font-medium text-[10px] uppercase tracking-widest">Theme</span>
+                    <div id="theme-toggle-mobile" class="theme-toggle-pill"><i class="fas fa-sun"></i><i
+                            class="fas fa-moon"></i>
                         <div class="thumb"></div>
                     </div>
                 </div>
@@ -330,52 +649,60 @@
 
     <!-- === HERO BANNER: HOME 2 DESIGN (Full Width Centered) === -->
     <section class="relative w-full h-[100dvh] flex items-center overflow-hidden">
-        
+
         <!-- Full-width background image with dark overlay -->
         <div class="hero-bg-2"></div>
         <div class="hero-overlay-2"></div>
 
-        <div class="max-w-[1440px] mx-auto px-6 lg:px-12 w-full flex flex-col items-center md:items-start justify-center text-center md:text-left relative z-10 pt-[80px]">
-            
+        <div
+            class="max-w-[1440px] mx-auto px-6 lg:px-12 w-full flex flex-col items-center justify-center text-center relative z-10 pt-[80px]">
+
             <div class="animate-float">
-                <span class="text-[var(--accent-color)] bg-black/30 backdrop-blur-md text-xs md:text-sm font-semibold uppercase tracking-[0.2em] mb-4 md:mb-6 px-5 py-2.5 rounded-full border border-[var(--accent-color)] inline-flex items-center">
+                <span
+                    class="text-[var(--accent-color)] bg-white/60 backdrop-blur-md text-xs md:text-sm font-semibold uppercase tracking-[0.2em] mb-4 md:mb-6 px-5 py-2.5 rounded-full border border-[var(--accent-color)] inline-flex items-center">
                     <i class="fas fa-crown mr-2"></i> Luxury Banquet & Events
                 </span>
             </div>
 
-            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 text-white tracking-tight capitalize max-w-3xl">
+            <h1
+                class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 text-gray-900 tracking-tight capitalize max-w-4xl mx-auto">
                 Where Your <br class="hidden md:block">
                 <span class="text-[var(--accent-color)]">Grandest Visions</span> Come To Life.
             </h1>
 
-            <p class="text-gray-300 text-base md:text-lg leading-relaxed font-medium mb-10 max-w-2xl">
-                Experience unparalleled elegance and world-class service. From intimate weddings to lavish corporate galas, our versatile spaces provide the perfect backdrop for your most cherished moments.
+            <p class="text-gray-700 text-base md:text-lg leading-relaxed font-medium mb-10 max-w-2xl mx-auto">
+                Experience unparalleled elegance and world-class service. From intimate weddings to lavish corporate
+                galas, our versatile spaces provide the perfect backdrop for your most cherished moments.
             </p>
 
-            <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-5 w-full sm:w-auto">
-                <a href="services.html" class="btn bg-[var(--accent-color)] text-white hover:bg-white hover:text-[var(--accent-color)] !py-4 md:!py-4 !px-10 text-sm shadow-xl shadow-[var(--accent-color)]/30 border-2 border-[var(--accent-color)]">
+            <div class="flex flex-col sm:flex-row justify-center gap-5 w-full sm:w-auto mx-auto">
+                <a href="services.html"
+                    class="btn bg-[var(--accent-color)] text-white hover:bg-[var(--accent-dark)] !py-4 md:!py-4 !px-10 text-sm shadow-xl shadow-[var(--accent-color)]/30 border-2 border-[var(--accent-color)]">
                     Take a Venue Tour
                 </a>
-                <a href="contact.html" class="btn bg-transparent text-white border-2 border-white hover:bg-white hover:text-black !py-4 md:!py-4 !px-10 text-sm backdrop-blur-sm">
+                <a href="contact.html"
+                    class="btn bg-transparent text-gray-900 border-2 border-gray-900 hover:bg-gray-900 hover:text-white !py-4 md:!py-4 !px-10 text-sm backdrop-blur-sm">
                     Request a Quote
                 </a>
             </div>
 
             <!-- Stats/Features row attached to bottom of hero content -->
-            <div class="hidden lg:flex items-center gap-10 mt-16 border-t border-white/20 pt-8 w-full max-w-2xl">
+            <div
+                class="hidden lg:flex justify-center items-center gap-10 mt-16 border-t border-gray-300 pt-8 w-full max-w-3xl mx-auto">
                 <div>
-                    <h4 class="text-3xl font-bold text-white mb-1">500+</h4>
-                    <p class="text-xs text-gray-400 uppercase tracking-widest font-semibold">Events Hosted</p>
+                    <h4 class="text-3xl font-bold text-gray-900 mb-1">500+</h4>
+                    <p class="text-xs text-gray-600 uppercase tracking-widest font-semibold">Events Hosted</p>
                 </div>
-                <div class="w-px h-12 bg-white/20"></div>
+                <div class="w-px h-12 bg-gray-300"></div>
                 <div>
-                    <h4 class="text-3xl font-bold text-white mb-1">3</h4>
-                    <p class="text-xs text-gray-400 uppercase tracking-widest font-semibold">Luxury Halls</p>
+                    <h4 class="text-3xl font-bold text-gray-900 mb-1">3</h4>
+                    <p class="text-xs text-gray-600 uppercase tracking-widest font-semibold">Luxury Halls</p>
                 </div>
-                <div class="w-px h-12 bg-white/20"></div>
+                <div class="w-px h-12 bg-gray-300"></div>
                 <div>
-                    <h4 class="text-3xl font-bold text-[var(--accent-color)] mb-1">5<i class="fas fa-star text-xl ml-1"></i></h4>
-                    <p class="text-xs text-gray-400 uppercase tracking-widest font-semibold">Client Rating</p>
+                    <h4 class="text-3xl font-bold text-[var(--accent-color)] mb-1">5<i
+                            class="fas fa-star text-xl ml-1"></i></h4>
+                    <p class="text-xs text-gray-600 uppercase tracking-widest font-semibold">Client Rating</p>
                 </div>
             </div>
 
@@ -389,53 +716,85 @@
         <section class="w-full py-24 bg-[var(--bg-color)] border-b border-[var(--border-color)]">
             <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
                 <div class="text-center mb-16 max-w-2xl mx-auto">
-                    <span class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest mb-3 block">Breathtaking Spaces</span>
-                    <h2 class="text-3xl md:text-5xl font-semibold capitalize tracking-tight text-[var(--text-main)] mb-4">Choose Your Perfect Hall</h2>
+                    <span
+                        class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest mb-3 block">Breathtaking
+                        Spaces</span>
+                    <h2
+                        class="text-3xl md:text-5xl font-semibold capitalize tracking-tight text-[var(--text-main)] mb-4">
+                        Choose Your Perfect Hall</h2>
                     <div class="w-16 h-1 bg-[var(--accent-color)] mx-auto mb-6 rounded-full"></div>
-                    <p class="text-[var(--text-muted)] text-lg">Whether you're planning an intimate gathering or a massive corporate gala, we have a meticulously designed space tailored to your exact needs.</p>
+                    <p class="text-[var(--text-muted)] text-lg">Whether you're planning an intimate gathering or a
+                        massive corporate gala, we have a meticulously designed space tailored to your exact needs.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Venue 1 -->
-                    <div class="bg-[var(--bg-card)] rounded-3xl border border-[var(--border-color)] shadow-sm overflow-hidden group hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                    <div
+                        class="bg-[var(--bg-card)] rounded-3xl border border-[var(--border-color)] shadow-sm overflow-hidden group hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                         <div class="relative w-full h-64 overflow-hidden">
-                            <img src="images/pexels-bertellifotografia-16120263.jpg" alt="Crystal Ballroom" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-4 left-4 bg-[var(--bg-card)] text-[var(--text-main)] text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-full shadow-md"><i class="fas fa-users mr-1 text-[var(--accent-color)]"></i> Up to 500 Guests</span>
+                            <img src="images/pexels-bertellifotografia-16120263.jpg" alt="Crystal Ballroom"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-4 left-4 bg-[var(--bg-card)] text-[var(--text-main)] text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-full shadow-md"><i
+                                    class="fas fa-users mr-1 text-[var(--accent-color)]"></i> Up to 500 Guests</span>
                         </div>
                         <div class="p-8">
                             <h3 class="text-[var(--text-main)] font-semibold text-xl mb-2">The Crystal Ballroom</h3>
-                            <p class="text-[var(--text-muted)] text-sm mb-6 leading-relaxed">Our flagship venue featuring imported crystal chandeliers, a built-in grand stage, and a spacious hardwood dance floor.</p>
+                            <p class="text-[var(--text-muted)] text-sm mb-6 leading-relaxed">Our flagship venue
+                                featuring imported crystal chandeliers, a built-in grand stage, and a spacious hardwood
+                                dance floor.</p>
                             <div class="flex items-center justify-between pt-4 border-t border-[var(--border-color)]">
-                                <div><span class="text-[var(--text-muted)] text-xs uppercase tracking-wider block mb-1">Starting At</span><span class="text-[var(--accent-color)] font-semibold text-xl">$4,500</span></div>
+                                <div><span
+                                        class="text-[var(--text-muted)] text-xs uppercase tracking-wider block mb-1">Starting
+                                        At</span><span
+                                        class="text-[var(--accent-color)] font-semibold text-xl">$4,500</span></div>
                                 <a href="services.html" class="btn btn-outline !py-2 !px-5 !text-xs">View Details</a>
                             </div>
                         </div>
                     </div>
                     <!-- Venue 2 -->
-                    <div class="bg-[var(--bg-card)] rounded-3xl border border-[var(--border-color)] shadow-sm overflow-hidden group hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                    <div
+                        class="bg-[var(--bg-card)] rounded-3xl border border-[var(--border-color)] shadow-sm overflow-hidden group hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                         <div class="relative w-full h-64 overflow-hidden">
-                            <img src="images/pexels-quang-nguyen-vinh-222549-15621210.jpg" alt="Garden Pavilion" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-4 left-4 bg-[var(--bg-card)] text-[var(--text-main)] text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-full shadow-md"><i class="fas fa-users mr-1 text-[var(--accent-color)]"></i> Up to 200 Guests</span>
+                            <img src="images/pexels-quang-nguyen-vinh-222549-15621210.jpg" alt="Garden Pavilion"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-4 left-4 bg-[var(--bg-card)] text-[var(--text-main)] text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-full shadow-md"><i
+                                    class="fas fa-users mr-1 text-[var(--accent-color)]"></i> Up to 200 Guests</span>
                         </div>
                         <div class="p-8">
                             <h3 class="text-[var(--text-main)] font-semibold text-xl mb-2">The Garden Pavilion</h3>
-                            <p class="text-[var(--text-muted)] text-sm mb-6 leading-relaxed">A stunning indoor-outdoor hybrid space surrounded by lush botanical gardens, perfect for daytime weddings and spring events.</p>
+                            <p class="text-[var(--text-muted)] text-sm mb-6 leading-relaxed">A stunning indoor-outdoor
+                                hybrid space surrounded by lush botanical gardens, perfect for daytime weddings and
+                                spring events.</p>
                             <div class="flex items-center justify-between pt-4 border-t border-[var(--border-color)]">
-                                <div><span class="text-[var(--text-muted)] text-xs uppercase tracking-wider block mb-1">Starting At</span><span class="text-[var(--accent-color)] font-semibold text-xl">$2,800</span></div>
+                                <div><span
+                                        class="text-[var(--text-muted)] text-xs uppercase tracking-wider block mb-1">Starting
+                                        At</span><span
+                                        class="text-[var(--accent-color)] font-semibold text-xl">$2,800</span></div>
                                 <a href="services.html" class="btn btn-outline !py-2 !px-5 !text-xs">View Details</a>
                             </div>
                         </div>
                     </div>
                     <!-- Venue 3 -->
-                    <div class="bg-[var(--bg-card)] rounded-3xl border border-[var(--border-color)] shadow-sm overflow-hidden group hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                    <div
+                        class="bg-[var(--bg-card)] rounded-3xl border border-[var(--border-color)] shadow-sm overflow-hidden group hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                         <div class="relative w-full h-64 overflow-hidden">
-                            <img src="images/pexels-jdgromov-4717550.jpg" alt="Executive Lounge" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-4 left-4 bg-[var(--bg-card)] text-[var(--text-main)] text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-full shadow-md"><i class="fas fa-users mr-1 text-[var(--accent-color)]"></i> Up to 75 Guests</span>
+                            <img src="images/pexels-jdgromov-4717550.jpg" alt="Executive Lounge"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-4 left-4 bg-[var(--bg-card)] text-[var(--text-main)] text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-full shadow-md"><i
+                                    class="fas fa-users mr-1 text-[var(--accent-color)]"></i> Up to 75 Guests</span>
                         </div>
                         <div class="p-8">
                             <h3 class="text-[var(--text-main)] font-semibold text-xl mb-2">The Executive Lounge</h3>
-                            <p class="text-[var(--text-muted)] text-sm mb-6 leading-relaxed">An intimate, richly decorated room designed specifically for private dining, corporate retreats, and exclusive VIP parties.</p>
+                            <p class="text-[var(--text-muted)] text-sm mb-6 leading-relaxed">An intimate, richly
+                                decorated room designed specifically for private dining, corporate retreats, and
+                                exclusive VIP parties.</p>
                             <div class="flex items-center justify-between pt-4 border-t border-[var(--border-color)]">
-                                <div><span class="text-[var(--text-muted)] text-xs uppercase tracking-wider block mb-1">Starting At</span><span class="text-[var(--accent-color)] font-semibold text-xl">$1,200</span></div>
+                                <div><span
+                                        class="text-[var(--text-muted)] text-xs uppercase tracking-wider block mb-1">Starting
+                                        At</span><span
+                                        class="text-[var(--accent-color)] font-semibold text-xl">$1,200</span></div>
                                 <a href="services.html" class="btn btn-outline !py-2 !px-5 !text-xs">View Details</a>
                             </div>
                         </div>
@@ -447,41 +806,62 @@
         <!-- === SECTION 2: WHY CHOOSE US (60+ LINES)[cite: 10] === -->
         <section class="w-full py-24 bg-[var(--bg-secondary)] border-b border-[var(--border-color)] overflow-hidden">
             <div class="max-w-[1440px] mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div class="relative w-full aspect-square md:aspect-[4/3] rounded-[40px] overflow-hidden border-8 border-[var(--bg-card)] shadow-xl order-2 lg:order-1">
-                    <img src="images/pexels-bertellifotografia-16985146.jpg" alt="Event Details" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-color)] via-transparent to-transparent opacity-60"></div>
-                    <div class="absolute bottom-8 left-8 bg-[var(--bg-card)] p-5 rounded-2xl shadow-lg border border-[var(--border-color)] flex items-center gap-4">
+                <div
+                    class="relative w-full aspect-square md:aspect-[4/3] rounded-[40px] overflow-hidden border-8 border-[var(--bg-card)] shadow-xl order-2 lg:order-1">
+                    <img src="images/pexels-bertellifotografia-16985146.jpg" alt="Event Details"
+                        class="w-full h-full object-cover">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-[var(--bg-color)] via-transparent to-transparent opacity-60">
+                    </div>
+                    <div
+                        class="absolute bottom-8 left-8 bg-[var(--bg-card)] p-5 rounded-2xl shadow-lg border border-[var(--border-color)] flex items-center gap-4">
                         <div class="text-[var(--accent-color)] text-3xl"><i class="fas fa-award"></i></div>
                         <div>
                             <p class="text-[var(--text-main)] font-semibold text-lg leading-tight">10+ Years</p>
-                            <p class="text-[var(--text-muted)] text-xs font-semibold uppercase tracking-wider">Creating Magic</p>
+                            <p class="text-[var(--text-muted)] text-xs font-semibold uppercase tracking-wider">Creating
+                                Magic</p>
                         </div>
                     </div>
                 </div>
                 <div class="flex flex-col items-start order-1 lg:order-2">
-                    <span class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest mb-3 block">The GrandGala Difference</span>
-                    <h2 class="text-3xl md:text-5xl font-semibold capitalize tracking-tight text-[var(--text-main)] mb-6">Expertise Meets Elegance</h2>
-                    <p class="text-[var(--text-muted)] text-lg leading-relaxed mb-8">We believe that a venue is more than just four walls—it is the backdrop to your most cherished memories. Our dedicated team works tirelessly to ensure every single detail is executed with precision.</p>
+                    <span
+                        class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest mb-3 block">The
+                        GrandGala Difference</span>
+                    <h2
+                        class="text-3xl md:text-5xl font-semibold capitalize tracking-tight text-[var(--text-main)] mb-6">
+                        Expertise Meets Elegance</h2>
+                    <p class="text-[var(--text-muted)] text-lg leading-relaxed mb-8">We believe that a venue is more
+                        than just four walls—it is the backdrop to your most cherished memories. Our dedicated team
+                        works tirelessly to ensure every single detail is executed with precision.</p>
                     <ul class="space-y-4 w-full mb-10">
-                        <li class="flex items-start gap-4 p-4 bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)]">
+                        <li
+                            class="flex items-start gap-4 p-4 bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)]">
                             <i class="fas fa-check-circle text-[var(--accent-color)] text-xl mt-1"></i>
                             <div>
-                                <h4 class="text-[var(--text-main)] font-semibold text-sm mb-1">Dedicated Event Coordinators</h4>
-                                <p class="text-[var(--text-muted)] text-sm">Every booking includes a personal planner to guide you from the initial tour to the final toast.</p>
+                                <h4 class="text-[var(--text-main)] font-semibold text-sm mb-1">Dedicated Event
+                                    Coordinators</h4>
+                                <p class="text-[var(--text-muted)] text-sm">Every booking includes a personal planner to
+                                    guide you from the initial tour to the final toast.</p>
                             </div>
                         </li>
-                        <li class="flex items-start gap-4 p-4 bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)]">
+                        <li
+                            class="flex items-start gap-4 p-4 bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)]">
                             <i class="fas fa-check-circle text-[var(--accent-color)] text-xl mt-1"></i>
                             <div>
-                                <h4 class="text-[var(--text-main)] font-semibold text-sm mb-1">World-Class Culinary Team</h4>
-                                <p class="text-[var(--text-muted)] text-sm">Our in-house executive chefs craft customizable menus featuring diverse global cuisines.</p>
+                                <h4 class="text-[var(--text-main)] font-semibold text-sm mb-1">World-Class Culinary Team
+                                </h4>
+                                <p class="text-[var(--text-muted)] text-sm">Our in-house executive chefs craft
+                                    customizable menus featuring diverse global cuisines.</p>
                             </div>
                         </li>
-                        <li class="flex items-start gap-4 p-4 bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)]">
+                        <li
+                            class="flex items-start gap-4 p-4 bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)]">
                             <i class="fas fa-check-circle text-[var(--accent-color)] text-xl mt-1"></i>
                             <div>
-                                <h4 class="text-[var(--text-main)] font-semibold text-sm mb-1">State-of-the-Art Technology</h4>
-                                <p class="text-[var(--text-muted)] text-sm">Enjoy premium acoustic sound systems, dynamic LED lighting, and high-speed Wi-Fi included.</p>
+                                <h4 class="text-[var(--text-main)] font-semibold text-sm mb-1">State-of-the-Art
+                                    Technology</h4>
+                                <p class="text-[var(--text-muted)] text-sm">Enjoy premium acoustic sound systems,
+                                    dynamic LED lighting, and high-speed Wi-Fi included.</p>
                             </div>
                         </li>
                     </ul>
@@ -494,38 +874,54 @@
         <section class="w-full py-24 bg-[var(--bg-color)] border-b border-[var(--border-color)]">
             <div class="max-w-[1440px] mx-auto px-6 lg:px-12 flex flex-col items-center">
                 <div class="text-center mb-16 max-w-2xl mx-auto">
-                    <span class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest mb-3 block">Everything You Need</span>
-                    <h2 class="text-3xl md:text-5xl font-semibold capitalize tracking-tight text-[var(--text-main)] mb-4">All-Inclusive Amenities</h2>
+                    <span
+                        class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest mb-3 block">Everything
+                        You Need</span>
+                    <h2
+                        class="text-3xl md:text-5xl font-semibold capitalize tracking-tight text-[var(--text-main)] mb-4">
+                        All-Inclusive Amenities</h2>
                     <div class="w-16 h-1 bg-[var(--accent-color)] mx-auto mb-6 rounded-full"></div>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full mb-12">
-                    <div class="text-center p-8 rounded-3xl bg-[var(--bg-secondary)] border border-[var(--border-color)] shadow-sm hover:-translate-y-2 transition-transform duration-300">
-                        <div class="w-16 h-16 bg-[var(--bg-card)] rounded-full flex items-center justify-center mx-auto mb-6 border border-[var(--border-color)] shadow-sm text-[var(--accent-color)] text-2xl">
+                    <div
+                        class="text-center p-8 rounded-3xl bg-[var(--bg-secondary)] border border-[var(--border-color)] shadow-sm hover:-translate-y-2 transition-transform duration-300">
+                        <div
+                            class="w-16 h-16 bg-[var(--bg-card)] rounded-full flex items-center justify-center mx-auto mb-6 border border-[var(--border-color)] shadow-sm text-[var(--accent-color)] text-2xl">
                             <i class="fas fa-utensils"></i>
                         </div>
                         <h3 class="text-lg font-semibold text-[var(--text-main)] mb-2">Gourmet Catering</h3>
-                        <p class="text-[var(--text-muted)] text-sm leading-relaxed">Full-service catering options ranging from buffet style to plated multi-course dinners.</p>
+                        <p class="text-[var(--text-muted)] text-sm leading-relaxed">Full-service catering options
+                            ranging from buffet style to plated multi-course dinners.</p>
                     </div>
-                    <div class="text-center p-8 rounded-3xl bg-[var(--bg-secondary)] border border-[var(--border-color)] shadow-sm hover:-translate-y-2 transition-transform duration-300">
-                        <div class="w-16 h-16 bg-[var(--bg-card)] rounded-full flex items-center justify-center mx-auto mb-6 border border-[var(--border-color)] shadow-sm text-[var(--accent-color)] text-2xl">
+                    <div
+                        class="text-center p-8 rounded-3xl bg-[var(--bg-secondary)] border border-[var(--border-color)] shadow-sm hover:-translate-y-2 transition-transform duration-300">
+                        <div
+                            class="w-16 h-16 bg-[var(--bg-card)] rounded-full flex items-center justify-center mx-auto mb-6 border border-[var(--border-color)] shadow-sm text-[var(--accent-color)] text-2xl">
                             <i class="fas fa-car"></i>
                         </div>
                         <h3 class="text-lg font-semibold text-[var(--text-main)] mb-2">Valet Parking</h3>
-                        <p class="text-[var(--text-muted)] text-sm leading-relaxed">Complimentary secured valet parking and abundant self-parking options for all your guests.</p>
+                        <p class="text-[var(--text-muted)] text-sm leading-relaxed">Complimentary secured valet parking
+                            and abundant self-parking options for all your guests.</p>
                     </div>
-                    <div class="text-center p-8 rounded-3xl bg-[var(--bg-secondary)] border border-[var(--border-color)] shadow-sm hover:-translate-y-2 transition-transform duration-300">
-                        <div class="w-16 h-16 bg-[var(--bg-card)] rounded-full flex items-center justify-center mx-auto mb-6 border border-[var(--border-color)] shadow-sm text-[var(--accent-color)] text-2xl">
+                    <div
+                        class="text-center p-8 rounded-3xl bg-[var(--bg-secondary)] border border-[var(--border-color)] shadow-sm hover:-translate-y-2 transition-transform duration-300">
+                        <div
+                            class="w-16 h-16 bg-[var(--bg-card)] rounded-full flex items-center justify-center mx-auto mb-6 border border-[var(--border-color)] shadow-sm text-[var(--accent-color)] text-2xl">
                             <i class="fas fa-gem"></i>
                         </div>
                         <h3 class="text-lg font-semibold text-[var(--text-main)] mb-2">Custom Decor</h3>
-                        <p class="text-[var(--text-muted)] text-sm leading-relaxed">Access to our expansive inventory of linens, centerpieces, drapery, and seating options.</p>
+                        <p class="text-[var(--text-muted)] text-sm leading-relaxed">Access to our expansive inventory of
+                            linens, centerpieces, drapery, and seating options.</p>
                     </div>
-                    <div class="text-center p-8 rounded-3xl bg-[var(--bg-secondary)] border border-[var(--border-color)] shadow-sm hover:-translate-y-2 transition-transform duration-300">
-                        <div class="w-16 h-16 bg-[var(--bg-card)] rounded-full flex items-center justify-center mx-auto mb-6 border border-[var(--border-color)] shadow-sm text-[var(--accent-color)] text-2xl">
+                    <div
+                        class="text-center p-8 rounded-3xl bg-[var(--bg-secondary)] border border-[var(--border-color)] shadow-sm hover:-translate-y-2 transition-transform duration-300">
+                        <div
+                            class="w-16 h-16 bg-[var(--bg-card)] rounded-full flex items-center justify-center mx-auto mb-6 border border-[var(--border-color)] shadow-sm text-[var(--accent-color)] text-2xl">
                             <i class="fas fa-music"></i>
                         </div>
                         <h3 class="text-lg font-semibold text-[var(--text-main)] mb-2">Audio & Visual</h3>
-                        <p class="text-[var(--text-muted)] text-sm leading-relaxed">High-definition projectors, cordless microphones, and customizable mood lighting.</p>
+                        <p class="text-[var(--text-muted)] text-sm leading-relaxed">High-definition projectors, cordless
+                            microphones, and customizable mood lighting.</p>
                     </div>
                 </div>
             </div>
@@ -535,44 +931,72 @@
         <section class="w-full py-24 bg-[var(--bg-secondary)] border-b border-[var(--border-color)]">
             <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
                 <div class="text-center mb-16 max-w-2xl mx-auto">
-                    <span class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest mb-3 block">Success Stories</span>
-                    <h2 class="text-3xl md:text-5xl font-semibold capitalize tracking-tight text-[var(--text-main)] mb-4">Words From Our Clients</h2>
+                    <span
+                        class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest mb-3 block">Success
+                        Stories</span>
+                    <h2
+                        class="text-3xl md:text-5xl font-semibold capitalize tracking-tight text-[var(--text-main)] mb-4">
+                        Words From Our Clients</h2>
                     <div class="w-16 h-1 bg-[var(--accent-color)] mx-auto mb-6 rounded-full"></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Review 1 -->
-                    <div class="bg-[var(--bg-card)] p-8 rounded-3xl shadow-sm border border-[var(--border-color)] relative pt-12 mt-8 hover:-translate-y-2 transition-transform duration-300">
-                        <div class="absolute -top-10 left-8 w-20 h-20 rounded-full overflow-hidden border-4 border-[var(--bg-card)] shadow-md">
-                            <img src="images/pexels-shalika-akalanka-2148662885-30215011.jpg" alt="Client 1" class="w-full h-full object-cover">
+                    <div
+                        class="bg-[var(--bg-card)] p-8 rounded-3xl shadow-sm border border-[var(--border-color)] relative pt-12 mt-8 hover:-translate-y-2 transition-transform duration-300">
+                        <div
+                            class="absolute -top-10 left-8 w-20 h-20 rounded-full overflow-hidden border-4 border-[var(--bg-card)] shadow-md">
+                            <img src="images/pexels-shalika-akalanka-2148662885-30215011.jpg" alt="Client 1"
+                                class="w-full h-full object-cover">
                         </div>
-                        <div class="flex text-[#f59e0b] text-sm mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="text-[var(--text-muted)] font-medium leading-relaxed mb-6 italic">"Booking the Crystal Ballroom for our wedding was the best decision we made. The staff treated us like royalty, the food was exquisite, and the hall looked absolutely breathtaking."</p>
+                        <div class="flex text-[#f59e0b] text-sm mb-4"><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i></div>
+                        <p class="text-[var(--text-muted)] font-medium leading-relaxed mb-6 italic">"Booking the Crystal
+                            Ballroom for our wedding was the best decision we made. The staff treated us like royalty,
+                            the food was exquisite, and the hall looked absolutely breathtaking."</p>
                         <div class="border-t border-[var(--border-color)] pt-4">
-                            <h4 class="font-semibold text-[var(--text-main)] text-sm uppercase tracking-wider">Amanda & James</h4>
+                            <h4 class="font-semibold text-[var(--text-main)] text-sm uppercase tracking-wider">Amanda &
+                                James</h4>
                             <span class="text-[var(--accent-color)] text-xs font-semibold">Wedding Reception</span>
                         </div>
                     </div>
                     <!-- Review 2 -->
-                    <div class="bg-[var(--bg-card)] p-8 rounded-3xl shadow-sm border border-[var(--border-color)] relative pt-12 mt-8 hover:-translate-y-2 transition-transform duration-300">
-                        <div class="absolute -top-10 left-8 w-20 h-20 rounded-full overflow-hidden border-4 border-[var(--bg-card)] shadow-md">
-                            <img src="images/pexels-atx-2153178515-32593148.jpg" alt="Client 2" class="w-full h-full object-cover">
+                    <div
+                        class="bg-[var(--bg-card)] p-8 rounded-3xl shadow-sm border border-[var(--border-color)] relative pt-12 mt-8 hover:-translate-y-2 transition-transform duration-300">
+                        <div
+                            class="absolute -top-10 left-8 w-20 h-20 rounded-full overflow-hidden border-4 border-[var(--bg-card)] shadow-md">
+                            <img src="images/pexels-atx-2153178515-32593148.jpg" alt="Client 2"
+                                class="w-full h-full object-cover">
                         </div>
-                        <div class="flex text-[#f59e0b] text-sm mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="text-[var(--text-muted)] font-medium leading-relaxed mb-6 italic">"We hosted our annual corporate awards dinner at the Garden Pavilion. The technical setup was flawless, and the event coordinators managed our 300+ guests with remarkable efficiency."</p>
+                        <div class="flex text-[#f59e0b] text-sm mb-4"><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i></div>
+                        <p class="text-[var(--text-muted)] font-medium leading-relaxed mb-6 italic">"We hosted our
+                            annual corporate awards dinner at the Garden Pavilion. The technical setup was flawless, and
+                            the event coordinators managed our 300+ guests with remarkable efficiency."</p>
                         <div class="border-t border-[var(--border-color)] pt-4">
-                            <h4 class="font-semibold text-[var(--text-main)] text-sm uppercase tracking-wider">Robert Chen</h4>
+                            <h4 class="font-semibold text-[var(--text-main)] text-sm uppercase tracking-wider">Robert
+                                Chen</h4>
                             <span class="text-[var(--accent-color)] text-xs font-semibold">Corporate Event</span>
                         </div>
                     </div>
                     <!-- Review 3 -->
-                    <div class="bg-[var(--bg-card)] p-8 rounded-3xl shadow-sm border border-[var(--border-color)] relative pt-12 mt-8 hover:-translate-y-2 transition-transform duration-300">
-                        <div class="absolute -top-10 left-8 w-20 h-20 rounded-full overflow-hidden border-4 border-[var(--bg-card)] shadow-md">
-                            <img src="images/pexels-simeart-30311728.jpg" alt="Client 3" class="w-full h-full object-cover">
+                    <div
+                        class="bg-[var(--bg-card)] p-8 rounded-3xl shadow-sm border border-[var(--border-color)] relative pt-12 mt-8 hover:-translate-y-2 transition-transform duration-300">
+                        <div
+                            class="absolute -top-10 left-8 w-20 h-20 rounded-full overflow-hidden border-4 border-[var(--bg-card)] shadow-md">
+                            <img src="images/pexels-simeart-30311728.jpg" alt="Client 3"
+                                class="w-full h-full object-cover">
                         </div>
-                        <div class="flex text-[#f59e0b] text-sm mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-                        <p class="text-[var(--text-muted)] font-medium leading-relaxed mb-6 italic">"My daughter's Sweet 16 was magical thanks to GrandGala. The customized lighting, the expansive dance floor, and the incredibly attentive serving staff made it a night to remember forever."</p>
+                        <div class="flex text-[#f59e0b] text-sm mb-4"><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star-half-alt"></i></div>
+                        <p class="text-[var(--text-muted)] font-medium leading-relaxed mb-6 italic">"My daughter's Sweet
+                            16 was magical thanks to GrandGala. The customized lighting, the expansive dance floor, and
+                            the incredibly attentive serving staff made it a night to remember forever."</p>
                         <div class="border-t border-[var(--border-color)] pt-4">
-                            <h4 class="font-semibold text-[var(--text-main)] text-sm uppercase tracking-wider">Maria Gonzalez</h4>
+                            <h4 class="font-semibold text-[var(--text-main)] text-sm uppercase tracking-wider">Maria
+                                Gonzalez</h4>
                             <span class="text-[var(--accent-color)] text-xs font-semibold">Private Party</span>
                         </div>
                     </div>
@@ -585,34 +1009,46 @@
             <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
                 <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                     <div class="max-w-xl">
-                        <span class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest mb-3 block">Our Portfolio</span>
-                        <h2 class="text-3xl md:text-5xl font-semibold capitalize tracking-tight text-[var(--text-main)]">Moments Captured</h2>
+                        <span
+                            class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest mb-3 block">Our
+                            Portfolio</span>
+                        <h2
+                            class="text-3xl md:text-5xl font-semibold capitalize tracking-tight text-[var(--text-main)]">
+                            Moments Captured</h2>
                     </div>
                     <a href="blog.html" class="btn btn-outline shrink-0 !py-3 !px-6">View Full Gallery</a>
                 </div>
                 <!-- Gallery Grid -->
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 h-[600px]">
                     <div class="col-span-2 row-span-2 rounded-2xl overflow-hidden relative group">
-                        <img src="images/pexels-vidalbalielojrfotografia-14646749.jpg" alt="Wedding Toast" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <img src="images/pexels-vidalbalielojrfotografia-14646749.jpg" alt="Wedding Toast"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                             <h3 class="text-white font-semibold text-xl tracking-wider uppercase">Weddings</h3>
                         </div>
                     </div>
                     <div class="rounded-2xl overflow-hidden relative group">
-                        <img src="images/pexels-bertellifotografia-16935999.jpg" alt="Corporate Setup" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <img src="images/pexels-bertellifotografia-16935999.jpg" alt="Corporate Setup"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                             <h3 class="text-white font-semibold text-sm tracking-wider uppercase">Corporate</h3>
                         </div>
                     </div>
                     <div class="rounded-2xl overflow-hidden relative group">
-                        <img src="images/pexels-vidalbalielojrfotografia-12688995.jpg" alt="Party Decor" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <img src="images/pexels-vidalbalielojrfotografia-12688995.jpg" alt="Party Decor"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                             <h3 class="text-white font-semibold text-sm tracking-wider uppercase">Decorations</h3>
                         </div>
                     </div>
                     <div class="col-span-2 rounded-2xl overflow-hidden relative group">
-                        <img src="images/pexels-jdgromov-4717558.jpg" alt="Catering Food" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <img src="images/pexels-jdgromov-4717558.jpg" alt="Catering Food"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                             <h3 class="text-white font-semibold text-lg tracking-wider uppercase">Fine Dining</h3>
                         </div>
                     </div>
@@ -624,43 +1060,62 @@
         <section class="w-full py-24 bg-[var(--bg-secondary)] border-b border-[var(--border-color)]">
             <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
                 <div class="text-center mb-16 max-w-2xl mx-auto">
-                    <span class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest mb-3 block">Tailored For You</span>
-                    <h2 class="text-3xl md:text-5xl font-semibold capitalize tracking-tight text-[var(--text-main)] mb-4">Event Packages</h2>
+                    <span
+                        class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest mb-3 block">Tailored
+                        For You</span>
+                    <h2
+                        class="text-3xl md:text-5xl font-semibold capitalize tracking-tight text-[var(--text-main)] mb-4">
+                        Event Packages</h2>
                     <div class="w-16 h-1 bg-[var(--accent-color)] mx-auto mb-6 rounded-full"></div>
-                    <p class="text-[var(--text-muted)] text-lg">Comprehensive event packages designed to take the stress out of planning, offering everything from decor to dining in one seamless bundle.</p>
+                    <p class="text-[var(--text-muted)] text-lg">Comprehensive event packages designed to take the stress
+                        out of planning, offering everything from decor to dining in one seamless bundle.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Package 1 -->
-                    <div class="bg-[var(--bg-card)] rounded-3xl border border-[var(--border-color)] shadow-sm overflow-hidden group hover:-translate-y-2 hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div
+                        class="bg-[var(--bg-card)] rounded-3xl border border-[var(--border-color)] shadow-sm overflow-hidden group hover:-translate-y-2 hover:shadow-xl transition-all duration-300 flex flex-col">
                         <div class="h-48 overflow-hidden relative">
-                            <img src="images/pexels-bertellifotografia-17001765.jpg" alt="Silver Package" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="images/pexels-bertellifotografia-17001765.jpg" alt="Silver Package"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-8 flex flex-col flex-1">
                             <h3 class="text-[var(--text-main)] font-semibold text-2xl mb-2">Classic Elegance</h3>
-                            <p class="text-[var(--text-muted)] text-sm mb-6 flex-1">Perfect for intimate gatherings. Includes standard hall rental, basic floral centerpieces, a dedicated coordinator, and a 3-course plated dinner for your guests.</p>
+                            <p class="text-[var(--text-muted)] text-sm mb-6 flex-1">Perfect for intimate gatherings.
+                                Includes standard hall rental, basic floral centerpieces, a dedicated coordinator, and a
+                                3-course plated dinner for your guests.</p>
                             <a href="pricing.html" class="btn btn-outline w-full !py-3">View Details</a>
                         </div>
                     </div>
                     <!-- Package 2 -->
-                    <div class="bg-[var(--bg-card)] rounded-3xl border-2 border-[var(--accent-color)] shadow-md overflow-hidden group hover:-translate-y-2 hover:shadow-xl transition-all duration-300 flex flex-col relative">
-                        <span class="absolute top-4 right-4 bg-[var(--accent-color)] text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full z-10">Most Popular</span>
+                    <div
+                        class="bg-[var(--bg-card)] rounded-3xl border-2 border-[var(--accent-color)] shadow-md overflow-hidden group hover:-translate-y-2 hover:shadow-xl transition-all duration-300 flex flex-col relative">
+                        <span
+                            class="absolute top-4 right-4 bg-[var(--accent-color)] text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full z-10">Most
+                            Popular</span>
                         <div class="h-48 overflow-hidden relative">
-                            <img src="images/pexels-juliano-astc-1623739-17931472.jpg" alt="Gold Package" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="images/pexels-juliano-astc-1623739-17931472.jpg" alt="Gold Package"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-8 flex flex-col flex-1">
                             <h3 class="text-[var(--text-main)] font-semibold text-2xl mb-2">Grand Gala Gold</h3>
-                            <p class="text-[var(--text-muted)] text-sm mb-6 flex-1">Our signature experience. Includes a premium open bar, DJ services, custom LED lighting, upgraded linens, and an extensive gourmet buffet selection.</p>
+                            <p class="text-[var(--text-muted)] text-sm mb-6 flex-1">Our signature experience. Includes a
+                                premium open bar, DJ services, custom LED lighting, upgraded linens, and an extensive
+                                gourmet buffet selection.</p>
                             <a href="pricing.html" class="btn btn-solid w-full !py-3">View Details</a>
                         </div>
                     </div>
                     <!-- Package 3 -->
-                    <div class="bg-[var(--bg-card)] rounded-3xl border border-[var(--border-color)] shadow-sm overflow-hidden group hover:-translate-y-2 hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div
+                        class="bg-[var(--bg-card)] rounded-3xl border border-[var(--border-color)] shadow-sm overflow-hidden group hover:-translate-y-2 hover:shadow-xl transition-all duration-300 flex flex-col">
                         <div class="h-48 overflow-hidden relative">
-                            <img src="images/pexels-aksinfo7-36774692.jpg" alt="Platinum Package" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="images/pexels-aksinfo7-36774692.jpg" alt="Platinum Package"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-8 flex flex-col flex-1">
                             <h3 class="text-[var(--text-main)] font-semibold text-2xl mb-2">Royal Platinum</h3>
-                            <p class="text-[var(--text-muted)] text-sm mb-6 flex-1">The ultimate luxury package. Includes valet parking, a live band, a 5-course meal with wine pairing, specialized decor, and dedicated VIP lounge access.</p>
+                            <p class="text-[var(--text-muted)] text-sm mb-6 flex-1">The ultimate luxury package.
+                                Includes valet parking, a live band, a 5-course meal with wine pairing, specialized
+                                decor, and dedicated VIP lounge access.</p>
                             <a href="pricing.html" class="btn btn-outline w-full !py-3">View Details</a>
                         </div>
                     </div>
@@ -670,28 +1125,40 @@
 
         <!-- === SECTION 7: FINAL CALL TO ACTION (60+ LINES)[cite: 10] === -->
         <section class="w-full py-24 bg-[var(--bg-color)] relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-r from-[var(--accent-color)] to-[var(--accent-dark)] opacity-10"></div>
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-[var(--accent-color)] to-[var(--accent-dark)] opacity-10">
+            </div>
             <div class="max-w-[1200px] mx-auto px-6 lg:px-12 relative z-10">
-                <div class="bg-[var(--bg-card)] rounded-[40px] shadow-2xl border border-[var(--border-color)] p-10 md:p-16 flex flex-col items-center justify-center text-center overflow-hidden relative">
+                <div
+                    class="bg-[var(--bg-card)] rounded-[40px] shadow-2xl border border-[var(--border-color)] p-10 md:p-16 flex flex-col items-center justify-center text-center overflow-hidden relative">
                     <!-- Background decorative elements -->
-                    <div class="absolute -right-20 -top-20 w-64 h-64 border-[30px] border-[var(--bg-secondary)] rounded-full opacity-50 pointer-events-none"></div>
-                    <div class="absolute -left-20 -bottom-20 w-48 h-48 border-[20px] border-[var(--bg-secondary)] rounded-full opacity-50 pointer-events-none"></div>
-                    
+                    <div
+                        class="absolute -right-20 -top-20 w-64 h-64 border-[30px] border-[var(--bg-secondary)] rounded-full opacity-50 pointer-events-none">
+                    </div>
+                    <div
+                        class="absolute -left-20 -bottom-20 w-48 h-48 border-[20px] border-[var(--bg-secondary)] rounded-full opacity-50 pointer-events-none">
+                    </div>
+
                     <div class="relative z-10 max-w-2xl">
-                        <span class="text-[var(--accent-color)] text-sm font-semibold uppercase tracking-widest mb-4 block flex items-center justify-center gap-2">
+                        <span
+                            class="text-[var(--accent-color)] text-sm font-semibold uppercase tracking-widest mb-4 block flex items-center justify-center gap-2">
                             <i class="fas fa-gift"></i> Special 2026 Promotion
                         </span>
-                        <h2 class="text-3xl md:text-5xl font-semibold text-[var(--text-main)] mb-6 capitalize leading-tight">
+                        <h2
+                            class="text-3xl md:text-5xl font-semibold text-[var(--text-main)] mb-6 capitalize leading-tight">
                             Ready to Host Your Dream Event?
                         </h2>
                         <p class="text-[var(--text-muted)] text-lg mb-10 mx-auto">
-                            Secure your date today and receive a complimentary champagne toast for all your guests, plus a free consultation with our senior event designer.
+                            Secure your date today and receive a complimentary champagne toast for all your guests, plus
+                            a free consultation with our senior event designer.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                            <a href="contact.html" class="btn btn-solid !py-4 !px-10 text-sm flex items-center justify-center gap-2 shadow-lg shadow-[var(--accent-color)]/20">
+                            <a href="contact.html"
+                                class="btn btn-solid !py-4 !px-10 text-sm flex items-center justify-center gap-2 shadow-lg shadow-[var(--accent-color)]/20">
                                 <i class="fas fa-calendar-alt"></i> Check Availability
                             </a>
-                            <a href="tel:1555800GALA" class="btn btn-outline !py-4 !px-10 text-sm flex items-center justify-center gap-2">
+                            <a href="tel:1555800GALA"
+                                class="btn btn-outline !py-4 !px-10 text-sm flex items-center justify-center gap-2">
                                 <i class="fas fa-phone-alt"></i> (555) 800-GALA
                             </a>
                         </div>
@@ -708,13 +1175,17 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-10 pt-4">
                 <div class="lg:col-span-4">
                     <div class="mb-6">
-                        <a href="index.html" class="inline-flex items-center gap-2 text-2xl font-semibold tracking-wider" style="color: var(--text-main) !important; text-decoration: none;">
+                        <a href="index.html"
+                            class="inline-flex items-center gap-2 text-2xl font-semibold tracking-wider"
+                            style="color: var(--text-main) !important; text-decoration: none;">
                             <i class="fas fa-glass-cheers" style="color: var(--accent-color); font-size: 1.4rem;"></i>
                             GrandGala
                         </a>
                     </div>
-                    <p class="opacity-80 leading-relaxed text-sm font-medium mb-8 max-w-sm" style="color: var(--text-muted);">
-                        Dedicated to providing luxurious, spacious, and highly customizable venue spaces. We ensure your special day is hosted flawlessly with elite catering and event management.
+                    <p class="opacity-80 leading-relaxed text-sm font-medium mb-8 max-w-sm"
+                        style="color: var(--text-muted);">
+                        Dedicated to providing luxurious, spacious, and highly customizable venue spaces. We ensure your
+                        special day is hosted flawlessly with elite catering and event management.
                     </p>
                     <div class="flex space-x-4">
                         <a href="#" class="social-link-circle"><i class="fab fa-facebook-f"></i></a>
@@ -750,16 +1221,19 @@
                             <h4>Headquarters</h4>
                             <ul class="space-y-4 text-[var(--text-muted)] text-sm font-medium">
                                 <li class="flex items-start gap-4">
-                                    <i class="fas fa-map-marker-alt mt-1 shrink-0" style="color: var(--accent-color);"></i>
+                                    <i class="fas fa-map-marker-alt mt-1 shrink-0"
+                                        style="color: var(--accent-color);"></i>
                                     <span>123 Celebration Blvd<br>Gala City, TX 75001</span>
                                 </li>
                                 <li class="flex items-center gap-4">
                                     <i class="fas fa-phone shrink-0" style="color: var(--accent-color);"></i>
-                                    <a href="tel:+15550198" class="break-all hover:text-[var(--accent-color)]">+1 (555) 800-GALA</a>
+                                    <a href="tel:+15550198" class="break-all hover:text-[var(--accent-color)]">+1 (555)
+                                        800-GALA</a>
                                 </li>
                                 <li class="flex items-center gap-4">
                                     <i class="fas fa-envelope shrink-0" style="color: var(--accent-color);"></i>
-                                    <a href="contact.html" class="break-all hover:text-[var(--accent-color)]">events@grandgala.com</a>
+                                    <a href="contact.html"
+                                        class="break-all hover:text-[var(--accent-color)]">events@grandgala.com</a>
                                 </li>
                             </ul>
                         </div>
@@ -767,8 +1241,10 @@
                 </div>
             </div>
 
-            <div class="footer-bottom flex flex-col md:flex-row justify-between items-center text-xs gap-6 font-semibold uppercase tracking-widest">
-                <p style="color: var(--text-muted);">&copy; 2026 GrandGala Party Hall & Banquet Venue. All rights reserved.</p>
+            <div
+                class="footer-bottom flex flex-col md:flex-row justify-between items-center text-xs gap-6 font-semibold uppercase tracking-widest">
+                <p style="color: var(--text-muted);">&copy; 2026 GrandGala Party Hall & Banquet Venue. All rights
+                    reserved.</p>
                 <div class="flex flex-wrap justify-center gap-6 sm:gap-8">
                     <a href="#">Booking Terms</a>
                     <a href="#">Cancellation Policy</a>
@@ -851,4 +1327,5 @@
         if (rtlMobile) rtlMobile.onclick = toggleRTL;
     </script>
 </body>
+
 </html>

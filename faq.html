@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <!--[cite: 4] -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ - GrandGala Party Hall & Banquet Venue</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/jpeg" href="images\images (6).png">
+    <link rel="icon" type="image/png" href="images\images (6).png">
     <script>
         tailwind.config = {
             theme: {
@@ -21,12 +24,22 @@
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
     <style>
         /* === RESET & CORE[cite: 4] === */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; overflow-x: hidden; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
@@ -38,12 +51,15 @@
         /* === THEME VARIABLES (Banquet - Elegant Gold)[cite: 4] === */
         :root {
             --bg-color: #FAFAFA;
-            --bg-secondary: #FFFBEB; /* Amber-50 */
+            --bg-secondary: #FFFBEB;
+            /* Amber-50 */
             --bg-card: #FFFFFF;
             --text-main: #1C1917;
             --text-muted: #78716C;
-            --accent-color: #D97706; /* Amber-600 */
-            --accent-dark: #B45309; /* Amber-700 */
+            --accent-color: #D97706;
+            /* Amber-600 */
+            --accent-dark: #B45309;
+            /* Amber-700 */
             --border-color: #FEF3C7;
             --nav-bg: rgba(255, 255, 255, 0.85);
             --drawer-bg: rgba(255, 255, 255, 0.98);
@@ -66,143 +82,433 @@
         }
 
         /* RTL SUPPORT[cite: 4] */
-        [dir="rtl"] { text-align: right; }
-        [dir="rtl"] .ml-auto { margin-right: auto; margin-left: 0; }
-        [dir="rtl"] .mr-auto { margin-left: auto; margin-right: 0; }
+        [dir="rtl"] {
+            text-align: right;
+        }
+
+        [dir="rtl"] .ml-auto {
+            margin-right: auto;
+            margin-left: 0;
+        }
+
+        [dir="rtl"] .mr-auto {
+            margin-left: auto;
+            margin-right: 0;
+        }
 
         @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
         }
-        .animate-float { animation: float 5s ease-in-out infinite; }
+
+        .animate-float {
+            animation: float 5s ease-in-out infinite;
+        }
 
         /* === ULTRA-MODERN FLOATING PILL NAVBAR[cite: 4] === */
         .navbar {
-            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-            width: calc(100% - 40px); max-width: 1380px; z-index: 1000;
-            background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 100px;
-            padding: 0 24px; height: 76px; display: flex; align-items: center;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 40px);
+            max-width: 1380px;
+            z-index: 1000;
+            background: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 100px;
+            padding: 0 24px;
+            height: 76px;
+            display: flex;
+            align-items: center;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
         }
+
         body.dark-mode .navbar {
             border: 1px solid rgba(255, 255, 255, 0.08);
             box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
         }
+
         .navbar.scrolled {
-            top: 12px; height: 64px; background: rgba(255, 255, 255, 0.95);
+            top: 12px;
+            height: 64px;
+            background: rgba(255, 255, 255, 0.95);
             box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.1);
         }
-        body.dark-mode .navbar.scrolled { background: rgba(28, 25, 23, 0.95); }
+
+        body.dark-mode .navbar.scrolled {
+            background: rgba(28, 25, 23, 0.95);
+        }
 
         .nav-link {
-            position: relative; padding: 8px 18px; margin: 0 4px;
-            color: var(--text-main); text-decoration: none; font-size: 13px; font-weight: 600;
-            text-transform: capitalize; letter-spacing: 0.3px; transition: all 0.3s ease;
-            display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-            cursor: pointer; border-radius: 50px; z-index: 1;
+            position: relative;
+            padding: 8px 18px;
+            margin: 0 4px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: capitalize;
+            letter-spacing: 0.3px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            border-radius: 50px;
+            z-index: 1;
         }
-        .nav-link::before {
-            content: ''; position: absolute; inset: 0; background: var(--accent-color);
-            border-radius: 50px; opacity: 0; transform: scale(0.85);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: -1;
-        }
-        .nav-link:hover::before, .nav-link.active::before { opacity: 0.15; transform: scale(1); }
-        body.dark-mode .nav-link:hover::before, body.dark-mode .nav-link.active::before { opacity: 0.25; }
-        .nav-link:hover, .nav-link.active { color: var(--accent-dark); }
-        body.dark-mode .nav-link:hover, body.dark-mode .nav-link.active { color: #FDE68A; }
 
-        .dropdown { position: relative; display: flex; align-items: center; height: 100%; }
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--accent-color);
+            border-radius: 50px;
+            opacity: 0;
+            transform: scale(0.85);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            opacity: 0.15;
+            transform: scale(1);
+        }
+
+        body.dark-mode .nav-link:hover::before,
+        body.dark-mode .nav-link.active::before {
+            opacity: 0.25;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent-dark);
+        }
+
+        body.dark-mode .nav-link:hover,
+        body.dark-mode .nav-link.active {
+            color: #FDE68A;
+        }
+
+        .dropdown {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
         .dropdown-menu {
-            position: absolute; top: calc(100% + 15px); left: 0;
-            transform: translateY(15px) scale(0.95); opacity: 0; visibility: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 100; transform-origin: top left;
+            position: absolute;
+            top: calc(100% + 15px);
+            left: 0;
+            transform: translateY(15px) scale(0.95);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 100;
+            transform-origin: top left;
         }
+
         .dropdown-inner {
-            background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 24px;
-            min-width: 220px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); padding: 12px;
-            display: flex; flex-direction: column; gap: 4px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            min-width: 220px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
         }
-        body.dark-mode .dropdown-inner { box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6); }
-        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+
+        body.dark-mode .dropdown-inner {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
         .dropdown-item {
-            display: block; padding: 10px 16px; border-radius: 12px; color: var(--text-main);
-            text-decoration: none; font-size: 13px; font-weight: 500; text-transform: capitalize;
-            transition: all 0.2s; text-align: left; white-space: nowrap;
+            display: block;
+            padding: 10px 16px;
+            border-radius: 12px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: capitalize;
+            transition: all 0.2s;
+            text-align: left;
+            white-space: nowrap;
         }
-        .dropdown-item:hover { background: var(--menu-hover-bg); color: var(--accent-color); padding-left: 20px; }
-        [dir="rtl"] .dropdown-item:hover { padding-left: 16px; padding-right: 20px; }
+
+        .dropdown-item:hover {
+            background: var(--menu-hover-bg);
+            color: var(--accent-color);
+            padding-left: 20px;
+        }
+
+        [dir="rtl"] .dropdown-item:hover {
+            padding-left: 16px;
+            padding-right: 20px;
+        }
 
         .theme-toggle-pill {
-            width: 80px; height: 32px; background: var(--bg-secondary); border-radius: 30px;
-            position: relative; cursor: pointer; display: flex; align-items: center; justify-content: space-between;
-            padding: 0 10px; border: 1px solid var(--border-color);
+            width: 80px;
+            height: 32px;
+            background: var(--bg-secondary);
+            border-radius: 30px;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            border: 1px solid var(--border-color);
         }
-        .theme-toggle-pill i { font-size: 12px; z-index: 1; }
-        .theme-toggle-pill .fa-sun { color: #f59e0b; }
-        .theme-toggle-pill .fa-moon { color: #999; }
+
+        .theme-toggle-pill i {
+            font-size: 12px;
+            z-index: 1;
+        }
+
+        .theme-toggle-pill .fa-sun {
+            color: #f59e0b;
+        }
+
+        .theme-toggle-pill .fa-moon {
+            color: #999;
+        }
+
         .theme-toggle-pill .thumb {
-            position: absolute; top: 2px; left: 2px; width: 26px; height: 26px;
-            background: white; border-radius: 50%; transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); z-index: 2; border: 1px solid var(--border-color);
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 26px;
+            height: 26px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+            border: 1px solid var(--border-color);
         }
-        body.dark-mode .theme-toggle-pill .thumb { transform: translateX(48px); background: #333; border-color: var(--border-color); }
+
+        body.dark-mode .theme-toggle-pill .thumb {
+            transform: translateX(48px);
+            background: #333;
+            border-color: var(--border-color);
+        }
 
         .rtl-btn-style {
-            width: 80px; height: 32px; background: var(--bg-secondary); border-radius: 30px;
-            border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center;
-            font-size: 10px; font-weight: 600; cursor: pointer; color: var(--text-main); transition: all 0.3s ease;
+            width: 80px;
+            height: 32px;
+            background: var(--bg-secondary);
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text-main);
+            transition: all 0.3s ease;
         }
-        .rtl-btn-style:hover { background: var(--accent-color); color: #fff; border-color: var(--accent-color); }
+
+        .rtl-btn-style:hover {
+            background: var(--accent-color);
+            color: #fff;
+            border-color: var(--accent-color);
+        }
 
         .btn {
-            padding: 12px 28px; font-weight: 600; font-size: 13px; text-transform: capitalize;
-            letter-spacing: 0.5px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: inline-flex; align-items: center; justify-content: center; cursor: pointer;
-            position: relative; border: 1px solid transparent; border-radius: 50px; text-decoration: none;
+            padding: 12px 28px;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: capitalize;
+            letter-spacing: 0.5px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            border: 1px solid transparent;
+            border-radius: 50px;
+            text-decoration: none;
         }
-        .btn-solid { background: var(--accent-color); color: #FFFFFF !important; }
-        .btn-solid:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 20px -3px rgba(217, 119, 6, 0.4); }
-        .btn-outline { background: transparent; border: 1px solid var(--border-color); color: var(--text-main); }
-        .btn-outline:hover { border-color: var(--accent-color); color: var(--accent-color) !important; background: var(--menu-hover-bg); transform: translateY(-2px); }
+
+        .btn-solid {
+            background: var(--accent-color);
+            color: #FFFFFF !important;
+        }
+
+        .btn-solid:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px -3px rgba(217, 119, 6, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color) !important;
+            background: var(--menu-hover-bg);
+            transform: translateY(-2px);
+        }
 
         .drawer-overlay {
-            position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6); z-index: 999;
-            opacity: 0; visibility: hidden; transition: all 0.3s ease; backdrop-filter: blur(4px);
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
         }
-        .drawer-overlay.active { opacity: 1; visibility: visible; }
+
+        .drawer-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
 
         .fullscreen-menu {
-            position: fixed; top: 0; right: 0; width: 100%; max-width: 400px; height: 100dvh;
-            background: var(--drawer-bg); z-index: 1001; display: flex; flex-direction: column;
-            opacity: 0; visibility: hidden; transform: translateX(100%);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); border-left: 1px solid var(--border-color);
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            max-width: 400px;
+            height: 100dvh;
+            background: var(--drawer-bg);
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(100%);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border-left: 1px solid var(--border-color);
         }
-        [dir="rtl"] .fullscreen-menu { right: auto; left: 0; transform: translateX(-100%); border-left: none; border-right: 1px solid var(--border-color); }
-        .fullscreen-menu.active { opacity: 1; visibility: visible; transform: translateX(0); }
+
+        [dir="rtl"] .fullscreen-menu {
+            right: auto;
+            left: 0;
+            transform: translateX(-100%);
+            border-left: none;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .fullscreen-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
 
         .mobile-link {
-            display: block; width: 100%; padding: 16px 32px; font-size: 1.1rem; font-weight: 600;
-            text-transform: capitalize; letter-spacing: 0.5px; color: var(--text-main);
-            text-decoration: none; transition: all 0.3s; border-bottom: 1px solid var(--border-color);
+            display: block;
+            width: 100%;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: capitalize;
+            letter-spacing: 0.5px;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: all 0.3s;
+            border-bottom: 1px solid var(--border-color);
         }
-        .mobile-link:hover { color: var(--accent-color); padding-left: 40px; background: var(--menu-hover-bg); }
-        [dir="rtl"] .mobile-link:hover { padding-left: 32px; padding-right: 40px; }
 
-        footer { background: var(--bg-secondary); border-top: 1px solid var(--border-color); padding-top: 80px; }
-        footer h4 { color: var(--text-main); font-weight: 600; font-size: 1.1rem; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
-        footer a, footer li, footer span { color: var(--text-muted); text-decoration: none; transition: all 0.3s; font-size: 0.95rem; font-weight: 400; }
-        footer a:hover { color: var(--accent-color); }
-        .social-link-circle {
-            width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border-color);
-            display: flex; align-items: center; justify-content: center; transition: all 0.3s;
-            color: var(--text-main); background: transparent;
+        .mobile-link:hover {
+            color: var(--accent-color);
+            padding-left: 40px;
+            background: var(--menu-hover-bg);
         }
-        .social-link-circle:hover { background: var(--accent-color); border-color: var(--accent-color); color: #FFFFFF; transform: translateY(-3px); }
-        .footer-bottom { border-top: 1px solid var(--border-color); padding: 32px 0; margin-top: 60px; }
-        
+
+        [dir="rtl"] .mobile-link:hover {
+            padding-left: 32px;
+            padding-right: 40px;
+        }
+
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding-top: 80px;
+        }
+
+        footer h4 {
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        footer a,
+        footer li,
+        footer span {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+
+        footer a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-link-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            color: var(--text-main);
+            background: transparent;
+        }
+
+        .social-link-circle:hover {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            color: #FFFFFF;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding: 32px 0;
+            margin-top: 60px;
+        }
+
         /* FAQ specific styles added */
         .faq-button {
             width: 100%;
@@ -220,23 +526,28 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
+
         .faq-button:hover {
             border-color: var(--accent-color);
             background: var(--menu-hover-bg);
         }
+
         .faq-button.active {
             border-color: var(--accent-color);
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
             background: var(--bg-secondary);
         }
+
         .faq-button i {
             transition: transform 0.3s ease;
             color: var(--accent-color);
         }
+
         .faq-button.active i {
             transform: rotate(180deg);
         }
+
         .faq-content {
             max-height: 0;
             overflow: hidden;
@@ -248,10 +559,12 @@
             border-bottom-right-radius: 1rem;
             opacity: 0;
         }
+
         .faq-content.active {
             opacity: 1;
             padding: 1.5rem;
         }
+
         .faq-category-btn {
             padding: 0.75rem 1.5rem;
             border-radius: 2rem;
@@ -262,10 +575,12 @@
             transition: all 0.3s ease;
             white-space: nowrap;
         }
+
         .faq-category-btn:hover {
             color: var(--accent-color);
             border-color: var(--accent-color);
         }
+
         .faq-category-btn.active {
             background: var(--accent-color);
             color: #FFF;
@@ -273,13 +588,15 @@
         }
     </style>
 </head>
+
 <body>
 
     <!-- === NAVBAR[cite: 4] === -->
     <nav class="navbar" id="main-nav">
         <div class="w-full flex items-center justify-between max-w-[1440px] mx-auto">
             <div class="flex items-center flex-shrink-0">
-                <a href="index.html" class="inline-flex items-center gap-2 text-2xl font-semibold tracking-wider" style="color: var(--text-main) !important; text-decoration: none;">
+                <a href="index.html" class="inline-flex items-center gap-2 text-2xl font-semibold tracking-wider"
+                    style="color: var(--text-main) !important; text-decoration: none;">
                     <i class="fas fa-glass-cheers" style="color: var(--accent-color); font-size: 1.4rem;"></i>
                     GrandGala
                 </a>
@@ -319,12 +636,15 @@
                 </div>
                 <button id="rtl-btn" class="rtl-btn-style" title="Toggle LTR/RTL">LTR</button>
                 <div class="w-px h-6 bg-[var(--border-color)] mx-2"></div>
-                <a href="login.html" class="btn btn-outline !border-[var(--accent-color)] !text-[var(--accent-color)] hover:!bg-[var(--accent-color)] hover:!text-white !w-[80px] !h-[32px] flex items-center justify-center !p-0 !text-[12px] !rounded-[30px]">Login</a>
-                <a href="register.html" class="btn btn-solid !w-[100px] !h-[32px] flex items-center justify-center !p-0 !text-[12px] !rounded-[30px]">Register</a>
+                <a href="login.html"
+                    class="btn btn-outline !border-[var(--accent-color)] !text-[var(--accent-color)] hover:!bg-[var(--accent-color)] hover:!text-white !w-[80px] !h-[32px] flex items-center justify-center !p-0 !text-[12px] !rounded-[30px]">Login</a>
+                <a href="register.html"
+                    class="btn btn-solid !w-[100px] !h-[32px] flex items-center justify-center !p-0 !text-[12px] !rounded-[30px]">Register</a>
             </div>
 
             <div class="xl:hidden flex items-center justify-end gap-4">
-                <button id="mobile-btn" class="text-2xl text-[var(--text-main)] transition-colors hover:text-[var(--accent-color)]">
+                <button id="mobile-btn"
+                    class="text-2xl text-[var(--text-main)] transition-colors hover:text-[var(--accent-color)]">
                     <i class="fas fa-bars-staggered"></i>
                 </button>
             </div>
@@ -335,11 +655,13 @@
     <div class="drawer-overlay" id="drawer-overlay"></div>
     <div class="fullscreen-menu" id="fullscreen-menu">
         <div class="w-full px-8 py-6 flex justify-between items-center shrink-0 border-b border-[var(--border-color)]">
-            <a href="index.html" class="inline-flex items-center gap-2 text-2xl font-semibold tracking-wider" style="color: var(--text-main) !important; text-decoration: none;">
+            <a href="index.html" class="inline-flex items-center gap-2 text-2xl font-semibold tracking-wider"
+                style="color: var(--text-main) !important; text-decoration: none;">
                 <i class="fas fa-glass-cheers" style="color: var(--accent-color); font-size: 1.4rem;"></i>
                 GrandGala
             </a>
-            <button id="close-menu" class="w-10 h-10 rounded-full flex items-center justify-center transition-all text-xl text-[var(--text-main)] hover:bg-[var(--bg-secondary)] hover:text-[var(--accent-color)]">
+            <button id="close-menu"
+                class="w-10 h-10 rounded-full flex items-center justify-center transition-all text-xl text-[var(--text-main)] hover:bg-[var(--bg-secondary)] hover:text-[var(--accent-color)]">
                 <i class="fas fa-times"></i>
             </button>
         </div>
@@ -354,17 +676,21 @@
             <a href="faq.html" class="mobile-link" style="color: var(--accent-color);">FAQ</a>
             <a href="contact.html" class="mobile-link">Contact</a>
             <div class="px-8 mt-6 mb-2">
-                <span class="text-[10px] font-semibold text-[var(--text-muted)] uppercase tracking-widest">Portals</span>
+                <span
+                    class="text-[10px] font-semibold text-[var(--text-muted)] uppercase tracking-widest">Portals</span>
             </div>
             <a href="user.html" class="mobile-link !text-sm text-[var(--text-muted)]">User Dashboard</a>
             <a href="admin.html" class="mobile-link !text-sm text-[var(--text-muted)]">Admin Dashboard</a>
         </div>
 
-        <div class="w-full px-8 py-8 border-t border-[var(--border-color)] flex flex-col gap-6 shrink-0 bg-[var(--bg-secondary)]">
+        <div
+            class="w-full px-8 py-8 border-t border-[var(--border-color)] flex flex-col gap-6 shrink-0 bg-[var(--bg-secondary)]">
             <div class="flex justify-between items-center w-full">
                 <div class="flex items-center gap-3">
-                    <span class="text-[var(--text-muted)] font-medium text-[10px] uppercase tracking-widest">Theme</span>
-                    <div id="theme-toggle-mobile" class="theme-toggle-pill"><i class="fas fa-sun"></i><i class="fas fa-moon"></i>
+                    <span
+                        class="text-[var(--text-muted)] font-medium text-[10px] uppercase tracking-widest">Theme</span>
+                    <div id="theme-toggle-mobile" class="theme-toggle-pill"><i class="fas fa-sun"></i><i
+                            class="fas fa-moon"></i>
                         <div class="thumb"></div>
                     </div>
                 </div>
@@ -381,41 +707,63 @@
     </div>
 
     <!-- === HERO BANNER (Modified for FAQ) === -->
-    <section class="relative w-full min-h-[100dvh] pb-12 lg:pb-0 pt-[100px] lg:pt-[120px] flex items-center overflow-hidden bg-gradient-to-b from-[var(--bg-secondary)] to-[var(--bg-color)]">
+    <section
+        class="relative w-full min-h-[100dvh] pb-12 lg:pb-0 pt-[100px] lg:pt-[120px] flex items-center overflow-hidden bg-gradient-to-b from-[var(--bg-secondary)] to-[var(--bg-color)]">
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-            <div class="absolute -top-[10%] -right-[5%] w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] rounded-full bg-[var(--accent-color)] opacity-5 blur-[100px]"></div>
-            <div class="absolute top-[40%] -left-[10%] w-[30vw] h-[30vw] max-w-[500px] max-h-[500px] rounded-full bg-[#FBBF24] opacity-5 blur-[120px]"></div>
+            <div
+                class="absolute -top-[10%] -right-[5%] w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] rounded-full bg-[var(--accent-color)] opacity-5 blur-[100px]">
+            </div>
+            <div
+                class="absolute top-[40%] -left-[10%] w-[30vw] h-[30vw] max-w-[500px] max-h-[500px] rounded-full bg-[#FBBF24] opacity-5 blur-[120px]">
+            </div>
         </div>
-        <div class="max-w-[1440px] mx-auto px-6 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-10 h-auto lg:h-full lg:max-h-[800px]">
+        <div
+            class="max-w-[1440px] mx-auto px-6 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-10 h-auto lg:h-full lg:max-h-[800px]">
             <div class="flex flex-col items-center lg:items-start justify-center text-center lg:text-left h-full">
-                <span class="text-[var(--accent-dark)] bg-[var(--menu-hover-bg)] text-xs md:text-sm font-semibold uppercase tracking-[0.15em] mb-4 md:mb-6 px-4 py-2 rounded-full border border-[var(--border-color)] inline-flex items-center backdrop-blur-sm transition-colors duration-300">
+                <span
+                    class="text-[var(--accent-dark)] bg-[var(--menu-hover-bg)] text-xs md:text-sm font-semibold uppercase tracking-[0.15em] mb-4 md:mb-6 px-4 py-2 rounded-full border border-[var(--border-color)] inline-flex items-center backdrop-blur-sm transition-colors duration-300">
                     <i class="fas fa-question-circle mr-2"></i> How Can We Help?
                 </span>
-                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.1] mb-4 md:mb-6 text-[var(--text-main)] tracking-tight capitalize transition-colors duration-300">
+                <h1
+                    class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.1] mb-4 md:mb-6 text-[var(--text-main)] tracking-tight capitalize transition-colors duration-300">
                     Answers To Your <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-color)] to-[var(--accent-dark)]">Questions.</span>
+                    <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-color)] to-[var(--accent-dark)]">Questions.</span>
                 </h1>
-                <p class="text-[var(--text-muted)] text-base md:text-lg leading-relaxed font-medium mb-6 md:mb-10 max-w-lg transition-colors duration-300">
-                    Planning an event involves a lot of details. Browse our comprehensive knowledge base to find answers regarding bookings, catering, capacities, and policies.
+                <p
+                    class="text-[var(--text-muted)] text-base md:text-lg leading-relaxed font-medium mb-6 md:mb-10 max-w-lg transition-colors duration-300">
+                    Planning an event involves a lot of details. Browse our comprehensive knowledge base to find answers
+                    regarding bookings, catering, capacities, and policies.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 w-full sm:w-auto">
                     <a href="#faq-section" class="btn btn-solid !py-3 md:!py-4 !px-8 md:!px-10 text-sm">Browse FAQs</a>
-                    <a href="contact.html" class="btn btn-outline !py-3 md:!py-4 !px-8 md:!px-10 text-sm">Contact Support</a>
+                    <a href="contact.html" class="btn btn-outline !py-3 md:!py-4 !px-8 md:!px-10 text-sm">Contact
+                        Support</a>
                 </div>
             </div>
             <div class="relative w-full h-full flex justify-center items-center pb-8 lg:pb-0">
-                <div class="absolute top-[10%] right-[10%] w-[75%] h-[80%] rounded-t-full rounded-b-[40px] bg-gradient-to-tr from-[var(--accent-color)] to-[#FDE68A] opacity-20 transform rotate-3 z-0 transition-transform duration-700 hover:rotate-6"></div>
-                <div class="relative w-full max-w-[260px] sm:max-w-[320px] md:max-w-[380px] lg:max-w-[420px] aspect-[4/5] rounded-t-full rounded-b-[40px] overflow-hidden shadow-2xl border-8 border-[var(--bg-card)] z-10 transition-colors duration-300">
-                    <!-- Themed image for support/questions -->
-                    <img src="images/pexels-shalika-akalanka-2148662885-30215011.jpg" alt="Customer Support Team" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700">
+                <div
+                    class="absolute top-[10%] right-[10%] w-[75%] h-[80%] rounded-t-full rounded-b-[40px] bg-gradient-to-tr from-[var(--accent-color)] to-[#FDE68A] opacity-20 transform rotate-3 z-0 transition-transform duration-700 hover:rotate-6">
                 </div>
-                <div class="absolute bottom-[5%] lg:bottom-[15%] left-[5%] lg:-left-[5%] bg-[var(--bg-card)] p-3 md:p-4 pr-5 md:pr-6 rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-[var(--border-color)] flex items-center gap-3 z-20 animate-float transition-colors duration-300">
-                    <div class="w-10 md:w-12 h-10 md:h-12 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center text-[var(--accent-color)] text-lg md:text-xl border border-[var(--border-color)] transition-colors duration-300">
+                <div
+                    class="relative w-full max-w-[260px] sm:max-w-[320px] md:max-w-[380px] lg:max-w-[420px] aspect-[4/5] rounded-t-full rounded-b-[40px] overflow-hidden shadow-2xl border-8 border-[var(--bg-card)] z-10 transition-colors duration-300">
+                    <!-- Themed image for support/questions -->
+                    <img src="images/pexels-shalika-akalanka-2148662885-30215011.jpg" alt="Customer Support Team"
+                        class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700">
+                </div>
+                <div
+                    class="absolute bottom-[5%] lg:bottom-[15%] left-[5%] lg:-left-[5%] bg-[var(--bg-card)] p-3 md:p-4 pr-5 md:pr-6 rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-[var(--border-color)] flex items-center gap-3 z-20 animate-float transition-colors duration-300">
+                    <div
+                        class="w-10 md:w-12 h-10 md:h-12 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center text-[var(--accent-color)] text-lg md:text-xl border border-[var(--border-color)] transition-colors duration-300">
                         <i class="fas fa-headset"></i>
                     </div>
                     <div>
-                        <p class="text-[var(--text-main)] font-semibold text-xs md:text-sm uppercase tracking-wide transition-colors duration-300">24/7 Support</p>
-                        <p class="text-[var(--text-muted)] text-[10px] md:text-xs font-medium transition-colors duration-300">Always Available</p>
+                        <p
+                            class="text-[var(--text-main)] font-semibold text-xs md:text-sm uppercase tracking-wide transition-colors duration-300">
+                            24/7 Support</p>
+                        <p
+                            class="text-[var(--text-muted)] text-[10px] md:text-xs font-medium transition-colors duration-300">
+                            Always Available</p>
                     </div>
                 </div>
             </div>
@@ -430,9 +778,12 @@
             <div class="max-w-4xl mx-auto px-6">
                 <!-- Search Bar -->
                 <div class="relative w-full shadow-lg rounded-full mb-12 border border-[var(--border-color)]">
-                    <input type="text" placeholder="Search for answers (e.g., 'parking', 'catering', 'cancellation')..." class="w-full py-5 pl-12 pr-6 rounded-full bg-[var(--bg-card)] text-[var(--text-main)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)] transition-shadow">
-                    <i class="fas fa-search absolute left-5 top-1/2 -translate-y-1/2 text-[var(--text-muted)] text-lg"></i>
-                    <button class="absolute right-2 top-2 bottom-2 bg-[var(--accent-color)] text-white px-6 rounded-full font-semibold hover:bg-[var(--accent-dark)] transition-colors">Search</button>
+                    <input type="text" placeholder="Search for answers (e.g., 'parking', 'catering', 'cancellation')..."
+                        class="w-full py-5 pl-12 pr-6 rounded-full bg-[var(--bg-card)] text-[var(--text-main)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)] transition-shadow">
+                    <i
+                        class="fas fa-search absolute left-5 top-1/2 -translate-y-1/2 text-[var(--text-muted)] text-lg"></i>
+                    <button
+                        class="absolute right-2 top-2 bottom-2 bg-[var(--accent-color)] text-white px-6 rounded-full font-semibold hover:bg-[var(--accent-dark)] transition-colors">Search</button>
                 </div>
 
                 <!-- Category Filters -->
@@ -449,7 +800,7 @@
         <!-- === FAQ ACCORDION SECTION === -->
         <section id="faq-section" class="w-full pb-24 bg-[var(--bg-color)]">
             <div class="max-w-4xl mx-auto px-6 space-y-4">
-                
+
                 <!-- FAQ Item 1 (Booking) -->
                 <div class="faq-item" data-category="booking">
                     <button class="faq-button">
@@ -457,7 +808,10 @@
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-content">
-                        <p class="text-[var(--text-muted)] leading-relaxed">For weddings and large corporate galas, we strongly recommend booking 12 to 18 months in advance to secure your preferred date, especially during peak seasons (Spring and early Fall). For smaller gatherings, 3 to 6 months is typically sufficient, though availability is not guaranteed.</p>
+                        <p class="text-[var(--text-muted)] leading-relaxed">For weddings and large corporate galas, we
+                            strongly recommend booking 12 to 18 months in advance to secure your preferred date,
+                            especially during peak seasons (Spring and early Fall). For smaller gatherings, 3 to 6
+                            months is typically sufficient, though availability is not guaranteed.</p>
                     </div>
                 </div>
 
@@ -468,7 +822,9 @@
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-content">
-                        <p class="text-[var(--text-muted)] leading-relaxed">To officially secure your date, we require a non-refundable deposit of 25% of the total estimated package cost. The remaining balance is divided into scheduled payments, with the final payment due 30 days prior to your event.</p>
+                        <p class="text-[var(--text-muted)] leading-relaxed">To officially secure your date, we require a
+                            non-refundable deposit of 25% of the total estimated package cost. The remaining balance is
+                            divided into scheduled payments, with the final payment due 30 days prior to your event.</p>
                     </div>
                 </div>
 
@@ -479,7 +835,10 @@
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-content">
-                        <p class="text-[var(--text-muted)] leading-relaxed">Our largest space, The Crystal Ballroom, can comfortably accommodate up to 500 guests for a seated dinner with a dance floor. For a standing cocktail reception, the capacity expands to 700 guests. We also have smaller rooms for intimate parties of 50-150 guests.</p>
+                        <p class="text-[var(--text-muted)] leading-relaxed">Our largest space, The Crystal Ballroom, can
+                            comfortably accommodate up to 500 guests for a seated dinner with a dance floor. For a
+                            standing cocktail reception, the capacity expands to 700 guests. We also have smaller rooms
+                            for intimate parties of 50-150 guests.</p>
                     </div>
                 </div>
 
@@ -490,7 +849,10 @@
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-content">
-                        <p class="text-[var(--text-muted)] leading-relaxed">Yes! We have a private, secure parking lot that can accommodate over 300 vehicles. Additionally, complimentary valet parking is included with our Gold and Platinum packages, and can be added as an a la carte service for any other event.</p>
+                        <p class="text-[var(--text-muted)] leading-relaxed">Yes! We have a private, secure parking lot
+                            that can accommodate over 300 vehicles. Additionally, complimentary valet parking is
+                            included with our Gold and Platinum packages, and can be added as an a la carte service for
+                            any other event.</p>
                     </div>
                 </div>
 
@@ -501,7 +863,11 @@
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-content">
-                        <p class="text-[var(--text-muted)] leading-relaxed">GrandGala prides itself on our world-class in-house executive culinary team, so all food and beverage services must be provided by us. However, we do make exceptions for specialty cultural cuisines or specific religious dietary requirements (e.g., Glatt Kosher), subject to an outside catering fee and pre-approval of the vendor.</p>
+                        <p class="text-[var(--text-muted)] leading-relaxed">GrandGala prides itself on our world-class
+                            in-house executive culinary team, so all food and beverage services must be provided by us.
+                            However, we do make exceptions for specialty cultural cuisines or specific religious dietary
+                            requirements (e.g., Glatt Kosher), subject to an outside catering fee and pre-approval of
+                            the vendor.</p>
                     </div>
                 </div>
 
@@ -512,7 +878,10 @@
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-content">
-                        <p class="text-[var(--text-muted)] leading-relaxed">Absolutely. During your menu tasting and planning sessions, you can specify any dietary restrictions (vegan, vegetarian, gluten-free, nut allergies, etc.). Our chefs will prepare customized, equally delicious alternatives for those specific guests at no additional charge.</p>
+                        <p class="text-[var(--text-muted)] leading-relaxed">Absolutely. During your menu tasting and
+                            planning sessions, you can specify any dietary restrictions (vegan, vegetarian, gluten-free,
+                            nut allergies, etc.). Our chefs will prepare customized, equally delicious alternatives for
+                            those specific guests at no additional charge.</p>
                     </div>
                 </div>
 
@@ -523,7 +892,11 @@
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-content">
-                        <p class="text-[var(--text-muted)] leading-relaxed">If you cancel more than 180 days before your event, you forfeit only the initial 25% deposit. Cancellations within 180 days require 50% of the total estimated cost, and within 60 days, the full balance is required. If you need to reschedule, we will transfer your deposit to a new date within 12 months, subject to availability and a rescheduling fee.</p>
+                        <p class="text-[var(--text-muted)] leading-relaxed">If you cancel more than 180 days before your
+                            event, you forfeit only the initial 25% deposit. Cancellations within 180 days require 50%
+                            of the total estimated cost, and within 60 days, the full balance is required. If you need
+                            to reschedule, we will transfer your deposit to a new date within 12 months, subject to
+                            availability and a rescheduling fee.</p>
                     </div>
                 </div>
 
@@ -534,7 +907,10 @@
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-content">
-                        <p class="text-[var(--text-muted)] leading-relaxed">We welcome you to customize the space to your liking! However, to preserve our historic venue, we do not allow nails, staples, or tape on the walls. Confetti, loose glitter, and unprotected open flames are also strictly prohibited. Enclosed candles (hurricanes or votives) are perfectly fine.</p>
+                        <p class="text-[var(--text-muted)] leading-relaxed">We welcome you to customize the space to
+                            your liking! However, to preserve our historic venue, we do not allow nails, staples, or
+                            tape on the walls. Confetti, loose glitter, and unprotected open flames are also strictly
+                            prohibited. Enclosed candles (hurricanes or votives) are perfectly fine.</p>
                     </div>
                 </div>
 
@@ -544,16 +920,21 @@
         <!-- === STILL HAVE QUESTIONS / CONTACT BANNER === -->
         <section class="w-full py-20 bg-[var(--bg-secondary)] border-t border-[var(--border-color)]">
             <div class="max-w-4xl mx-auto px-6 text-center">
-                <div class="w-20 h-20 bg-[var(--bg-card)] rounded-full flex items-center justify-center text-3xl text-[var(--accent-color)] mx-auto mb-6 shadow-md border border-[var(--border-color)]">
+                <div
+                    class="w-20 h-20 bg-[var(--bg-card)] rounded-full flex items-center justify-center text-3xl text-[var(--accent-color)] mx-auto mb-6 shadow-md border border-[var(--border-color)]">
                     <i class="fas fa-comments"></i>
                 </div>
                 <h2 class="text-3xl md:text-4xl font-bold text-[var(--text-main)] mb-4">Still have questions?</h2>
                 <p class="text-[var(--text-muted)] text-lg mb-8 max-w-xl mx-auto">
-                    Can't find the answer you're looking for? Our dedicated concierge team is standing by to help you with any specific inquiries.
+                    Can't find the answer you're looking for? Our dedicated concierge team is standing by to help you
+                    with any specific inquiries.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="contact.html" class="btn btn-solid !py-4 !px-8 shadow-lg shadow-[var(--accent-color)]/20">Send us a Message</a>
-                    <a href="tel:1555800GALA" class="btn btn-outline !py-4 !px-8 bg-[var(--bg-card)]"><i class="fas fa-phone mr-2"></i> +1 (555) 800-GALA</a>
+                    <a href="contact.html"
+                        class="btn btn-solid !py-4 !px-8 shadow-lg shadow-[var(--accent-color)]/20">Send us a
+                        Message</a>
+                    <a href="tel:1555800GALA" class="btn btn-outline !py-4 !px-8 bg-[var(--bg-card)]"><i
+                            class="fas fa-phone mr-2"></i> +1 (555) 800-GALA</a>
                 </div>
             </div>
         </section>
@@ -566,13 +947,17 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-10 pt-4">
                 <div class="lg:col-span-4">
                     <div class="mb-6">
-                        <a href="index.html" class="inline-flex items-center gap-2 text-2xl font-semibold tracking-wider" style="color: var(--text-main) !important; text-decoration: none;">
+                        <a href="index.html"
+                            class="inline-flex items-center gap-2 text-2xl font-semibold tracking-wider"
+                            style="color: var(--text-main) !important; text-decoration: none;">
                             <i class="fas fa-glass-cheers" style="color: var(--accent-color); font-size: 1.4rem;"></i>
                             GrandGala
                         </a>
                     </div>
-                    <p class="opacity-80 leading-relaxed text-sm font-medium mb-8 max-w-sm" style="color: var(--text-muted);">
-                        Dedicated to providing luxurious, spacious, and highly customizable venue spaces. We ensure your special day is hosted flawlessly with elite catering and event management.
+                    <p class="opacity-80 leading-relaxed text-sm font-medium mb-8 max-w-sm"
+                        style="color: var(--text-muted);">
+                        Dedicated to providing luxurious, spacious, and highly customizable venue spaces. We ensure your
+                        special day is hosted flawlessly with elite catering and event management.
                     </p>
                     <div class="flex space-x-4">
                         <a href="#" class="social-link-circle"><i class="fab fa-facebook-f"></i></a>
@@ -608,16 +993,19 @@
                             <h4>Headquarters</h4>
                             <ul class="space-y-4 text-[var(--text-muted)] text-sm font-medium">
                                 <li class="flex items-start gap-4">
-                                    <i class="fas fa-map-marker-alt mt-1 shrink-0" style="color: var(--accent-color);"></i>
+                                    <i class="fas fa-map-marker-alt mt-1 shrink-0"
+                                        style="color: var(--accent-color);"></i>
                                     <span>123 Celebration Blvd<br>Gala City, TX 75001</span>
                                 </li>
                                 <li class="flex items-center gap-4">
                                     <i class="fas fa-phone shrink-0" style="color: var(--accent-color);"></i>
-                                    <a href="tel:+15550198" class="break-all hover:text-[var(--accent-color)]">+1 (555) 800-GALA</a>
+                                    <a href="tel:+15550198" class="break-all hover:text-[var(--accent-color)]">+1 (555)
+                                        800-GALA</a>
                                 </li>
                                 <li class="flex items-center gap-4">
                                     <i class="fas fa-envelope shrink-0" style="color: var(--accent-color);"></i>
-                                    <a href="contact.html" class="break-all hover:text-[var(--accent-color)]">events@grandgala.com</a>
+                                    <a href="contact.html"
+                                        class="break-all hover:text-[var(--accent-color)]">events@grandgala.com</a>
                                 </li>
                             </ul>
                         </div>
@@ -625,8 +1013,10 @@
                 </div>
             </div>
 
-            <div class="footer-bottom flex flex-col md:flex-row justify-between items-center text-xs gap-6 font-semibold uppercase tracking-widest">
-                <p style="color: var(--text-muted);">&copy; 2026 GrandGala Party Hall & Banquet Venue. All rights reserved.</p>
+            <div
+                class="footer-bottom flex flex-col md:flex-row justify-between items-center text-xs gap-6 font-semibold uppercase tracking-widest">
+                <p style="color: var(--text-muted);">&copy; 2026 GrandGala Party Hall & Banquet Venue. All rights
+                    reserved.</p>
                 <div class="flex flex-wrap justify-center gap-6 sm:gap-8">
                     <a href="#">Booking Terms</a>
                     <a href="#">Cancellation Policy</a>
@@ -761,4 +1151,5 @@
         });
     </script>
 </body>
+
 </html>

@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing - GrandGala Party Hall & Banquet Venue</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/jpeg" href="images\images (6).png">
+    <link rel="icon" type="image/png" href="images\images (6).png">
     <script>
         tailwind.config = {
             theme: {
@@ -20,12 +23,22 @@
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
     <style>
         /* === RESET & CORE === */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; overflow-x: hidden; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
@@ -37,12 +50,15 @@
         /* === THEME VARIABLES (Banquet - Elegant Gold) === */
         :root {
             --bg-color: #FAFAFA;
-            --bg-secondary: #FFFBEB; /* Amber-50 */
+            --bg-secondary: #FFFBEB;
+            /* Amber-50 */
             --bg-card: #FFFFFF;
             --text-main: #1C1917;
             --text-muted: #78716C;
-            --accent-color: #D97706; /* Amber-600 */
-            --accent-dark: #B45309; /* Amber-700 */
+            --accent-color: #D97706;
+            /* Amber-600 */
+            --accent-dark: #B45309;
+            /* Amber-700 */
             --border-color: #FEF3C7;
             --nav-bg: rgba(255, 255, 255, 0.85);
             --drawer-bg: rgba(255, 255, 255, 0.98);
@@ -65,151 +81,443 @@
         }
 
         /* RTL SUPPORT */
-        [dir="rtl"] { text-align: right; }
-        [dir="rtl"] .ml-auto { margin-right: auto; margin-left: 0; }
-        [dir="rtl"] .mr-auto { margin-left: auto; margin-right: 0; }
+        [dir="rtl"] {
+            text-align: right;
+        }
+
+        [dir="rtl"] .ml-auto {
+            margin-right: auto;
+            margin-left: 0;
+        }
+
+        [dir="rtl"] .mr-auto {
+            margin-left: auto;
+            margin-right: 0;
+        }
 
         @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
         }
-        .animate-float { animation: float 5s ease-in-out infinite; }
+
+        .animate-float {
+            animation: float 5s ease-in-out infinite;
+        }
 
         /* === ULTRA-MODERN FLOATING PILL NAVBAR === */
         .navbar {
-            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-            width: calc(100% - 40px); max-width: 1380px; z-index: 1000;
-            background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 100px;
-            padding: 0 24px; height: 76px; display: flex; align-items: center;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 40px);
+            max-width: 1380px;
+            z-index: 1000;
+            background: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 100px;
+            padding: 0 24px;
+            height: 76px;
+            display: flex;
+            align-items: center;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
         }
+
         body.dark-mode .navbar {
             border: 1px solid rgba(255, 255, 255, 0.08);
             box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
         }
+
         .navbar.scrolled {
-            top: 12px; height: 64px; background: rgba(255, 255, 255, 0.95);
+            top: 12px;
+            height: 64px;
+            background: rgba(255, 255, 255, 0.95);
             box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.1);
         }
-        body.dark-mode .navbar.scrolled { background: rgba(28, 25, 23, 0.95); }
+
+        body.dark-mode .navbar.scrolled {
+            background: rgba(28, 25, 23, 0.95);
+        }
 
         .nav-link {
-            position: relative; padding: 8px 18px; margin: 0 4px;
-            color: var(--text-main); text-decoration: none; font-size: 13px; font-weight: 600;
-            text-transform: capitalize; letter-spacing: 0.3px; transition: all 0.3s ease;
-            display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-            cursor: pointer; border-radius: 50px; z-index: 1;
+            position: relative;
+            padding: 8px 18px;
+            margin: 0 4px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: capitalize;
+            letter-spacing: 0.3px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            border-radius: 50px;
+            z-index: 1;
         }
-        .nav-link::before {
-            content: ''; position: absolute; inset: 0; background: var(--accent-color);
-            border-radius: 50px; opacity: 0; transform: scale(0.85);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: -1;
-        }
-        .nav-link:hover::before, .nav-link.active::before { opacity: 0.15; transform: scale(1); }
-        body.dark-mode .nav-link:hover::before, body.dark-mode .nav-link.active::before { opacity: 0.25; }
-        .nav-link:hover, .nav-link.active { color: var(--accent-dark); }
-        body.dark-mode .nav-link:hover, body.dark-mode .nav-link.active { color: #FDE68A; }
 
-        .dropdown { position: relative; display: flex; align-items: center; height: 100%; }
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--accent-color);
+            border-radius: 50px;
+            opacity: 0;
+            transform: scale(0.85);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            opacity: 0.15;
+            transform: scale(1);
+        }
+
+        body.dark-mode .nav-link:hover::before,
+        body.dark-mode .nav-link.active::before {
+            opacity: 0.25;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent-dark);
+        }
+
+        body.dark-mode .nav-link:hover,
+        body.dark-mode .nav-link.active {
+            color: #FDE68A;
+        }
+
+        .dropdown {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
         .dropdown-menu {
-            position: absolute; top: calc(100% + 15px); left: 0;
-            transform: translateY(15px) scale(0.95); opacity: 0; visibility: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 100; transform-origin: top left;
+            position: absolute;
+            top: calc(100% + 15px);
+            left: 0;
+            transform: translateY(15px) scale(0.95);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 100;
+            transform-origin: top left;
         }
+
         .dropdown-inner {
-            background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 24px;
-            min-width: 220px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); padding: 12px;
-            display: flex; flex-direction: column; gap: 4px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            min-width: 220px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
         }
-        body.dark-mode .dropdown-inner { box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6); }
-        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+
+        body.dark-mode .dropdown-inner {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
         .dropdown-item {
-            display: block; padding: 10px 16px; border-radius: 12px; color: var(--text-main);
-            text-decoration: none; font-size: 13px; font-weight: 500; text-transform: capitalize;
-            transition: all 0.2s; text-align: left; white-space: nowrap;
+            display: block;
+            padding: 10px 16px;
+            border-radius: 12px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: capitalize;
+            transition: all 0.2s;
+            text-align: left;
+            white-space: nowrap;
         }
-        .dropdown-item:hover { background: var(--menu-hover-bg); color: var(--accent-color); padding-left: 20px; }
-        [dir="rtl"] .dropdown-item:hover { padding-left: 16px; padding-right: 20px; }
+
+        .dropdown-item:hover {
+            background: var(--menu-hover-bg);
+            color: var(--accent-color);
+            padding-left: 20px;
+        }
+
+        [dir="rtl"] .dropdown-item:hover {
+            padding-left: 16px;
+            padding-right: 20px;
+        }
 
         .theme-toggle-pill {
-            width: 80px; height: 32px; background: var(--bg-secondary); border-radius: 30px;
-            position: relative; cursor: pointer; display: flex; align-items: center; justify-content: space-between;
-            padding: 0 10px; border: 1px solid var(--border-color);
+            width: 80px;
+            height: 32px;
+            background: var(--bg-secondary);
+            border-radius: 30px;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            border: 1px solid var(--border-color);
         }
-        .theme-toggle-pill i { font-size: 12px; z-index: 1; }
-        .theme-toggle-pill .fa-sun { color: #f59e0b; }
-        .theme-toggle-pill .fa-moon { color: #999; }
+
+        .theme-toggle-pill i {
+            font-size: 12px;
+            z-index: 1;
+        }
+
+        .theme-toggle-pill .fa-sun {
+            color: #f59e0b;
+        }
+
+        .theme-toggle-pill .fa-moon {
+            color: #999;
+        }
+
         .theme-toggle-pill .thumb {
-            position: absolute; top: 2px; left: 2px; width: 26px; height: 26px;
-            background: white; border-radius: 50%; transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); z-index: 2; border: 1px solid var(--border-color);
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 26px;
+            height: 26px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+            border: 1px solid var(--border-color);
         }
-        body.dark-mode .theme-toggle-pill .thumb { transform: translateX(48px); background: #333; border-color: var(--border-color); }
+
+        body.dark-mode .theme-toggle-pill .thumb {
+            transform: translateX(48px);
+            background: #333;
+            border-color: var(--border-color);
+        }
 
         .rtl-btn-style {
-            width: 80px; height: 32px; background: var(--bg-secondary); border-radius: 30px;
-            border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center;
-            font-size: 10px; font-weight: 600; cursor: pointer; color: var(--text-main); transition: all 0.3s ease;
+            width: 80px;
+            height: 32px;
+            background: var(--bg-secondary);
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text-main);
+            transition: all 0.3s ease;
         }
-        .rtl-btn-style:hover { background: var(--accent-color); color: #fff; border-color: var(--accent-color); }
+
+        .rtl-btn-style:hover {
+            background: var(--accent-color);
+            color: #fff;
+            border-color: var(--accent-color);
+        }
 
         .btn {
-            padding: 12px 28px; font-weight: 600; font-size: 13px; text-transform: capitalize;
-            letter-spacing: 0.5px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: inline-flex; align-items: center; justify-content: center; cursor: pointer;
-            position: relative; border: 1px solid transparent; border-radius: 50px; text-decoration: none;
+            padding: 12px 28px;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: capitalize;
+            letter-spacing: 0.5px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            border: 1px solid transparent;
+            border-radius: 50px;
+            text-decoration: none;
         }
-        .btn-solid { background: var(--accent-color); color: #FFFFFF !important; }
-        .btn-solid:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 20px -3px rgba(217, 119, 6, 0.4); }
-        .btn-outline { background: transparent; border: 1px solid var(--border-color); color: var(--text-main); }
-        .btn-outline:hover { border-color: var(--accent-color); color: var(--accent-color) !important; background: var(--menu-hover-bg); transform: translateY(-2px); }
+
+        .btn-solid {
+            background: var(--accent-color);
+            color: #FFFFFF !important;
+        }
+
+        .btn-solid:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px -3px rgba(217, 119, 6, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color) !important;
+            background: var(--menu-hover-bg);
+            transform: translateY(-2px);
+        }
 
         .drawer-overlay {
-            position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6); z-index: 999;
-            opacity: 0; visibility: hidden; transition: all 0.3s ease; backdrop-filter: blur(4px);
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
         }
-        .drawer-overlay.active { opacity: 1; visibility: visible; }
+
+        .drawer-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
 
         .fullscreen-menu {
-            position: fixed; top: 0; right: 0; width: 100%; max-width: 400px; height: 100dvh;
-            background: var(--drawer-bg); z-index: 1001; display: flex; flex-direction: column;
-            opacity: 0; visibility: hidden; transform: translateX(100%);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); border-left: 1px solid var(--border-color);
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            max-width: 400px;
+            height: 100dvh;
+            background: var(--drawer-bg);
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(100%);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border-left: 1px solid var(--border-color);
         }
-        [dir="rtl"] .fullscreen-menu { right: auto; left: 0; transform: translateX(-100%); border-left: none; border-right: 1px solid var(--border-color); }
-        .fullscreen-menu.active { opacity: 1; visibility: visible; transform: translateX(0); }
+
+        [dir="rtl"] .fullscreen-menu {
+            right: auto;
+            left: 0;
+            transform: translateX(-100%);
+            border-left: none;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .fullscreen-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
 
         .mobile-link {
-            display: block; width: 100%; padding: 16px 32px; font-size: 1.1rem; font-weight: 600;
-            text-transform: capitalize; letter-spacing: 0.5px; color: var(--text-main);
-            text-decoration: none; transition: all 0.3s; border-bottom: 1px solid var(--border-color);
+            display: block;
+            width: 100%;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: capitalize;
+            letter-spacing: 0.5px;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: all 0.3s;
+            border-bottom: 1px solid var(--border-color);
         }
-        .mobile-link:hover { color: var(--accent-color); padding-left: 40px; background: var(--menu-hover-bg); }
-        [dir="rtl"] .mobile-link:hover { padding-left: 32px; padding-right: 40px; }
 
-        footer { background: var(--bg-secondary); border-top: 1px solid var(--border-color); padding-top: 80px; }
-        footer h4 { color: var(--text-main); font-weight: 600; font-size: 1.1rem; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
-        footer a, footer li, footer span { color: var(--text-muted); text-decoration: none; transition: all 0.3s; font-size: 0.95rem; font-weight: 400; }
-        footer a:hover { color: var(--accent-color); }
-        .social-link-circle {
-            width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border-color);
-            display: flex; align-items: center; justify-content: center; transition: all 0.3s;
-            color: var(--text-main); background: transparent;
+        .mobile-link:hover {
+            color: var(--accent-color);
+            padding-left: 40px;
+            background: var(--menu-hover-bg);
         }
-        .social-link-circle:hover { background: var(--accent-color); border-color: var(--accent-color); color: #FFFFFF; transform: translateY(-3px); }
-        .footer-bottom { border-top: 1px solid var(--border-color); padding: 32px 0; margin-top: 60px; }
+
+        [dir="rtl"] .mobile-link:hover {
+            padding-left: 32px;
+            padding-right: 40px;
+        }
+
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding-top: 80px;
+        }
+
+        footer h4 {
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        footer a,
+        footer li,
+        footer span {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+
+        footer a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-link-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            color: var(--text-main);
+            background: transparent;
+        }
+
+        .social-link-circle:hover {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            color: #FFFFFF;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding: 32px 0;
+            margin-top: 60px;
+        }
     </style>
 </head>
+
 <body>
 
     <!-- === NAVBAR === -->
     <nav class="navbar" id="main-nav">
         <div class="w-full flex items-center justify-between max-w-[1440px] mx-auto">
             <div class="flex items-center flex-shrink-0">
-                <a href="index.html" class="inline-flex items-center gap-2 text-2xl font-semibold tracking-wider" style="color: var(--text-main) !important; text-decoration: none;">
+                <a href="index.html" class="inline-flex items-center gap-2 text-2xl font-semibold tracking-wider"
+                    style="color: var(--text-main) !important; text-decoration: none;">
                     <i class="fas fa-glass-cheers" style="color: var(--accent-color); font-size: 1.4rem;"></i>
                     GrandGala
                 </a>
@@ -249,12 +557,15 @@
                 </div>
                 <button id="rtl-btn" class="rtl-btn-style" title="Toggle LTR/RTL">LTR</button>
                 <div class="w-px h-6 bg-[var(--border-color)] mx-2"></div>
-                <a href="login.html" class="btn btn-outline !border-[var(--accent-color)] !text-[var(--accent-color)] hover:!bg-[var(--accent-color)] hover:!text-white !w-[80px] !h-[32px] flex items-center justify-center !p-0 !text-[12px] !rounded-[30px]">Login</a>
-                <a href="register.html" class="btn btn-solid !w-[100px] !h-[32px] flex items-center justify-center !p-0 !text-[12px] !rounded-[30px]">Register</a>
+                <a href="login.html"
+                    class="btn btn-outline !border-[var(--accent-color)] !text-[var(--accent-color)] hover:!bg-[var(--accent-color)] hover:!text-white !w-[80px] !h-[32px] flex items-center justify-center !p-0 !text-[12px] !rounded-[30px]">Login</a>
+                <a href="register.html"
+                    class="btn btn-solid !w-[100px] !h-[32px] flex items-center justify-center !p-0 !text-[12px] !rounded-[30px]">Register</a>
             </div>
 
             <div class="xl:hidden flex items-center justify-end gap-4">
-                <button id="mobile-btn" class="text-2xl text-[var(--text-main)] transition-colors hover:text-[var(--accent-color)]">
+                <button id="mobile-btn"
+                    class="text-2xl text-[var(--text-main)] transition-colors hover:text-[var(--accent-color)]">
                     <i class="fas fa-bars-staggered"></i>
                 </button>
             </div>
@@ -265,11 +576,13 @@
     <div class="drawer-overlay" id="drawer-overlay"></div>
     <div class="fullscreen-menu" id="fullscreen-menu">
         <div class="w-full px-8 py-6 flex justify-between items-center shrink-0 border-b border-[var(--border-color)]">
-            <a href="index.html" class="inline-flex items-center gap-2 text-2xl font-semibold tracking-wider" style="color: var(--text-main) !important; text-decoration: none;">
+            <a href="index.html" class="inline-flex items-center gap-2 text-2xl font-semibold tracking-wider"
+                style="color: var(--text-main) !important; text-decoration: none;">
                 <i class="fas fa-glass-cheers" style="color: var(--accent-color); font-size: 1.4rem;"></i>
                 GrandGala
             </a>
-            <button id="close-menu" class="w-10 h-10 rounded-full flex items-center justify-center transition-all text-xl text-[var(--text-main)] hover:bg-[var(--bg-secondary)] hover:text-[var(--accent-color)]">
+            <button id="close-menu"
+                class="w-10 h-10 rounded-full flex items-center justify-center transition-all text-xl text-[var(--text-main)] hover:bg-[var(--bg-secondary)] hover:text-[var(--accent-color)]">
                 <i class="fas fa-times"></i>
             </button>
         </div>
@@ -284,17 +597,21 @@
             <a href="faq.html" class="mobile-link">FAQ</a>
             <a href="contact.html" class="mobile-link">Contact</a>
             <div class="px-8 mt-6 mb-2">
-                <span class="text-[10px] font-semibold text-[var(--text-muted)] uppercase tracking-widest">Portals</span>
+                <span
+                    class="text-[10px] font-semibold text-[var(--text-muted)] uppercase tracking-widest">Portals</span>
             </div>
             <a href="user.html" class="mobile-link !text-sm text-[var(--text-muted)]">User Dashboard</a>
             <a href="admin.html" class="mobile-link !text-sm text-[var(--text-muted)]">Admin Dashboard</a>
         </div>
 
-        <div class="w-full px-8 py-8 border-t border-[var(--border-color)] flex flex-col gap-6 shrink-0 bg-[var(--bg-secondary)]">
+        <div
+            class="w-full px-8 py-8 border-t border-[var(--border-color)] flex flex-col gap-6 shrink-0 bg-[var(--bg-secondary)]">
             <div class="flex justify-between items-center w-full">
                 <div class="flex items-center gap-3">
-                    <span class="text-[var(--text-muted)] font-medium text-[10px] uppercase tracking-widest">Theme</span>
-                    <div id="theme-toggle-mobile" class="theme-toggle-pill"><i class="fas fa-sun"></i><i class="fas fa-moon"></i>
+                    <span
+                        class="text-[var(--text-muted)] font-medium text-[10px] uppercase tracking-widest">Theme</span>
+                    <div id="theme-toggle-mobile" class="theme-toggle-pill"><i class="fas fa-sun"></i><i
+                            class="fas fa-moon"></i>
                         <div class="thumb"></div>
                     </div>
                 </div>
@@ -311,40 +628,63 @@
     </div>
 
     <!-- === HERO BANNER (Modified for Pricing) === -->
-    <section class="relative w-full min-h-[100dvh] pb-12 lg:pb-0 pt-[100px] lg:pt-[120px] flex items-center overflow-hidden bg-gradient-to-b from-[var(--bg-secondary)] to-[var(--bg-color)]">
+    <section
+        class="relative w-full min-h-[100dvh] pb-12 lg:pb-0 pt-[100px] lg:pt-[120px] flex items-center overflow-hidden bg-gradient-to-b from-[var(--bg-secondary)] to-[var(--bg-color)]">
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-            <div class="absolute -top-[10%] -right-[5%] w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] rounded-full bg-[var(--accent-color)] opacity-5 blur-[100px]"></div>
-            <div class="absolute top-[40%] -left-[10%] w-[30vw] h-[30vw] max-w-[500px] max-h-[500px] rounded-full bg-[#FBBF24] opacity-5 blur-[120px]"></div>
+            <div
+                class="absolute -top-[10%] -right-[5%] w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] rounded-full bg-[var(--accent-color)] opacity-5 blur-[100px]">
+            </div>
+            <div
+                class="absolute top-[40%] -left-[10%] w-[30vw] h-[30vw] max-w-[500px] max-h-[500px] rounded-full bg-[#FBBF24] opacity-5 blur-[120px]">
+            </div>
         </div>
-        <div class="max-w-[1440px] mx-auto px-6 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-10 h-auto lg:h-full lg:max-h-[800px]">
+        <div
+            class="max-w-[1440px] mx-auto px-6 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-10 h-auto lg:h-full lg:max-h-[800px]">
             <div class="flex flex-col items-center lg:items-start justify-center text-center lg:text-left h-full">
-                <span class="text-[var(--accent-dark)] bg-[var(--menu-hover-bg)] text-xs md:text-sm font-semibold uppercase tracking-[0.15em] mb-4 md:mb-6 px-4 py-2 rounded-full border border-[var(--border-color)] inline-flex items-center backdrop-blur-sm transition-colors duration-300">
+                <span
+                    class="text-[var(--accent-dark)] bg-[var(--menu-hover-bg)] text-xs md:text-sm font-semibold uppercase tracking-[0.15em] mb-4 md:mb-6 px-4 py-2 rounded-full border border-[var(--border-color)] inline-flex items-center backdrop-blur-sm transition-colors duration-300">
                     <i class="fas fa-tags mr-2"></i> Transparent Pricing
                 </span>
-                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.1] mb-4 md:mb-6 text-[var(--text-main)] tracking-tight capitalize transition-colors duration-300">
+                <h1
+                    class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.1] mb-4 md:mb-6 text-[var(--text-main)] tracking-tight capitalize transition-colors duration-300">
                     Curated Packages,<br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-color)] to-[var(--accent-dark)]">For Every Budget.</span>
+                    <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-color)] to-[var(--accent-dark)]">For
+                        Every Budget.</span>
                 </h1>
-                <p class="text-[var(--text-muted)] text-base md:text-lg leading-relaxed font-medium mb-6 md:mb-10 max-w-lg transition-colors duration-300">
-                    Explore our comprehensive venue packages. From intimate gatherings to grand celebrations, we offer straightforward pricing with zero hidden fees, ensuring peace of mind.
+                <p
+                    class="text-[var(--text-muted)] text-base md:text-lg leading-relaxed font-medium mb-6 md:mb-10 max-w-lg transition-colors duration-300">
+                    Explore our comprehensive venue packages. From intimate gatherings to grand celebrations, we offer
+                    straightforward pricing with zero hidden fees, ensuring peace of mind.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 w-full sm:w-auto">
                     <a href="#pricing-plans" class="btn btn-solid !py-3 md:!py-4 !px-8 md:!px-10 text-sm">View Plans</a>
-                    <a href="contact.html" class="btn btn-outline !py-3 md:!py-4 !px-8 md:!px-10 text-sm">Custom Quote</a>
+                    <a href="contact.html" class="btn btn-outline !py-3 md:!py-4 !px-8 md:!px-10 text-sm">Custom
+                        Quote</a>
                 </div>
             </div>
             <div class="relative w-full h-full flex justify-center items-center pb-8 lg:pb-0">
-                <div class="absolute top-[10%] right-[10%] w-[75%] h-[80%] rounded-t-full rounded-b-[40px] bg-gradient-to-tr from-[var(--accent-color)] to-[#FDE68A] opacity-20 transform rotate-3 z-0 transition-transform duration-700 hover:rotate-6"></div>
-                <div class="relative w-full max-w-[260px] sm:max-w-[320px] md:max-w-[380px] lg:max-w-[420px] aspect-[4/5] rounded-t-full rounded-b-[40px] overflow-hidden shadow-2xl border-8 border-[var(--bg-card)] z-10 transition-colors duration-300">
-                    <img src="images/pexels-bertellifotografia-16985146.jpg" alt="Elegant Venue Details" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700">
+                <div
+                    class="absolute top-[10%] right-[10%] w-[75%] h-[80%] rounded-t-full rounded-b-[40px] bg-gradient-to-tr from-[var(--accent-color)] to-[#FDE68A] opacity-20 transform rotate-3 z-0 transition-transform duration-700 hover:rotate-6">
                 </div>
-                <div class="absolute bottom-[5%] lg:bottom-[15%] left-[5%] lg:-left-[5%] bg-[var(--bg-card)] p-3 md:p-4 pr-5 md:pr-6 rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-[var(--border-color)] flex items-center gap-3 z-20 animate-float transition-colors duration-300">
-                    <div class="w-10 md:w-12 h-10 md:h-12 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center text-[var(--accent-color)] text-lg md:text-xl border border-[var(--border-color)] transition-colors duration-300">
+                <div
+                    class="relative w-full max-w-[260px] sm:max-w-[320px] md:max-w-[380px] lg:max-w-[420px] aspect-[4/5] rounded-t-full rounded-b-[40px] overflow-hidden shadow-2xl border-8 border-[var(--bg-card)] z-10 transition-colors duration-300">
+                    <img src="images/pexels-bertellifotografia-16985146.jpg" alt="Elegant Venue Details"
+                        class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700">
+                </div>
+                <div
+                    class="absolute bottom-[5%] lg:bottom-[15%] left-[5%] lg:-left-[5%] bg-[var(--bg-card)] p-3 md:p-4 pr-5 md:pr-6 rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-[var(--border-color)] flex items-center gap-3 z-20 animate-float transition-colors duration-300">
+                    <div
+                        class="w-10 md:w-12 h-10 md:h-12 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center text-[var(--accent-color)] text-lg md:text-xl border border-[var(--border-color)] transition-colors duration-300">
                         <i class="fas fa-hand-holding-dollar"></i>
                     </div>
                     <div>
-                        <p class="text-[var(--text-main)] font-semibold text-xs md:text-sm uppercase tracking-wide transition-colors duration-300">Best Value</p>
-                        <p class="text-[var(--text-muted)] text-[10px] md:text-xs font-medium transition-colors duration-300">Flexible Options</p>
+                        <p
+                            class="text-[var(--text-main)] font-semibold text-xs md:text-sm uppercase tracking-wide transition-colors duration-300">
+                            Best Value</p>
+                        <p
+                            class="text-[var(--text-muted)] text-[10px] md:text-xs font-medium transition-colors duration-300">
+                            Flexible Options</p>
                     </div>
                 </div>
             </div>
@@ -358,61 +698,88 @@
         <section class="w-full py-24 bg-[var(--bg-color)] border-b border-[var(--border-color)]">
             <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
                 <div class="text-center mb-16 max-w-2xl mx-auto">
-                    <span class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest mb-3 block">For Your Special Day</span>
-                    <h2 class="text-3xl md:text-5xl font-semibold capitalize tracking-tight text-[var(--text-main)] mb-4">Wedding Packages</h2>
+                    <span
+                        class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest mb-3 block">For
+                        Your Special Day</span>
+                    <h2
+                        class="text-3xl md:text-5xl font-semibold capitalize tracking-tight text-[var(--text-main)] mb-4">
+                        Wedding Packages</h2>
                     <div class="w-16 h-1 bg-[var(--accent-color)] mx-auto mb-6 rounded-full"></div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
                     <!-- Basic Tier -->
-                    <div class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+                    <div
+                        class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                         <h3 class="text-2xl font-bold text-[var(--text-main)] mb-2">Silver Romance</h3>
-                        <p class="text-[var(--text-muted)] text-sm mb-6">Perfect for intimate daytime ceremonies and small family gatherings.</p>
+                        <p class="text-[var(--text-muted)] text-sm mb-6">Perfect for intimate daytime ceremonies and
+                            small family gatherings.</p>
                         <div class="mb-6">
                             <span class="text-4xl font-bold text-[var(--accent-color)]">$2,500</span>
                             <span class="text-[var(--text-muted)] text-sm">/ event</span>
                         </div>
                         <ul class="space-y-4 mb-8 flex-grow">
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span class="text-[var(--text-main)] text-sm">Up to 100 Guests</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span class="text-[var(--text-main)] text-sm">Standard Hall Access (6 Hours)</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span class="text-[var(--text-main)] text-sm">Basic Seating & Tables</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span class="text-[var(--text-main)] text-sm">In-house Sound System</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span
+                                    class="text-[var(--text-main)] text-sm">Up to 100 Guests</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span
+                                    class="text-[var(--text-main)] text-sm">Standard Hall Access (6 Hours)</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span
+                                    class="text-[var(--text-main)] text-sm">Basic Seating & Tables</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span
+                                    class="text-[var(--text-main)] text-sm">In-house Sound System</span></li>
                         </ul>
                         <a href="contact.html" class="btn btn-outline w-full !py-3 mt-auto">Select Package</a>
                     </div>
 
                     <!-- Popular Tier -->
-                    <div class="bg-[var(--bg-secondary)] rounded-[2rem] p-8 border-2 border-[var(--accent-color)] shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full relative z-10">
-                        <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[var(--accent-color)] text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">Most Popular</span>
+                    <div
+                        class="bg-[var(--bg-secondary)] rounded-[2rem] p-8 border-2 border-[var(--accent-color)] shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full relative z-10">
+                        <span
+                            class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[var(--accent-color)] text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">Most
+                            Popular</span>
                         <h3 class="text-2xl font-bold text-[var(--text-main)] mb-2 mt-2">Golden Vows</h3>
-                        <p class="text-[var(--text-muted)] text-sm mb-6">Our signature package for spectacular mid-sized wedding celebrations.</p>
+                        <p class="text-[var(--text-muted)] text-sm mb-6">Our signature package for spectacular mid-sized
+                            wedding celebrations.</p>
                         <div class="mb-6">
                             <span class="text-4xl font-bold text-[var(--accent-color)]">$5,800</span>
                             <span class="text-[var(--text-muted)] text-sm">/ event</span>
                         </div>
                         <ul class="space-y-4 mb-8 flex-grow">
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span class="text-[var(--text-main)] text-sm font-semibold">Up to 250 Guests</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span class="text-[var(--text-main)] text-sm">Full Hall Access (10 Hours)</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span class="text-[var(--text-main)] text-sm">Premium Decor & Custom Linens</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span class="text-[var(--text-main)] text-sm">Advanced AV & Lighting Setup</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span class="text-[var(--text-main)] text-sm">Dedicated Wedding Planner</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span
+                                    class="text-[var(--text-main)] text-sm font-semibold">Up to 250 Guests</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span
+                                    class="text-[var(--text-main)] text-sm">Full Hall Access (10 Hours)</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span
+                                    class="text-[var(--text-main)] text-sm">Premium Decor & Custom Linens</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span
+                                    class="text-[var(--text-main)] text-sm">Advanced AV & Lighting Setup</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span
+                                    class="text-[var(--text-main)] text-sm">Dedicated Wedding Planner</span></li>
                         </ul>
-                        <a href="contact.html" class="btn btn-solid w-full !py-3 shadow-lg shadow-[var(--accent-color)]/30 mt-auto">Book Gold Package</a>
+                        <a href="contact.html"
+                            class="btn btn-solid w-full !py-3 shadow-lg shadow-[var(--accent-color)]/30 mt-auto">Book
+                            Gold Package</a>
                     </div>
 
                     <!-- Premium Tier -->
-                    <div class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+                    <div
+                        class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                         <h3 class="text-2xl font-bold text-[var(--text-main)] mb-2">Platinum Eternity</h3>
-                        <p class="text-[var(--text-muted)] text-sm mb-6">The ultimate luxury experience for grand weddings and VIP guests.</p>
+                        <p class="text-[var(--text-muted)] text-sm mb-6">The ultimate luxury experience for grand
+                            weddings and VIP guests.</p>
                         <div class="mb-6">
                             <span class="text-4xl font-bold text-[var(--accent-color)]">$12,000</span>
                             <span class="text-[var(--text-muted)] text-sm">/ event</span>
                         </div>
                         <ul class="space-y-4 mb-8 flex-grow">
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span class="text-[var(--text-main)] text-sm">Up to 500 Guests</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span class="text-[var(--text-main)] text-sm">Exclusive All-Day Venue Access</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span class="text-[var(--text-main)] text-sm">Bespoke Floral & Stage Decor</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span class="text-[var(--text-main)] text-sm">VIP Valet & Lounge Access</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span
+                                    class="text-[var(--text-main)] text-sm">Up to 500 Guests</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span
+                                    class="text-[var(--text-main)] text-sm">Exclusive All-Day Venue Access</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span
+                                    class="text-[var(--text-main)] text-sm">Bespoke Floral & Stage Decor</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> <span
+                                    class="text-[var(--text-main)] text-sm">VIP Valet & Lounge Access</span></li>
                         </ul>
                         <a href="contact.html" class="btn btn-outline w-full !py-3 mt-auto">Select Package</a>
                     </div>
@@ -424,46 +791,69 @@
         <section class="w-full py-24 bg-[var(--bg-secondary)] border-b border-[var(--border-color)]">
             <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
                 <div class="text-center mb-16 max-w-2xl mx-auto">
-                    <span class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest mb-3 block"><i class="fas fa-snowflake mr-2"></i> Limited Time Offers</span>
-                    <h2 class="text-3xl md:text-5xl font-semibold capitalize tracking-tight text-[var(--text-main)] mb-4">Seasonal Discounts</h2>
+                    <span
+                        class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest mb-3 block"><i
+                            class="fas fa-snowflake mr-2"></i> Limited Time Offers</span>
+                    <h2
+                        class="text-3xl md:text-5xl font-semibold capitalize tracking-tight text-[var(--text-main)] mb-4">
+                        Seasonal Discounts</h2>
                     <div class="w-16 h-1 bg-[var(--accent-color)] mx-auto mb-6 rounded-full"></div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
                     <!-- Sale Item 1 -->
-                    <div class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm flex flex-col h-full relative overflow-hidden group">
-                        <div class="absolute -right-12 -top-12 bg-blue-100 w-32 h-32 rounded-full opacity-50 group-hover:scale-150 transition-transform duration-500"></div>
+                    <div
+                        class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm flex flex-col h-full relative overflow-hidden group">
+                        <div
+                            class="absolute -right-12 -top-12 bg-blue-100 w-32 h-32 rounded-full opacity-50 group-hover:scale-150 transition-transform duration-500">
+                        </div>
                         <h3 class="text-xl font-bold text-[var(--text-main)] mb-2 relative z-10">Winter Wonderland</h3>
-                        <p class="text-[var(--text-muted)] text-sm mb-6 flex-grow relative z-10">Book any date between December and February to receive an automatic reduction.</p>
+                        <p class="text-[var(--text-muted)] text-sm mb-6 flex-grow relative z-10">Book any date between
+                            December and February to receive an automatic reduction.</p>
                         <div class="mb-6 relative z-10">
                             <span class="text-3xl font-bold text-[var(--accent-color)]">15% OFF</span>
                             <span class="text-[var(--text-muted)] text-sm line-through ml-2">Standard Rates</span>
                         </div>
-                        <a href="contact.html" class="btn btn-outline w-full !py-3 mt-auto relative z-10 border-blue-200 hover:bg-blue-50">Claim Offer</a>
+                        <a href="contact.html"
+                            class="btn btn-outline w-full !py-3 mt-auto relative z-10 border-blue-200 hover:bg-blue-50">Claim
+                            Offer</a>
                     </div>
 
                     <!-- Sale Item 2 -->
-                    <div class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm flex flex-col h-full relative overflow-hidden group">
-                        <div class="absolute -right-12 -top-12 bg-amber-100 w-32 h-32 rounded-full opacity-50 group-hover:scale-150 transition-transform duration-500"></div>
+                    <div
+                        class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm flex flex-col h-full relative overflow-hidden group">
+                        <div
+                            class="absolute -right-12 -top-12 bg-amber-100 w-32 h-32 rounded-full opacity-50 group-hover:scale-150 transition-transform duration-500">
+                        </div>
                         <h3 class="text-xl font-bold text-[var(--text-main)] mb-2 relative z-10">Summer Soirée Deal</h3>
-                        <p class="text-[var(--text-muted)] text-sm mb-6 flex-grow relative z-10">Host your event during June or July and enjoy complimentary passed hors d'oeuvres.</p>
+                        <p class="text-[var(--text-muted)] text-sm mb-6 flex-grow relative z-10">Host your event during
+                            June or July and enjoy complimentary passed hors d'oeuvres.</p>
                         <div class="mb-6 relative z-10">
                             <span class="text-3xl font-bold text-[var(--accent-color)]">FREE</span>
                             <span class="text-[var(--text-muted)] text-sm ml-2">Appetizer Upgrade ($500 value)</span>
                         </div>
-                        <a href="contact.html" class="btn btn-outline w-full !py-3 mt-auto relative z-10 border-amber-200 hover:bg-amber-50">Claim Offer</a>
+                        <a href="contact.html"
+                            class="btn btn-outline w-full !py-3 mt-auto relative z-10 border-amber-200 hover:bg-amber-50">Claim
+                            Offer</a>
                     </div>
 
                     <!-- Sale Item 3 -->
-                    <div class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm flex flex-col h-full relative overflow-hidden group">
-                        <div class="absolute -right-12 -top-12 bg-green-100 w-32 h-32 rounded-full opacity-50 group-hover:scale-150 transition-transform duration-500"></div>
-                        <h3 class="text-xl font-bold text-[var(--text-main)] mb-2 relative z-10">Spring Garden Special</h3>
-                        <p class="text-[var(--text-muted)] text-sm mb-6 flex-grow relative z-10">Lock in your Spring 2027 date now and get standard pricing locked with zero inflation markup.</p>
+                    <div
+                        class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm flex flex-col h-full relative overflow-hidden group">
+                        <div
+                            class="absolute -right-12 -top-12 bg-green-100 w-32 h-32 rounded-full opacity-50 group-hover:scale-150 transition-transform duration-500">
+                        </div>
+                        <h3 class="text-xl font-bold text-[var(--text-main)] mb-2 relative z-10">Spring Garden Special
+                        </h3>
+                        <p class="text-[var(--text-muted)] text-sm mb-6 flex-grow relative z-10">Lock in your Spring
+                            2027 date now and get standard pricing locked with zero inflation markup.</p>
                         <div class="mb-6 relative z-10">
                             <span class="text-3xl font-bold text-[var(--accent-color)]">$0</span>
                             <span class="text-[var(--text-muted)] text-sm ml-2">Inflation Fee</span>
                         </div>
-                        <a href="contact.html" class="btn btn-outline w-full !py-3 mt-auto relative z-10 border-green-200 hover:bg-green-50">Claim Offer</a>
+                        <a href="contact.html"
+                            class="btn btn-outline w-full !py-3 mt-auto relative z-10 border-green-200 hover:bg-green-50">Claim
+                            Offer</a>
                     </div>
                 </div>
             </div>
@@ -473,59 +863,93 @@
         <section class="w-full py-24 bg-[var(--bg-color)] border-b border-[var(--border-color)]">
             <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
                 <div class="text-center mb-16 max-w-2xl mx-auto">
-                    <span class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest mb-3 block">Business & Enterprise</span>
-                    <h2 class="text-3xl md:text-5xl font-semibold capitalize tracking-tight text-[var(--text-main)] mb-4">Corporate Packages</h2>
+                    <span
+                        class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest mb-3 block">Business
+                        & Enterprise</span>
+                    <h2
+                        class="text-3xl md:text-5xl font-semibold capitalize tracking-tight text-[var(--text-main)] mb-4">
+                        Corporate Packages</h2>
                     <div class="w-16 h-1 bg-[var(--accent-color)] mx-auto mb-6 rounded-full"></div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
                     <!-- Corporate Tier 1 -->
-                    <div class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+                    <div
+                        class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                         <h3 class="text-2xl font-bold text-[var(--text-main)] mb-2">Executive Seminar</h3>
-                        <p class="text-[var(--text-muted)] text-sm mb-6">Designed for corporate training, keynote speeches, and half-day team seminars.</p>
+                        <p class="text-[var(--text-muted)] text-sm mb-6">Designed for corporate training, keynote
+                            speeches, and half-day team seminars.</p>
                         <div class="mb-6">
                             <span class="text-4xl font-bold text-[var(--accent-color)]">$1,200</span>
                             <span class="text-[var(--text-muted)] text-sm">/ half-day</span>
                         </div>
                         <ul class="space-y-4 mb-8 flex-grow">
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-[var(--accent-color)] mt-1"></i> <span class="text-[var(--text-main)] text-sm">Up to 75 Attendees</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-[var(--accent-color)] mt-1"></i> <span class="text-[var(--text-main)] text-sm">High-Speed Wi-Fi & Projectors</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-[var(--accent-color)] mt-1"></i> <span class="text-[var(--text-main)] text-sm">Coffee & Pastry Station</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-[var(--accent-color)] mt-1"></i> <span class="text-[var(--text-main)] text-sm">Theatre Style Seating</span></li>
+                            <li class="flex items-start gap-3"><i
+                                    class="fas fa-check text-[var(--accent-color)] mt-1"></i> <span
+                                    class="text-[var(--text-main)] text-sm">Up to 75 Attendees</span></li>
+                            <li class="flex items-start gap-3"><i
+                                    class="fas fa-check text-[var(--accent-color)] mt-1"></i> <span
+                                    class="text-[var(--text-main)] text-sm">High-Speed Wi-Fi & Projectors</span></li>
+                            <li class="flex items-start gap-3"><i
+                                    class="fas fa-check text-[var(--accent-color)] mt-1"></i> <span
+                                    class="text-[var(--text-main)] text-sm">Coffee & Pastry Station</span></li>
+                            <li class="flex items-start gap-3"><i
+                                    class="fas fa-check text-[var(--accent-color)] mt-1"></i> <span
+                                    class="text-[var(--text-main)] text-sm">Theatre Style Seating</span></li>
                         </ul>
                         <a href="contact.html" class="btn btn-outline w-full !py-3 mt-auto">Book Seminar</a>
                     </div>
 
                     <!-- Corporate Tier 2 -->
-                    <div class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+                    <div
+                        class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                         <h3 class="text-2xl font-bold text-[var(--text-main)] mb-2">Team Retreat</h3>
-                        <p class="text-[var(--text-muted)] text-sm mb-6">A full-day package ideal for annual planning, workshops, and team-building exercises.</p>
+                        <p class="text-[var(--text-muted)] text-sm mb-6">A full-day package ideal for annual planning,
+                            workshops, and team-building exercises.</p>
                         <div class="mb-6">
                             <span class="text-4xl font-bold text-[var(--accent-color)]">$3,500</span>
                             <span class="text-[var(--text-muted)] text-sm">/ full-day</span>
                         </div>
                         <ul class="space-y-4 mb-8 flex-grow">
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-[var(--accent-color)] mt-1"></i> <span class="text-[var(--text-main)] text-sm">Up to 150 Attendees</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-[var(--accent-color)] mt-1"></i> <span class="text-[var(--text-main)] text-sm">Main Hall + 2 Breakout Rooms</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-[var(--accent-color)] mt-1"></i> <span class="text-[var(--text-main)] text-sm">Catered Hot Lunch Buffet</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-[var(--accent-color)] mt-1"></i> <span class="text-[var(--text-main)] text-sm">Cordless Mics & PA System</span></li>
+                            <li class="flex items-start gap-3"><i
+                                    class="fas fa-check text-[var(--accent-color)] mt-1"></i> <span
+                                    class="text-[var(--text-main)] text-sm">Up to 150 Attendees</span></li>
+                            <li class="flex items-start gap-3"><i
+                                    class="fas fa-check text-[var(--accent-color)] mt-1"></i> <span
+                                    class="text-[var(--text-main)] text-sm">Main Hall + 2 Breakout Rooms</span></li>
+                            <li class="flex items-start gap-3"><i
+                                    class="fas fa-check text-[var(--accent-color)] mt-1"></i> <span
+                                    class="text-[var(--text-main)] text-sm">Catered Hot Lunch Buffet</span></li>
+                            <li class="flex items-start gap-3"><i
+                                    class="fas fa-check text-[var(--accent-color)] mt-1"></i> <span
+                                    class="text-[var(--text-main)] text-sm">Cordless Mics & PA System</span></li>
                         </ul>
                         <a href="contact.html" class="btn btn-outline w-full !py-3 mt-auto">Book Retreat</a>
                     </div>
 
                     <!-- Corporate Tier 3 -->
-                    <div class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+                    <div
+                        class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                         <h3 class="text-2xl font-bold text-[var(--text-main)] mb-2">Annual Gala</h3>
-                        <p class="text-[var(--text-muted)] text-sm mb-6">The grand solution for year-end parties, product launches, and major corporate awards.</p>
+                        <p class="text-[var(--text-muted)] text-sm mb-6">The grand solution for year-end parties,
+                            product launches, and major corporate awards.</p>
                         <div class="mb-6">
                             <span class="text-4xl font-bold text-[var(--accent-color)]">$7,500</span>
                             <span class="text-[var(--text-muted)] text-sm">/ evening</span>
                         </div>
                         <ul class="space-y-4 mb-8 flex-grow">
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-[var(--accent-color)] mt-1"></i> <span class="text-[var(--text-main)] text-sm">Up to 400 Attendees</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-[var(--accent-color)] mt-1"></i> <span class="text-[var(--text-main)] text-sm">Red Carpet & Valet Service</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-[var(--accent-color)] mt-1"></i> <span class="text-[var(--text-main)] text-sm">Stage, Lighting & DJ Setup</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-check text-[var(--accent-color)] mt-1"></i> <span class="text-[var(--text-main)] text-sm">Premium Bar Setup Options</span></li>
+                            <li class="flex items-start gap-3"><i
+                                    class="fas fa-check text-[var(--accent-color)] mt-1"></i> <span
+                                    class="text-[var(--text-main)] text-sm">Up to 400 Attendees</span></li>
+                            <li class="flex items-start gap-3"><i
+                                    class="fas fa-check text-[var(--accent-color)] mt-1"></i> <span
+                                    class="text-[var(--text-main)] text-sm">Red Carpet & Valet Service</span></li>
+                            <li class="flex items-start gap-3"><i
+                                    class="fas fa-check text-[var(--accent-color)] mt-1"></i> <span
+                                    class="text-[var(--text-main)] text-sm">Stage, Lighting & DJ Setup</span></li>
+                            <li class="flex items-start gap-3"><i
+                                    class="fas fa-check text-[var(--accent-color)] mt-1"></i> <span
+                                    class="text-[var(--text-main)] text-sm">Premium Bar Setup Options</span></li>
                         </ul>
                         <a href="contact.html" class="btn btn-outline w-full !py-3 mt-auto">Book Gala</a>
                     </div>
@@ -537,52 +961,71 @@
         <section class="w-full py-24 bg-[var(--bg-secondary)] border-b border-[var(--border-color)]">
             <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
                 <div class="text-center mb-16 max-w-2xl mx-auto">
-                    <span class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest mb-3 block"><i class="fas fa-clock mr-2"></i> Time-Sensitive Deals</span>
-                    <h2 class="text-3xl md:text-5xl font-semibold capitalize tracking-tight text-[var(--text-main)] mb-4">Smart Booking Promos</h2>
+                    <span
+                        class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest mb-3 block"><i
+                            class="fas fa-clock mr-2"></i> Time-Sensitive Deals</span>
+                    <h2
+                        class="text-3xl md:text-5xl font-semibold capitalize tracking-tight text-[var(--text-main)] mb-4">
+                        Smart Booking Promos</h2>
                     <div class="w-16 h-1 bg-[var(--accent-color)] mx-auto mb-6 rounded-full"></div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
                     <!-- Deal 1 -->
-                    <div class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm flex flex-col h-full text-center">
-                        <div class="w-16 h-16 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center text-2xl text-[var(--accent-color)] mx-auto mb-4 border border-[var(--border-color)]">
+                    <div
+                        class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm flex flex-col h-full text-center">
+                        <div
+                            class="w-16 h-16 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center text-2xl text-[var(--accent-color)] mx-auto mb-4 border border-[var(--border-color)]">
                             <i class="fas fa-calendar-plus"></i>
                         </div>
                         <h3 class="text-xl font-bold text-[var(--text-main)] mb-2">Advance Planner</h3>
-                        <p class="text-[var(--text-muted)] text-sm mb-6 flex-grow">Book your event 12+ months in advance to receive our absolute lowest guaranteed rate.</p>
+                        <p class="text-[var(--text-muted)] text-sm mb-6 flex-grow">Book your event 12+ months in advance
+                            to receive our absolute lowest guaranteed rate.</p>
                         <div class="bg-[var(--menu-hover-bg)] py-3 px-4 rounded-xl mb-6 inline-block mx-auto">
                             <span class="text-2xl font-black text-[var(--accent-color)]">20% OFF</span>
                             <span class="text-[var(--text-main)] text-sm font-semibold ml-1">Total Venue Fee</span>
                         </div>
-                        <a href="contact.html" class="btn btn-outline w-full !py-3 mt-auto border-[var(--accent-color)] text-[var(--accent-color)] hover:bg-[var(--accent-color)] hover:text-white">Claim Discount</a>
+                        <a href="contact.html"
+                            class="btn btn-outline w-full !py-3 mt-auto border-[var(--accent-color)] text-[var(--accent-color)] hover:bg-[var(--accent-color)] hover:text-white">Claim
+                            Discount</a>
                     </div>
 
                     <!-- Deal 2 -->
-                    <div class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm flex flex-col h-full text-center">
-                        <div class="w-16 h-16 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center text-2xl text-[var(--accent-color)] mx-auto mb-4 border border-[var(--border-color)]">
+                    <div
+                        class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm flex flex-col h-full text-center">
+                        <div
+                            class="w-16 h-16 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center text-2xl text-[var(--accent-color)] mx-auto mb-4 border border-[var(--border-color)]">
                             <i class="fas fa-briefcase"></i>
                         </div>
                         <h3 class="text-xl font-bold text-[var(--text-main)] mb-2">Weekday Special</h3>
-                        <p class="text-[var(--text-muted)] text-sm mb-6 flex-grow">Hosting a corporate event or private party on a Monday through Thursday? Save big instantly.</p>
+                        <p class="text-[var(--text-muted)] text-sm mb-6 flex-grow">Hosting a corporate event or private
+                            party on a Monday through Thursday? Save big instantly.</p>
                         <div class="bg-[var(--menu-hover-bg)] py-3 px-4 rounded-xl mb-6 inline-block mx-auto">
                             <span class="text-2xl font-black text-[var(--accent-color)]">$1,000 OFF</span>
                             <span class="text-[var(--text-main)] text-sm font-semibold ml-1">Any Package</span>
                         </div>
-                        <a href="contact.html" class="btn btn-outline w-full !py-3 mt-auto border-[var(--accent-color)] text-[var(--accent-color)] hover:bg-[var(--accent-color)] hover:text-white">Claim Discount</a>
+                        <a href="contact.html"
+                            class="btn btn-outline w-full !py-3 mt-auto border-[var(--accent-color)] text-[var(--accent-color)] hover:bg-[var(--accent-color)] hover:text-white">Claim
+                            Discount</a>
                     </div>
 
                     <!-- Deal 3 -->
-                    <div class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm flex flex-col h-full text-center">
-                        <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center text-2xl text-red-500 mx-auto mb-4 border border-red-100">
+                    <div
+                        class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm flex flex-col h-full text-center">
+                        <div
+                            class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center text-2xl text-red-500 mx-auto mb-4 border border-red-100">
                             <i class="fas fa-fire"></i>
                         </div>
                         <h3 class="text-xl font-bold text-[var(--text-main)] mb-2">Last-Minute Fill</h3>
-                        <p class="text-[var(--text-muted)] text-sm mb-6 flex-grow">Got a short timeline? Book an unreserved date within the next 45 days for massive savings.</p>
+                        <p class="text-[var(--text-muted)] text-sm mb-6 flex-grow">Got a short timeline? Book an
+                            unreserved date within the next 45 days for massive savings.</p>
                         <div class="bg-red-50 py-3 px-4 rounded-xl mb-6 inline-block mx-auto border border-red-100">
                             <span class="text-2xl font-black text-red-600">30% OFF</span>
                             <span class="text-[var(--text-main)] text-sm font-semibold ml-1">Remaining Dates</span>
                         </div>
-                        <a href="contact.html" class="btn btn-outline w-full !py-3 mt-auto border-red-500 text-red-500 hover:bg-red-500 hover:text-white">Check Availability</a>
+                        <a href="contact.html"
+                            class="btn btn-outline w-full !py-3 mt-auto border-red-500 text-red-500 hover:bg-red-500 hover:text-white">Check
+                            Availability</a>
                     </div>
                 </div>
             </div>
@@ -592,59 +1035,81 @@
         <section class="w-full py-24 bg-[var(--bg-color)] border-b border-[var(--border-color)]">
             <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
                 <div class="text-center mb-16 max-w-2xl mx-auto">
-                    <span class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest mb-3 block">Customize Your Event</span>
-                    <h2 class="text-3xl md:text-5xl font-semibold capitalize tracking-tight text-[var(--text-main)] mb-4">A La Carte Upgrades</h2>
+                    <span
+                        class="text-[var(--accent-color)] text-xs font-semibold uppercase tracking-widest mb-3 block">Customize
+                        Your Event</span>
+                    <h2
+                        class="text-3xl md:text-5xl font-semibold capitalize tracking-tight text-[var(--text-main)] mb-4">
+                        A La Carte Upgrades</h2>
                     <div class="w-16 h-1 bg-[var(--accent-color)] mx-auto mb-6 rounded-full"></div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
                     <!-- Add-on 1 -->
-                    <div class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+                    <div
+                        class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                         <h3 class="text-2xl font-bold text-[var(--text-main)] mb-2">Premium AV Setup</h3>
-                        <p class="text-[var(--text-muted)] text-sm mb-6">Enhance the mood with professional-grade tech.</p>
+                        <p class="text-[var(--text-muted)] text-sm mb-6">Enhance the mood with professional-grade tech.
+                        </p>
                         <div class="mb-6">
                             <span class="text-4xl font-bold text-[var(--accent-color)]">$800</span>
                             <span class="text-[var(--text-muted)] text-sm">/ flat fee</span>
                         </div>
                         <ul class="space-y-4 mb-8 flex-grow">
-                            <li class="flex items-start gap-3"><i class="fas fa-plus text-[var(--text-muted)] mt-1"></i> <span class="text-[var(--text-main)] text-sm">Custom Up-Lighting</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-plus text-[var(--text-muted)] mt-1"></i> <span class="text-[var(--text-main)] text-sm">Dual 4K Projectors</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-plus text-[var(--text-muted)] mt-1"></i> <span class="text-[var(--text-main)] text-sm">Wireless Lav Mics</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-plus text-[var(--text-muted)] mt-1"></i> <span class="text-[var(--text-main)] text-sm">Dedicated Tech Operator</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-plus text-[var(--text-muted)] mt-1"></i>
+                                <span class="text-[var(--text-main)] text-sm">Custom Up-Lighting</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-plus text-[var(--text-muted)] mt-1"></i>
+                                <span class="text-[var(--text-main)] text-sm">Dual 4K Projectors</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-plus text-[var(--text-muted)] mt-1"></i>
+                                <span class="text-[var(--text-main)] text-sm">Wireless Lav Mics</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-plus text-[var(--text-muted)] mt-1"></i>
+                                <span class="text-[var(--text-main)] text-sm">Dedicated Tech Operator</span></li>
                         </ul>
                         <a href="contact.html" class="btn btn-outline w-full !py-3 mt-auto">Add to Package</a>
                     </div>
 
                     <!-- Add-on 2 -->
-                    <div class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+                    <div
+                        class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                         <h3 class="text-2xl font-bold text-[var(--text-main)] mb-2">Floral & Decor Elite</h3>
-                        <p class="text-[var(--text-muted)] text-sm mb-6">Transform the space with imported flowers and fabrics.</p>
+                        <p class="text-[var(--text-muted)] text-sm mb-6">Transform the space with imported flowers and
+                            fabrics.</p>
                         <div class="mb-6">
                             <span class="text-4xl font-bold text-[var(--accent-color)]">$1,500</span>
                             <span class="text-[var(--text-muted)] text-sm">/ starting at</span>
                         </div>
                         <ul class="space-y-4 mb-8 flex-grow">
-                            <li class="flex items-start gap-3"><i class="fas fa-plus text-[var(--text-muted)] mt-1"></i> <span class="text-[var(--text-main)] text-sm">Custom Centerpieces</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-plus text-[var(--text-muted)] mt-1"></i> <span class="text-[var(--text-main)] text-sm">Ceiling Drapery Installation</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-plus text-[var(--text-muted)] mt-1"></i> <span class="text-[var(--text-main)] text-sm">Chiavari Chair Upgrades</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-plus text-[var(--text-muted)] mt-1"></i> <span class="text-[var(--text-main)] text-sm">Floral Archways</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-plus text-[var(--text-muted)] mt-1"></i>
+                                <span class="text-[var(--text-main)] text-sm">Custom Centerpieces</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-plus text-[var(--text-muted)] mt-1"></i>
+                                <span class="text-[var(--text-main)] text-sm">Ceiling Drapery Installation</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-plus text-[var(--text-muted)] mt-1"></i>
+                                <span class="text-[var(--text-main)] text-sm">Chiavari Chair Upgrades</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-plus text-[var(--text-muted)] mt-1"></i>
+                                <span class="text-[var(--text-main)] text-sm">Floral Archways</span></li>
                         </ul>
                         <a href="contact.html" class="btn btn-outline w-full !py-3 mt-auto">Add to Package</a>
                     </div>
 
                     <!-- Add-on 3 -->
-                    <div class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+                    <div
+                        class="bg-[var(--bg-card)] rounded-[2rem] p-8 border border-[var(--border-color)] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                         <h3 class="text-2xl font-bold text-[var(--text-main)] mb-2">Open Bar Tier 1</h3>
-                        <p class="text-[var(--text-muted)] text-sm mb-6">Keep the party going with our premium beverage service.</p>
+                        <p class="text-[var(--text-muted)] text-sm mb-6">Keep the party going with our premium beverage
+                            service.</p>
                         <div class="mb-6">
                             <span class="text-4xl font-bold text-[var(--accent-color)]">$45</span>
                             <span class="text-[var(--text-muted)] text-sm">/ per guest</span>
                         </div>
                         <ul class="space-y-4 mb-8 flex-grow">
-                            <li class="flex items-start gap-3"><i class="fas fa-plus text-[var(--text-muted)] mt-1"></i> <span class="text-[var(--text-main)] text-sm">4 Hours of Service</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-plus text-[var(--text-muted)] mt-1"></i> <span class="text-[var(--text-main)] text-sm">Top-Shelf Liquor Selection</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-plus text-[var(--text-muted)] mt-1"></i> <span class="text-[var(--text-main)] text-sm">Imported Wines & Craft Beers</span></li>
-                            <li class="flex items-start gap-3"><i class="fas fa-plus text-[var(--text-muted)] mt-1"></i> <span class="text-[var(--text-main)] text-sm">Two Signature Cocktails</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-plus text-[var(--text-muted)] mt-1"></i>
+                                <span class="text-[var(--text-main)] text-sm">4 Hours of Service</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-plus text-[var(--text-muted)] mt-1"></i>
+                                <span class="text-[var(--text-main)] text-sm">Top-Shelf Liquor Selection</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-plus text-[var(--text-muted)] mt-1"></i>
+                                <span class="text-[var(--text-main)] text-sm">Imported Wines & Craft Beers</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-plus text-[var(--text-muted)] mt-1"></i>
+                                <span class="text-[var(--text-main)] text-sm">Two Signature Cocktails</span></li>
                         </ul>
                         <a href="contact.html" class="btn btn-outline w-full !py-3 mt-auto">Add to Package</a>
                     </div>
@@ -660,13 +1125,17 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-10 pt-4">
                 <div class="lg:col-span-4">
                     <div class="mb-6">
-                        <a href="index.html" class="inline-flex items-center gap-2 text-2xl font-semibold tracking-wider" style="color: var(--text-main) !important; text-decoration: none;">
+                        <a href="index.html"
+                            class="inline-flex items-center gap-2 text-2xl font-semibold tracking-wider"
+                            style="color: var(--text-main) !important; text-decoration: none;">
                             <i class="fas fa-glass-cheers" style="color: var(--accent-color); font-size: 1.4rem;"></i>
                             GrandGala
                         </a>
                     </div>
-                    <p class="opacity-80 leading-relaxed text-sm font-medium mb-8 max-w-sm" style="color: var(--text-muted);">
-                        Dedicated to providing luxurious, spacious, and highly customizable venue spaces. We ensure your special day is hosted flawlessly with elite catering and event management.
+                    <p class="opacity-80 leading-relaxed text-sm font-medium mb-8 max-w-sm"
+                        style="color: var(--text-muted);">
+                        Dedicated to providing luxurious, spacious, and highly customizable venue spaces. We ensure your
+                        special day is hosted flawlessly with elite catering and event management.
                     </p>
                     <div class="flex space-x-4">
                         <a href="#" class="social-link-circle"><i class="fab fa-facebook-f"></i></a>
@@ -702,16 +1171,19 @@
                             <h4>Headquarters</h4>
                             <ul class="space-y-4 text-[var(--text-muted)] text-sm font-medium">
                                 <li class="flex items-start gap-4">
-                                    <i class="fas fa-map-marker-alt mt-1 shrink-0" style="color: var(--accent-color);"></i>
+                                    <i class="fas fa-map-marker-alt mt-1 shrink-0"
+                                        style="color: var(--accent-color);"></i>
                                     <span>123 Celebration Blvd<br>Gala City, TX 75001</span>
                                 </li>
                                 <li class="flex items-center gap-4">
                                     <i class="fas fa-phone shrink-0" style="color: var(--accent-color);"></i>
-                                    <a href="tel:+15550198" class="break-all hover:text-[var(--accent-color)]">+1 (555) 800-GALA</a>
+                                    <a href="tel:+15550198" class="break-all hover:text-[var(--accent-color)]">+1 (555)
+                                        800-GALA</a>
                                 </li>
                                 <li class="flex items-center gap-4">
                                     <i class="fas fa-envelope shrink-0" style="color: var(--accent-color);"></i>
-                                    <a href="contact.html" class="break-all hover:text-[var(--accent-color)]">events@grandgala.com</a>
+                                    <a href="contact.html"
+                                        class="break-all hover:text-[var(--accent-color)]">events@grandgala.com</a>
                                 </li>
                             </ul>
                         </div>
@@ -719,8 +1191,10 @@
                 </div>
             </div>
 
-            <div class="footer-bottom flex flex-col md:flex-row justify-between items-center text-xs gap-6 font-semibold uppercase tracking-widest">
-                <p style="color: var(--text-muted);">&copy; 2026 GrandGala Party Hall & Banquet Venue. All rights reserved.</p>
+            <div
+                class="footer-bottom flex flex-col md:flex-row justify-between items-center text-xs gap-6 font-semibold uppercase tracking-widest">
+                <p style="color: var(--text-muted);">&copy; 2026 GrandGala Party Hall & Banquet Venue. All rights
+                    reserved.</p>
                 <div class="flex flex-wrap justify-center gap-6 sm:gap-8">
                     <a href="#">Booking Terms</a>
                     <a href="#">Cancellation Policy</a>
@@ -803,4 +1277,5 @@
         if (rtlMobile) rtlMobile.onclick = toggleRTL;
     </script>
 </body>
+
 </html>

@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard | GrandGala Party Hall</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/jpeg" href="images\images (6).png">
+    <link rel="icon" type="image/png" href="images\images (6).png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
@@ -34,11 +36,14 @@
         /* Adapted to GrandGala Theme (Elegant Gold)[cite: 6] */
         :root {
             --bg-color: #FAFAFA;
-            --dash-bg: #FFFBEB; /* Amber-50 */
+            --dash-bg: #FFFBEB;
+            /* Amber-50 */
             --text-main: #1C1917;
             --text-muted: #78716C;
-            --accent-color: #D97706; /* Amber-600 */
-            --accent-dark: #B45309; /* Amber-700 */
+            --accent-color: #D97706;
+            /* Amber-600 */
+            --accent-dark: #B45309;
+            /* Amber-700 */
             --border-color: #FEF3C7;
             --sidebar-bg: #FFFFFF;
             --sidebar-text: #1C1917;
@@ -243,26 +248,73 @@
 
         /* ICONS & BUTTONS[cite: 6] */
         .theme-toggle-pill {
-            width: 80px; height: 32px; background: var(--bg-secondary); border-radius: 30px; position: relative;
-            cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 0 10px;
+            width: 80px;
+            height: 32px;
+            background: var(--bg-secondary);
+            border-radius: 30px;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
             border: 1px solid var(--border-color);
         }
-        .theme-toggle-pill i { font-size: 12px; z-index: 1; }
-        .theme-toggle-pill .fa-sun { color: #f59e0b; }
-        .theme-toggle-pill .fa-moon { color: #999; }
-        .theme-toggle-pill .thumb {
-            position: absolute; top: 2px; left: 2px; width: 26px; height: 26px; background: white;
-            border-radius: 50%; transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); z-index: 2; border: 1px solid var(--border-color);
+
+        .theme-toggle-pill i {
+            font-size: 12px;
+            z-index: 1;
         }
-        body.dark-mode .theme-toggle-pill .thumb { transform: translateX(48px); background: #333; border-color: var(--border-color); }
+
+        .theme-toggle-pill .fa-sun {
+            color: #f59e0b;
+        }
+
+        .theme-toggle-pill .fa-moon {
+            color: #999;
+        }
+
+        .theme-toggle-pill .thumb {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 26px;
+            height: 26px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+            border: 1px solid var(--border-color);
+        }
+
+        body.dark-mode .theme-toggle-pill .thumb {
+            transform: translateX(48px);
+            background: #333;
+            border-color: var(--border-color);
+        }
 
         .rtl-btn-style {
-            width: 80px; height: 32px; background: var(--bg-secondary); border-radius: 30px;
-            border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center;
-            font-size: 10px; font-weight: 600; cursor: pointer; color: var(--text-main); transition: all 0.3s ease;
+            width: 80px;
+            height: 32px;
+            background: var(--bg-secondary);
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text-main);
+            transition: all 0.3s ease;
         }
-        .rtl-btn-style:hover { background: var(--accent-color); color: #fff; border-color: var(--accent-color); }
+
+        .rtl-btn-style:hover {
+            background: var(--accent-color);
+            color: #fff;
+            border-color: var(--accent-color);
+        }
 
         .icon-btn {
             width: 40px;
@@ -412,8 +464,7 @@
         <!-- Exact Same Logo Styling and Size Applied to GrandGala[cite: 6] -->
         <div class="mb-10 px-4 bg-transparent py-2">
             <div class="flex items-center flex-shrink-0">
-                <a href="index.html"
-                    class="inline-flex items-center gap-2 text-2xl font-semibold tracking-wider"
+                <a href="index.html" class="inline-flex items-center gap-2 text-2xl font-semibold tracking-wider"
                     style="color: var(--text-main) !important; text-decoration: none;">
                     <i class="fas fa-glass-cheers" style="color: var(--accent-color); font-size: 1.4rem;"></i>
                     GrandGala
@@ -426,7 +477,8 @@
             </p>
             <a class="nav-item active tab-btn" data-target="a-dash"><i class="fas fa-chart-pie"></i> Dashboard</a>
             <a class="nav-item tab-btn" data-target="a-bookings"><i class="fas fa-calendar-check"></i> Bookings</a>
-            <a class="nav-item tab-btn" data-target="a-packages"><i class="fas fa-layer-group"></i> Packages & Venues</a>
+            <a class="nav-item tab-btn" data-target="a-packages"><i class="fas fa-layer-group"></i> Packages &
+                Venues</a>
             <a class="nav-item tab-btn" data-target="a-clients"><i class="fas fa-users"></i> Clients</a>
 
             <p class="text-[10px] font-semibold uppercase tracking-widest mt-8 mb-3 px-4 text-[var(--text-muted)]">
@@ -485,7 +537,8 @@
                     </div>
                     <div class="dash-card p-5 border-t-4 border-red-500 bg-red-50 dark:bg-red-900/10 cursor-pointer tab-btn"
                         data-target="a-bookings">
-                        <p class="text-[10px] font-semibold uppercase tracking-widest text-red-500 mb-1">Pending Inquiries</p>
+                        <p class="text-[10px] font-semibold uppercase tracking-widest text-red-500 mb-1">Pending
+                            Inquiries</p>
                         <h3 class="text-2xl font-semibold text-red-600">8 Leads</h3>
                     </div>
                 </div>
